@@ -1,0 +1,12 @@
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe.config
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.pdb
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\Guna.UI.dll
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csprojAssemblyReference.cache
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmLogin.resources
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.Properties.Resources.resources
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.GenerateResource.cache
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CoreCompileInputs.cache
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CopyComplete
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.exe
+E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.pdb
