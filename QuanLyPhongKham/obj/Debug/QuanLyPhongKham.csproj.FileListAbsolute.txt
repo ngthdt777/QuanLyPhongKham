@@ -10,3 +10,17 @@ E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CoreCom
 E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CopyComplete
 E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.exe
 E:\Docu\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.pdb
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe.config
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.pdb
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csprojAssemblyReference.cache
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmLogin.resources
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.Properties.Resources.resources
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.GenerateResource.cache
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CoreCompileInputs.cache
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CopyComplete
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.exe
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.pdb
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.dll
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.Fonts.dll
+E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmMain.resources

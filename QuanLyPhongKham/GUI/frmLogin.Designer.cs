@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI.WinForms.GunaTextBox txb_account;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            this.txb_account = new Guna.UI.WinForms.GunaTextBox();
             this.lb_QLPK = new Guna.UI.WinForms.GunaLabel();
             this.lb_login = new Guna.UI.WinForms.GunaLabel();
             this.lb_pass = new Guna.UI.WinForms.GunaLabel();
@@ -37,9 +37,25 @@
             this.btt_login = new Guna.UI.WinForms.GunaAdvenceButton();
             this.picbox_logo = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.btt_exit = new Guna.UI.WinForms.GunaControlBox();
-            txb_account = new Guna.UI.WinForms.GunaTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picbox_logo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txb_account
+            // 
+            this.txb_account.BaseColor = System.Drawing.Color.White;
+            this.txb_account.BorderColor = System.Drawing.Color.Black;
+            this.txb_account.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txb_account.FocusedBaseColor = System.Drawing.Color.White;
+            this.txb_account.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txb_account.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.txb_account.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txb_account.ForeColor = System.Drawing.Color.Black;
+            this.txb_account.Location = new System.Drawing.Point(138, 428);
+            this.txb_account.Name = "txb_account";
+            this.txb_account.PasswordChar = '\0';
+            this.txb_account.SelectedText = "";
+            this.txb_account.Size = new System.Drawing.Size(332, 32);
+            this.txb_account.TabIndex = 3;
             // 
             // lb_QLPK
             // 
@@ -74,23 +90,6 @@
             this.lb_pass.Text = "Mật khẩu:";
             this.lb_pass.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // txb_account
-            // 
-            txb_account.BaseColor = System.Drawing.Color.White;
-            txb_account.BorderColor = System.Drawing.Color.Black;
-            txb_account.Cursor = System.Windows.Forms.Cursors.IBeam;
-            txb_account.FocusedBaseColor = System.Drawing.Color.White;
-            txb_account.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            txb_account.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            txb_account.Font = new System.Drawing.Font("Segoe UI", 9F);
-            txb_account.ForeColor = System.Drawing.Color.Black;
-            txb_account.Location = new System.Drawing.Point(138, 428);
-            txb_account.Name = "txb_account";
-            txb_account.PasswordChar = '\0';
-            txb_account.SelectedText = "";
-            txb_account.Size = new System.Drawing.Size(332, 32);
-            txb_account.TabIndex = 3;
-            // 
             // txb_pass
             // 
             this.txb_pass.BaseColor = System.Drawing.Color.White;
@@ -102,10 +101,12 @@
             this.txb_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_pass.Location = new System.Drawing.Point(138, 501);
             this.txb_pass.Name = "txb_pass";
-            this.txb_pass.PasswordChar = '\0';
+            this.txb_pass.PasswordChar = '●';
             this.txb_pass.SelectedText = "";
             this.txb_pass.Size = new System.Drawing.Size(332, 32);
             this.txb_pass.TabIndex = 4;
+            this.txb_pass.UseSystemPasswordChar = true;
+            this.txb_pass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_pass_KeyPress);
             // 
             // btt_login
             // 
@@ -139,6 +140,7 @@
             this.btt_login.TabIndex = 5;
             this.btt_login.Text = "Đăng nhập";
             this.btt_login.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_login.Click += new System.EventHandler(this.btt_login_Click);
             // 
             // picbox_logo
             // 
@@ -178,7 +180,7 @@
             this.Controls.Add(this.picbox_logo);
             this.Controls.Add(this.btt_login);
             this.Controls.Add(this.txb_pass);
-            this.Controls.Add(txb_account);
+            this.Controls.Add(this.txb_account);
             this.Controls.Add(this.lb_pass);
             this.Controls.Add(this.lb_login);
             this.Controls.Add(this.lb_QLPK);
@@ -187,6 +189,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.picbox_logo)).EndInit();
             this.ResumeLayout(false);
 
@@ -197,9 +200,10 @@
         private Guna.UI.WinForms.GunaLabel lb_QLPK;
         private Guna.UI.WinForms.GunaLabel lb_login;
         private Guna.UI.WinForms.GunaLabel lb_pass;
-        private Guna.UI.WinForms.GunaTextBox txb_pass;
         public Guna.UI.WinForms.GunaAdvenceButton btt_login;
         private Guna.UI.WinForms.GunaCirclePictureBox picbox_logo;
-        private Guna.UI.WinForms.GunaControlBox btt_exit;
+        public Guna.UI.WinForms.GunaTextBox txb_pass;
+        public Guna.UI.WinForms.GunaControlBox btt_exit;
+        public Guna.UI.WinForms.GunaTextBox txb_account;
     }
 }
