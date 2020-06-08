@@ -5,7 +5,9 @@ create table Dangnhap
 (
  taikhoan varchar(45),
  matkhau varchar(45),
+ chucvi tinyint,
  )
+ drop table Dangnhap
 create table BenhNhan
 ( 
  MaBN varchar(10) primary key not null,
@@ -67,5 +69,26 @@ create table CTHD
  MADT varchar(10) references DonThuoc(MaDT),
  SL int,
 )
-INSERT INTO Dangnhap(taikhoan,matkhau)
- VALUES('ADMIN','ADMIN')
+INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('ADMIN','ADMIN',1)
+ /*------------------------------------- Tai khoan Tiep tan*/
+INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('tt0001','1',3)
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('tt0002','1',3)
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('tt0003','1',3)
+  /*------------------------------------- Tai khoan Bac si*/
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('bs0002','1',2)
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('bs0002','1',2)
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('bs0003','1',2)
+  /*------------------------------------- Tai khoan Thu kho*/
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('tk0001','1',4)
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('tk0001','1',4)
+ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
+ VALUES('tk0001','1',4)

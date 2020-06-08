@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyPhongKham.GUI;
 
 namespace QuanLyPhongKham.GUI
 {
@@ -15,6 +16,11 @@ namespace QuanLyPhongKham.GUI
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        public void frmMain_Load(object sender, EventArgs e)
+        {
+            QuanLyPhongKham.GUI.frmLogin.
         }
     }
 }

@@ -13,6 +13,7 @@ namespace QuanLyPhongKham.GUI
 {
     public partial class frmLogin : Form
     {
+
         public frmLogin()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace QuanLyPhongKham.GUI
         {
             if (LoginCheck())
             {
-                MessageBox.Show("OKE");
+                
             }
         }
         bool LoginCheck()
@@ -41,7 +42,7 @@ namespace QuanLyPhongKham.GUI
             { 
               if (LoginCheck())
               {
-                    MessageBox.Show("OKE");
+                    
               }
             }
         }
@@ -57,6 +58,18 @@ namespace QuanLyPhongKham.GUI
                     f.Show();
                 }
             }
+        }
+        public int checkacc()
+        {
+            if (txb_account.Text.Substring(0, 1) == "tt")
+                return 3;
+            else if (txb_account.Text.Substring(0, 1) == "bs")
+                return 2;
+            else if (txb_account.Text.Substring(0, 1) == "tk")
+                return 4;
+            else if (txb_account.Text == "admin")
+                return 1;
+            return 5;
         }
     }
 }

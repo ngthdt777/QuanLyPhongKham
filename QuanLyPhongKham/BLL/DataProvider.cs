@@ -72,9 +72,9 @@ namespace QuanLyPhongKham.BLL
             System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["frmLogin"];
             string acc = ((frmLogin)f).txb_account.Text;
             string pass = ((frmLogin)f).txb_pass.Text;
-            string query = "SELECT * from Dangnhap WHERE taikhoan = '" + acc + "' AND matkhau = '" + pass + "' ";
+            string query = "SELECT * from Dangnhap WHERE taikhoan = '" + acc + "' AND matkhau = '" + pass + "'";
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
-            if (result.Rows.Count > 0)
+            if (result.Rows.Count >0 )
             {
                 return true;
             }
