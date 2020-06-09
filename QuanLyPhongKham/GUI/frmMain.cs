@@ -20,7 +20,7 @@ namespace QuanLyPhongKham.GUI
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-            QuanLyPhongKham.GUI.frmLogin.
+            
         }
     }
 }
