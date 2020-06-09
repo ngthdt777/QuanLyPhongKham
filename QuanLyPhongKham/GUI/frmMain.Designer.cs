@@ -38,16 +38,30 @@
             this.gunaButton3 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
-            this.tbp_kho = new MetroFramework.Controls.MetroTabPage();
-            this.tabp_pnh = new MetroFramework.Controls.MetroTabPage();
-            this.tbp_donthuoc = new MetroFramework.Controls.MetroTabPage();
-            this.tbp_pkb = new MetroFramework.Controls.MetroTabPage();
-            this.tbp_hoadon = new MetroFramework.Controls.MetroTabPage();
-            this.tbp_hsbn = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_donthuoc = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_pkb = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_hsbn = new MetroFramework.Controls.MetroTabPage();
             this.tabcontrolmain = new MetroFramework.Controls.MetroTabControl();
+            this.tabp_hoadon = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_kho = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_pxh = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_pnh = new MetroFramework.Controls.MetroTabPage();
+            this.tabp_dth = new MetroFramework.Controls.MetroTabPage();
+            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
+            this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.mnstrip_main.SuspendLayout();
             this.gunaGradientPanel1.SuspendLayout();
+            this.tabp_donthuoc.SuspendLayout();
+            this.tabp_pkb.SuspendLayout();
+            this.tabp_hsbn.SuspendLayout();
             this.tabcontrolmain.SuspendLayout();
+            this.tabp_hoadon.SuspendLayout();
+            this.tabp_kho.SuspendLayout();
+            this.tabp_pxh.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnstrip_main
@@ -207,16 +221,97 @@
             this.gunaButton1.Text = "Thêm";
             this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbp_kho
+            // tabp_donthuoc
             // 
-            this.tbp_kho.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tbp_kho.HorizontalScrollbarBarColor = true;
-            this.tbp_kho.Location = new System.Drawing.Point(4, 39);
-            this.tbp_kho.Name = "tbp_kho";
-            this.tbp_kho.Size = new System.Drawing.Size(1227, 635);
-            this.tbp_kho.TabIndex = 5;
-            this.tbp_kho.Text = "Kho thuốc";
-            this.tbp_kho.VerticalScrollbarBarColor = true;
+            this.tabp_donthuoc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_donthuoc.Controls.Add(this.metroLabel3);
+            this.tabp_donthuoc.HorizontalScrollbarBarColor = true;
+            this.tabp_donthuoc.Location = new System.Drawing.Point(4, 39);
+            this.tabp_donthuoc.Name = "tabp_donthuoc";
+            this.tabp_donthuoc.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_donthuoc.TabIndex = 3;
+            this.tabp_donthuoc.Text = "Đơn thuốc";
+            this.tabp_donthuoc.VerticalScrollbarBarColor = true;
+            // 
+            // tabp_pkb
+            // 
+            this.tabp_pkb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_pkb.Controls.Add(this.metroLabel2);
+            this.tabp_pkb.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.tabp_pkb.HorizontalScrollbarBarColor = true;
+            this.tabp_pkb.Location = new System.Drawing.Point(4, 39);
+            this.tabp_pkb.Name = "tabp_pkb";
+            this.tabp_pkb.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_pkb.TabIndex = 2;
+            this.tabp_pkb.Text = "Phiếu khám bệnh";
+            this.tabp_pkb.VerticalScrollbarBarColor = true;
+            // 
+            // tabp_hsbn
+            // 
+            this.tabp_hsbn.BackColor = System.Drawing.SystemColors.Control;
+            this.tabp_hsbn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_hsbn.Controls.Add(this.metroLabel1);
+            this.tabp_hsbn.HorizontalScrollbarBarColor = true;
+            this.tabp_hsbn.Location = new System.Drawing.Point(4, 39);
+            this.tabp_hsbn.Name = "tabp_hsbn";
+            this.tabp_hsbn.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_hsbn.TabIndex = 0;
+            this.tabp_hsbn.Text = "Hồ sơ bệnh nhân";
+            this.tabp_hsbn.VerticalScrollbarBarColor = true;
+            // 
+            // tabcontrolmain
+            // 
+            this.tabcontrolmain.Controls.Add(this.tabp_hsbn);
+            this.tabcontrolmain.Controls.Add(this.tabp_pkb);
+            this.tabcontrolmain.Controls.Add(this.tabp_donthuoc);
+            this.tabcontrolmain.Controls.Add(this.tabp_hoadon);
+            this.tabcontrolmain.Controls.Add(this.tabp_kho);
+            this.tabcontrolmain.Controls.Add(this.tabp_pxh);
+            this.tabcontrolmain.Controls.Add(this.tabp_pnh);
+            this.tabcontrolmain.Controls.Add(this.tabp_dth);
+            this.tabcontrolmain.CustomBackground = true;
+            this.tabcontrolmain.Location = new System.Drawing.Point(134, 31);
+            this.tabcontrolmain.Name = "tabcontrolmain";
+            this.tabcontrolmain.SelectedIndex = 2;
+            this.tabcontrolmain.Size = new System.Drawing.Size(1235, 678);
+            this.tabcontrolmain.TabIndex = 4;
+            // 
+            // tabp_hoadon
+            // 
+            this.tabp_hoadon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_hoadon.Controls.Add(this.metroLabel4);
+            this.tabp_hoadon.HorizontalScrollbarBarColor = true;
+            this.tabp_hoadon.Location = new System.Drawing.Point(4, 39);
+            this.tabp_hoadon.Name = "tabp_hoadon";
+            this.tabp_hoadon.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_hoadon.TabIndex = 4;
+            this.tabp_hoadon.Text = "Hóa đơn";
+            this.tabp_hoadon.VerticalScrollbarBarColor = true;
+            // 
+            // tabp_kho
+            // 
+            this.tabp_kho.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_kho.Controls.Add(this.gunaCircleButton1);
+            this.tabp_kho.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabp_kho.HorizontalScrollbarBarColor = true;
+            this.tabp_kho.Location = new System.Drawing.Point(4, 39);
+            this.tabp_kho.Name = "tabp_kho";
+            this.tabp_kho.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_kho.TabIndex = 5;
+            this.tabp_kho.Text = "Kho thuốc";
+            this.tabp_kho.VerticalScrollbarBarColor = true;
+            // 
+            // tabp_pxh
+            // 
+            this.tabp_pxh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_pxh.Controls.Add(this.gunaCircleButton2);
+            this.tabp_pxh.HorizontalScrollbarBarColor = true;
+            this.tabp_pxh.Location = new System.Drawing.Point(4, 39);
+            this.tabp_pxh.Name = "tabp_pxh";
+            this.tabp_pxh.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_pxh.TabIndex = 6;
+            this.tabp_pxh.Text = "Phiếu xuất hàng";
+            this.tabp_pxh.VerticalScrollbarBarColor = true;
             // 
             // tabp_pnh
             // 
@@ -225,69 +320,102 @@
             this.tabp_pnh.Location = new System.Drawing.Point(4, 39);
             this.tabp_pnh.Name = "tabp_pnh";
             this.tabp_pnh.Size = new System.Drawing.Size(1227, 635);
-            this.tabp_pnh.TabIndex = 4;
-            this.tabp_pnh.Text = "Phiếu xuất hàng";
+            this.tabp_pnh.TabIndex = 7;
+            this.tabp_pnh.Text = "Phiếu nhập hàng";
             this.tabp_pnh.VerticalScrollbarBarColor = true;
             // 
-            // tbp_donthuoc
+            // tabp_dth
             // 
-            this.tbp_donthuoc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tbp_donthuoc.HorizontalScrollbarBarColor = true;
-            this.tbp_donthuoc.Location = new System.Drawing.Point(4, 39);
-            this.tbp_donthuoc.Name = "tbp_donthuoc";
-            this.tbp_donthuoc.Size = new System.Drawing.Size(1227, 635);
-            this.tbp_donthuoc.TabIndex = 3;
-            this.tbp_donthuoc.Text = "Đơn thuốc";
-            this.tbp_donthuoc.VerticalScrollbarBarColor = true;
+            this.tabp_dth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_dth.HorizontalScrollbarBarColor = true;
+            this.tabp_dth.Location = new System.Drawing.Point(4, 39);
+            this.tabp_dth.Name = "tabp_dth";
+            this.tabp_dth.Size = new System.Drawing.Size(1227, 635);
+            this.tabp_dth.TabIndex = 8;
+            this.tabp_dth.Text = "Doanh thu";
+            this.tabp_dth.VerticalScrollbarBarColor = true;
             // 
-            // tbp_pkb
+            // gunaCircleButton1
             // 
-            this.tbp_pkb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tbp_pkb.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.tbp_pkb.HorizontalScrollbarBarColor = true;
-            this.tbp_pkb.Location = new System.Drawing.Point(4, 39);
-            this.tbp_pkb.Name = "tbp_pkb";
-            this.tbp_pkb.Size = new System.Drawing.Size(1227, 635);
-            this.tbp_pkb.TabIndex = 2;
-            this.tbp_pkb.Text = "Phiếu khám bệnh";
-            this.tbp_pkb.VerticalScrollbarBarColor = true;
+            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
+            this.gunaCircleButton1.AnimationSpeed = 0.03F;
+            this.gunaCircleButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
+            this.gunaCircleButton1.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaCircleButton1.Image = null;
+            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(52, 52);
+            this.gunaCircleButton1.Location = new System.Drawing.Point(460, 285);
+            this.gunaCircleButton1.Name = "gunaCircleButton1";
+            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaCircleButton1.OnHoverImage = null;
+            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaCircleButton1.Size = new System.Drawing.Size(120, 120);
+            this.gunaCircleButton1.TabIndex = 2;
+            this.gunaCircleButton1.Text = "kho thuoc";
             // 
-            // tbp_hoadon
+            // gunaCircleButton2
             // 
-            this.tbp_hoadon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tbp_hoadon.HorizontalScrollbarBarColor = true;
-            this.tbp_hoadon.Location = new System.Drawing.Point(4, 39);
-            this.tbp_hoadon.Name = "tbp_hoadon";
-            this.tbp_hoadon.Size = new System.Drawing.Size(1227, 635);
-            this.tbp_hoadon.TabIndex = 1;
-            this.tbp_hoadon.Text = "Hóa đơn";
-            this.tbp_hoadon.VerticalScrollbarBarColor = true;
+            this.gunaCircleButton2.AnimationHoverSpeed = 0.07F;
+            this.gunaCircleButton2.AnimationSpeed = 0.03F;
+            this.gunaCircleButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaCircleButton2.BorderColor = System.Drawing.Color.Black;
+            this.gunaCircleButton2.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.gunaCircleButton2.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaCircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaCircleButton2.ForeColor = System.Drawing.Color.White;
+            this.gunaCircleButton2.Image = null;
+            this.gunaCircleButton2.ImageSize = new System.Drawing.Size(52, 52);
+            this.gunaCircleButton2.Location = new System.Drawing.Point(616, 267);
+            this.gunaCircleButton2.Name = "gunaCircleButton2";
+            this.gunaCircleButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.gunaCircleButton2.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.gunaCircleButton2.OnHoverForeColor = System.Drawing.Color.White;
+            this.gunaCircleButton2.OnHoverImage = null;
+            this.gunaCircleButton2.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaCircleButton2.Size = new System.Drawing.Size(120, 120);
+            this.gunaCircleButton2.TabIndex = 2;
+            this.gunaCircleButton2.Text = "Pxh";
             // 
-            // tbp_hsbn
+            // metroLabel1
             // 
-            this.tbp_hsbn.BackColor = System.Drawing.SystemColors.Control;
-            this.tbp_hsbn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tbp_hsbn.HorizontalScrollbarBarColor = true;
-            this.tbp_hsbn.Location = new System.Drawing.Point(4, 39);
-            this.tbp_hsbn.Name = "tbp_hsbn";
-            this.tbp_hsbn.Size = new System.Drawing.Size(1227, 635);
-            this.tbp_hsbn.TabIndex = 0;
-            this.tbp_hsbn.Text = "Hồ sơ bệnh nhân";
-            this.tbp_hsbn.VerticalScrollbarBarColor = true;
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(361, 197);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(39, 20);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "hsbn";
             // 
-            // tabcontrolmain
+            // metroLabel2
             // 
-            this.tabcontrolmain.Controls.Add(this.tbp_hsbn);
-            this.tabcontrolmain.Controls.Add(this.tbp_hoadon);
-            this.tabcontrolmain.Controls.Add(this.tbp_pkb);
-            this.tabcontrolmain.Controls.Add(this.tbp_donthuoc);
-            this.tabcontrolmain.Controls.Add(this.tabp_pnh);
-            this.tabcontrolmain.Controls.Add(this.tbp_kho);
-            this.tabcontrolmain.Location = new System.Drawing.Point(134, 31);
-            this.tabcontrolmain.Name = "tabcontrolmain";
-            this.tabcontrolmain.SelectedIndex = 0;
-            this.tabcontrolmain.Size = new System.Drawing.Size(1235, 678);
-            this.tabcontrolmain.TabIndex = 4;
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(569, 212);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(32, 20);
+            this.metroLabel2.TabIndex = 2;
+            this.metroLabel2.Text = "pkb";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(538, 320);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(72, 20);
+            this.metroLabel3.TabIndex = 2;
+            this.metroLabel3.Text = "don thuoc";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(463, 284);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(60, 20);
+            this.metroLabel4.TabIndex = 2;
+            this.metroLabel4.Text = "hoa don";
             // 
             // frmMain
             // 
@@ -301,11 +429,22 @@
             this.MainMenuStrip = this.mnstrip_main;
             this.Name = "frmMain";
             this.Text = "frmMain";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.mnstrip_main.ResumeLayout(false);
             this.mnstrip_main.PerformLayout();
             this.gunaGradientPanel1.ResumeLayout(false);
+            this.tabp_donthuoc.ResumeLayout(false);
+            this.tabp_donthuoc.PerformLayout();
+            this.tabp_pkb.ResumeLayout(false);
+            this.tabp_pkb.PerformLayout();
+            this.tabp_hsbn.ResumeLayout(false);
+            this.tabp_hsbn.PerformLayout();
             this.tabcontrolmain.ResumeLayout(false);
+            this.tabp_hoadon.ResumeLayout(false);
+            this.tabp_hoadon.PerformLayout();
+            this.tabp_kho.ResumeLayout(false);
+            this.tabp_pxh.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -321,12 +460,20 @@
         private Guna.UI.WinForms.GunaButton gunaButton3;
         private Guna.UI.WinForms.GunaButton gunaButton2;
         private Guna.UI.WinForms.GunaButton gunaButton1;
-        private MetroFramework.Controls.MetroTabPage tbp_kho;
+        public MetroFramework.Controls.MetroTabPage tabp_hsbn;
+        private MetroFramework.Controls.MetroTabPage tabp_kho;
         private MetroFramework.Controls.MetroTabPage tabp_pnh;
-        private MetroFramework.Controls.MetroTabPage tbp_donthuoc;
-        private MetroFramework.Controls.MetroTabPage tbp_pkb;
-        private MetroFramework.Controls.MetroTabPage tbp_hoadon;
-        private MetroFramework.Controls.MetroTabPage tbp_hsbn;
-        private MetroFramework.Controls.MetroTabControl tabcontrolmain;
+        private MetroFramework.Controls.MetroTabPage tabp_dth;
+        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
+        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        public MetroFramework.Controls.MetroTabPage tabp_donthuoc;
+        public MetroFramework.Controls.MetroTabPage tabp_pkb;
+        public MetroFramework.Controls.MetroTabControl tabcontrolmain;
+        public MetroFramework.Controls.MetroTabPage tabp_hoadon;
+        public MetroFramework.Controls.MetroTabPage tabp_pxh;
     }
 }

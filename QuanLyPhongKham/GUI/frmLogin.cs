@@ -19,6 +19,27 @@ namespace QuanLyPhongKham.GUI
             InitializeComponent();
         }
 
+        public void LoginCheck()
+        {
+            System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["frmLogin"];
+            string acc = ((frmLogin)f).txb_account.Text;
+            string pass = ((frmLogin)f).txb_pass.Text;
+            string query = "SELECT * from Dangnhap WHERE taikhoan = '" + acc + "' AND matkhau = '" + pass + "'";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            if (result.Rows.Count > 0)
+            {
+                frmMain form = new frmMain(result.Rows[0][0].ToString(), result.Rows[0][1].ToString(), result.Rows[0][2].ToString());
+                this.Hide();
+                form.ShowDialog();
+            }
+
+            else
+            {
+                MessageBox.Show("Nhập lại tài khoản/ mật khẩu");
+
+            }
+
+        }
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -26,24 +47,18 @@ namespace QuanLyPhongKham.GUI
 
         private void btt_login_Click(object sender, EventArgs e)
         {
-            if (LoginCheck())
-            {
-                
-            }
+            LoginCheck();
         }
-        bool LoginCheck()
+       /* bool LoginCheck()   
         {
             return QuanLyPhongKham.BLL.DataProvider.Instance.LoginCheck();
-        }
+        }*/
 
         private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
-            { 
-              if (LoginCheck())
-              {
-                    
-              }
+            {
+                LoginCheck();
             }
         }
 
@@ -51,25 +66,9 @@ namespace QuanLyPhongKham.GUI
         {
             if (e.KeyChar == (char)13)
             {
-                if (LoginCheck())
-                {
-                    frmMain f = new frmMain();
-                    this.Hide();
-                    f.Show();
-                }
+                LoginCheck();
             }
         }
-        public int checkacc()
-        {
-            if (txb_account.Text.Substring(0, 1) == "tt")
-                return 3;
-            else if (txb_account.Text.Substring(0, 1) == "bs")
-                return 2;
-            else if (txb_account.Text.Substring(0, 1) == "tk")
-                return 4;
-            else if (txb_account.Text == "admin")
-                return 1;
-            return 5;
-        }
+
     }
 }

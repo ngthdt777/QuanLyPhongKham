@@ -67,7 +67,7 @@ namespace QuanLyPhongKham.BLL
                 return data;
             }
         }
-        public bool LoginCheck()
+        /*public void LoginCheck()
         {
             System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["frmLogin"];
             string acc = ((frmLogin)f).txb_account.Text;
@@ -76,15 +76,17 @@ namespace QuanLyPhongKham.BLL
             DataTable result = DataProvider.Instance.ExecuteQuery(query);
             if (result.Rows.Count >0 )
             {
-                return true;
+                frmMain f = new frmMain(result.Rows[0][0].ToString(), result.Rows[0][1].ToString(), result.Rows[0][2].ToString());
+                this.Hide();
+                f.ShowDialog();
             }
 
             else
             {
-                MessageBox.Show("Sai");
-                return false;
+                MessageBox.Show("Nhập lại tài khoản/ mật khẩu");
+
             }
 
-        }
+        }*/
     }
 }

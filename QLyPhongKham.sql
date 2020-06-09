@@ -80,7 +80,7 @@ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
  VALUES('tt0003','1',3)
   /*------------------------------------- Tai khoan Bac si*/
  INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
- VALUES('bs0002','1',2)
+ VALUES('bs0001','1',2)
  INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
  VALUES('bs0002','1',2)
  INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
@@ -92,3 +92,4 @@ INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
  VALUES('tk0001','1',4)
  INSERT INTO Dangnhap(taikhoan,matkhau,chucvi)
  VALUES('tk0001','1',4)
+ SELECT * from Dangnhap WHERE taikhoan = '" + acc + "' AND matkhau = '" + pass + "'"

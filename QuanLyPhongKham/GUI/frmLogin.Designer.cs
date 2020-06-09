@@ -55,7 +55,7 @@
             this.txb_account.PasswordChar = '\0';
             this.txb_account.SelectedText = "";
             this.txb_account.Size = new System.Drawing.Size(332, 32);
-            this.txb_account.TabIndex = 3;
+            this.txb_account.TabIndex = 0;
             // 
             // lb_QLPK
             // 
@@ -104,7 +104,7 @@
             this.txb_pass.PasswordChar = '●';
             this.txb_pass.SelectedText = "";
             this.txb_pass.Size = new System.Drawing.Size(332, 32);
-            this.txb_pass.TabIndex = 4;
+            this.txb_pass.TabIndex = 1;
             this.txb_pass.UseSystemPasswordChar = true;
             this.txb_pass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_pass_KeyPress);
             // 
@@ -122,7 +122,7 @@
             this.btt_login.CheckedImage = null;
             this.btt_login.CheckedLineColor = System.Drawing.Color.DimGray;
             this.btt_login.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btt_login.FocusedColor = System.Drawing.Color.Empty;
+            this.btt_login.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
             this.btt_login.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btt_login.ForeColor = System.Drawing.Color.Red;
             this.btt_login.Image = null;
@@ -137,7 +137,7 @@
             this.btt_login.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btt_login.OnPressedColor = System.Drawing.Color.Transparent;
             this.btt_login.Size = new System.Drawing.Size(174, 70);
-            this.btt_login.TabIndex = 5;
+            this.btt_login.TabIndex = 2;
             this.btt_login.Text = "Đăng nhập";
             this.btt_login.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btt_login.Click += new System.EventHandler(this.btt_login_Click);
