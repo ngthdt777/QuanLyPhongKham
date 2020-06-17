@@ -21,22 +21,36 @@ namespace QuanLyPhongKham.GUI
 
         public void LoginCheck()
         {
+            if (this.txb_account.Text == String.Empty || this.txb_pass.Text == String.Empty)
+            {
+                MessageBox.Show("Nhập lại tài khoản/mật khẩu");
+                return;
+            }
+
             System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["frmLogin"];
             string acc = ((frmLogin)f).txb_account.Text;
             string pass = ((frmLogin)f).txb_pass.Text;
-            string query = "SELECT * from Dangnhap WHERE taikhoan = '" + acc + "' AND matkhau = '" + pass + "'";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+            
+            string query = "";
+            query += "SELECT * ";
+            query += "FROM [QLPhongKham].[dbo].[DangNhap] ";
+            query += "WHERE [taikhoan] = @tk ";
+            query += "AND [matkhau] = @mk";
+
+            Dictionary<String, String> dic = new Dictionary<string, string>();
+            dic.Add("@tk", acc);
+            dic.Add("@mk", pass);
+
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, dic);
             if (result.Rows.Count > 0)
             {
                 frmMain form = new frmMain(result.Rows[0][0].ToString(), result.Rows[0][1].ToString(), result.Rows[0][2].ToString());
                 this.Hide();
                 form.ShowDialog();
             }
-
             else
             {
-                MessageBox.Show("Nhập lại tài khoản/ mật khẩu");
-
+                MessageBox.Show("Sai tài khoản/mật khẩu");
             }
 
         }

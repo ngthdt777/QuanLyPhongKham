@@ -29,7 +29,7 @@ namespace QuanLyPhongKham.GUI
 
         public void Phanquyen()
         {
-            if (this.chucvi == "2")//Bacsi
+            if (this.chucvi.CompareTo("2") == 0) //Bacsi
             {
                 tabcontrolmain.Controls.Remove(tabp_hoadon);
                 tabcontrolmain.Controls.Remove(tabp_pnh);
@@ -37,14 +37,14 @@ namespace QuanLyPhongKham.GUI
                 tabcontrolmain.Controls.Remove(tabp_kho);
                 tabcontrolmain.Controls.Remove(tabp_dth);
             }
-            else if (this.chucvi == "3")//Tiep tan
+            else if (this.chucvi.CompareTo("3") == 0)//Tiep tan
             {
                 tabcontrolmain.Controls.Remove(tabp_pnh);
                 tabcontrolmain.Controls.Remove(tabp_pxh);
                 tabcontrolmain.Controls.Remove(tabp_kho);
                 tabcontrolmain.Controls.Remove(tabp_dth);
             }
-            else if (this.chucvi == "4")//Thu kho
+            else if (this.chucvi.CompareTo("4") == 0)//Thu kho
             {
                 tabcontrolmain.Controls.Remove(tabp_dth);
                 tabcontrolmain.Controls.Remove(tabp_hsbn);

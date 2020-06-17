@@ -24,3 +24,17 @@ E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanL
 E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.dll
 E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.Fonts.dll
 E:\Docu\This sem\Tài liệu MHH\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmMain.resources
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe.config
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.pdb
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.dll
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.Fonts.dll
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csprojAssemblyReference.cache
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmLogin.resources
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmMain.resources
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.Properties.Resources.resources
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.GenerateResource.cache
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CoreCompileInputs.cache
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CopyComplete
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.exe
+D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.pdb
