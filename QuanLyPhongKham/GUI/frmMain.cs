@@ -54,6 +54,159 @@ namespace QuanLyPhongKham.GUI
             }
         }
 
+        private void btt_Add_Click(object sender, EventArgs e)
+        {
+            int check = CheckTabPage();
+            if (check == 0)
+            {
+                ObjBenhNhanBLL.Instance.Add();
+              
+            }
+            else if (check == 1)
+            {
+
+
+            }
+            else if (check == 2)
+            {
+                ObjThuocBLL.Instance.AddThuoc();
+
+            }
+            else if (check == 3)
+            {
+
+            }
+            else if (check == 4)
+            {
+
+            }
+            else if (check == 5)
+            {
+
+            }
+            else if (check == 6)
+            {
+
+            }
+            else if (check == 7)
+            {
+
+            }
+        }
+
+        private void Btt_Xoa_Click(object sender, EventArgs e)
+        {
+            int check = CheckTabPage();
+            if (check == 0)
+            {
+                ObjBenhNhanBLL.Instance.Xoa();
+
+            }
+            else if (check == 1)
+            {
+
+
+            }
+            else if (check == 2)
+            {
+                ObjThuocBLL.Instance.XoaThuoc();
+
+            }
+            else if (check == 3)
+            {
+
+            }
+            else if (check == 4)
+            {
+
+            }
+            else if (check == 5)
+            {
+
+            }
+            else if (check == 6)
+            {
+
+            }
+            else if (check == 7)
+            {
+
+            }
+        }
+
+        private void btt_Sua_Click(object sender, EventArgs e)
+        {
+            int check = CheckTabPage();
+            if (check == 0)
+            {
+                ObjBenhNhanBLL.Instance.SuaBN();
+
+            }
+            else if (check == 1)
+            {
+
+
+            }
+            else if (check == 2)
+            {
+                ObjThuocBLL.Instance.SuaThuoc();
+
+            }
+            else if (check == 3)
+            {
+
+            }
+            else if (check == 4)
+            {
+
+            }
+            else if (check == 5)
+            {
+
+            }
+            else if (check == 6)
+            {
+
+            }
+            else if (check == 7)
+            {
+
+            }
+        }
+
+        private void btt_hsbn_Reload_Click(object sender, EventArgs e)
+        {
+            dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.GetData();
+        }
+
+        private void btt_khothuoc_Reload_Click(object sender, EventArgs e)
+        {
+            dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.GetData();
+        }
+
+        private void dgvHoSo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index >= 0)
+            {
+                tb_bn_id.Text= dgvHoSo.Rows[e.RowIndex].Cells["MaBn"].Value.ToString();
+                tb_bn_ten.Text=dgvHoSo.Rows[e.RowIndex].Cells["TenBn"].Value.ToString();
+                tb_bn_sdt.Text=dgvHoSo.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+                cb_bn_sex.Text=dgvHoSo.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
+                tb_bn_add.Text=dgvHoSo.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+                ngaySinhPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgaySinh"].Value.ToString();
+                ngayKhamPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgayKham"].Value.ToString();
+                tb_bn_trieuchung.Text=dgvHoSo.Rows[e.RowIndex].Cells["TrieuChung"].Value.ToString();
+                tb_bn_klb.Text=dgvHoSo.Rows[e.RowIndex].Cells["KetLuanBenh"].Value.ToString();
+                tb_bn_baohiem.Text=dgvHoSo.Rows[e.RowIndex].Cells["BaoHiem"].Value.ToString();
+            }
+        }
+
+        private void dgvHoSo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         int CheckTabPage()
         {
 
@@ -63,7 +216,7 @@ namespace QuanLyPhongKham.GUI
 
         public void frmMain_Load(object sender, EventArgs e)
         {
-                Phanquyen();
+            Phanquyen();
             dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.GetData();
             dgvDT.DataSource = ObjDonThuocBLL.Instance.GetData();
             dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.GetData();
@@ -71,7 +224,7 @@ namespace QuanLyPhongKham.GUI
             int check = CheckTabPage();
                 if (check == 0)
                 {
-
+                //ObjBenhNhanBLL.Instance.GetData();
                     
 
                 }

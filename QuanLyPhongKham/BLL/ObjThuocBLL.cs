@@ -33,5 +33,22 @@ namespace QuanLyPhongKham.BLL
             return ObjThuocDAL.Instance.GetInfo();
         }
 
+        public void AddThuoc()
+        {
+            ObjThuocDAL.Instance.AddThuoc();
+        }
+
+        public void XoaThuoc()
+        {
+            ObjThuocDAL.Instance.XoaThuoc();
+        }
+
+        public void SuaThuoc()
+        {
+            ObjThuocDAL.Instance.SuaThuoc();
+        }
+
+
+
     }
 }

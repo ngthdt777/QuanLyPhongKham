@@ -32,6 +32,23 @@ namespace QuanLyPhongKham.BLL
             return ObjBenhNhanDAL.Instance.GetInfo();
         }
 
+        public void Add()
+        {
+            ObjBenhNhanDAL.Instance.AddBN();
+        }
+
+
+        public void Xoa()
+        {
+            ObjBenhNhanDAL.Instance.XoaBN();
+        }
+
+
+        public void SuaBN()
+        {
+            ObjBenhNhanDAL.Instance.SuaBN();
+        }
+
 
     }
 }
