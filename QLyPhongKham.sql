@@ -1,4 +1,5 @@
 create database QLPhongKham
+go
 set dateformat  dmy
 use QLPhongKham
 go 
@@ -7,8 +8,8 @@ create table Dangnhap
  taikhoan varchar(45),
  matkhau varchar(45),
  chucvi tinyint,
- )
- drop table Dangnhap
+)
+ --drop table Dangnhap
 create table BenhNhan
 ( 
  MaBN varchar(10) primary key not null,
@@ -21,7 +22,7 @@ create table BenhNhan
  TrieuChung varchar(100),
  KetLuanBenh varchar(100),
  BaoHiem varchar(45),
- )
+)
 
  -------------------------------------INSERT BENHNHAN------------------------------------------------
  INSErt into BenhNhan values ('BN001','Nguyen Thanh Cong','0945165187','Nam','784 Truong Chinh, Q1, Tp.Ho Chi Minh','28-01-1987','01-03-2020','Ho, dau hong','Nhiem Covid19', 'Bao Hiem Nhan Tho')
@@ -37,7 +38,7 @@ create table BenhNhan
  (
   MaLoaiNhanVien varchar(10) primary key not null,
   TenLoaiNhanVien varchar(45),
- )
+)
  
  --------------------------INSERT LOAINHANVIEN-------------------------------------
  INSERT INTO LoaiNhanVien values('3','Le Tan')
@@ -56,7 +57,8 @@ create table BenhNhan
   NgSinh datetime,
   NgVaoLam datetime,
   MaLoaiNhanVien varchar(10) references LoaiNhanVien(MaLoaiNhanVien), /*Nhan vien co the la bac si, thu ngan, thu kho*/
- )
+)
+
  -----------------------------INSERT NHANVIEN-------------------------------------------------
 
  Insert into NHANVIEN values ('NV001','Nguyen Van A','0918359847','Nam','Q7, Tp.Ho Chi Minh','15-2-1987','01-01-2020','3')
@@ -66,11 +68,8 @@ create table BenhNhan
  Insert into NHANVIEN values ('NV004','Tran Minh Chien','0948975485','Nam','Q73, Tp.Ho Chi Minh','8-9-1975','01-01-2020','2')
  Insert into NHANVIEN values ('NV005','Trinh Chung Cuong','0915145145','Nam','Q76, Tp.Ho Chi Minh','22-8-1969','01-01-2020','2')
 
- Insert into NHANVIEN values ('NV001','Nguyen Van A','0918359847','Nam','Q7, Tp.Ho Chi Minh','15-2-1987','01-01-2020','3')
- Insert into NHANVIEN values ('NV001','Nguyen Van A','0918359847','Nam','Q7, Tp.Ho Chi Minh','15-2-1987','01-01-2020','3')
-
-
  -------------------------------------------------------------------------------------
+
  create table Thuoc
 (
   MaThuoc varchar(10) primary key not null,
@@ -102,12 +101,13 @@ Insert into Thuoc values ('TH010','Augmentin 1g','80','11-1-2019','11-1-2030','C
 create table DonThuoc
 (
  MaDT varchar(10) primary key not null,
- MaThuoc varchar(10),
+ MaThuoc varchar(10) not null references Thuoc(MaThuoc),
  TenThuoc varchar(45),
  SoLuong int,
  MaNV varchar(10) references NhanVien(MaNV),
  MaBN varchar(10) references BenhNhan(MaBN),
 )
+
 create table HoaDon
 (
  MaHD varchar(10) primary key not null,
@@ -115,13 +115,13 @@ create table HoaDon
  NgHD datetime,
  TriGia money,
 )
+
 create table CTHD
 ( 
  MaHD varchar(10) references HoaDon(MaHD),
  MADT varchar(10) references DonThuoc(MaDT),
  SL int,
 )
-
 
 -------------------------------------------------------------------------------------
 INSERT INTO Dangnhap
@@ -149,9 +149,9 @@ INSERT INTO Dangnhap
  VALUES('tk0001','1',4)
 
 
- //----------------------------------------------------------------------
+ /*----------------------------------------------------------------------*/
 
 
  SELECT * FROM BenhNhan
 
- SELECT * FROM THUOC
+ SELECT * FROM Thuoc
