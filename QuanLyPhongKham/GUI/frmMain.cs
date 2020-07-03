@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyPhongKham.GUI;
+using QuanLyPhongKham.BLL;
 
 namespace QuanLyPhongKham.GUI
 {
@@ -52,9 +53,58 @@ namespace QuanLyPhongKham.GUI
                 tabcontrolmain.Controls.Remove(tabp_pkb);
             }
         }
+
+        int CheckTabPage()
+        {
+
+            return tabcontrolmain.SelectedIndex;
+        }
+
+
         public void frmMain_Load(object sender, EventArgs e)
         {
-            Phanquyen();
+                Phanquyen();
+            dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.GetData();
+            dgvDT.DataSource = ObjDonThuocBLL.Instance.GetData();
+            dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.GetData();
+            dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.GetData();
+            int check = CheckTabPage();
+                if (check == 0)
+                {
+
+                    
+
+                }
+                else if (check == 1)
+                {
+                    
+
+                }
+                else if (check == 2)
+                {
+
+                    
+                }
+                else if (check == 3)
+                {
+
+                }
+                else if (check == 4)
+                {
+                    
+                }
+                else if (check == 5)
+                {
+
+                }
+                else if (check == 6)
+                {
+
+                }
+                else if (check == 7)
+                {
+
+                }
         }
     }
 }

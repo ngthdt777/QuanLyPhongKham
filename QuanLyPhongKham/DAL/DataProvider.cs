@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections;
 
-namespace QuanLyPhongKham.BLL
+namespace QuanLyPhongKham.DAL
 {
     public class DataProvider
     {
@@ -24,10 +24,10 @@ namespace QuanLyPhongKham.BLL
             }
             private set => instance = value;
         }
-        private DataProvider() { }
-        private string connectionSTR = ConfigurationManager.AppSettings["ConnectionString"];
-        
-        public DataTable ExecuteQuery(string query, Dictionary<String, String> parameters)
+        public DataProvider() { }
+        private string connectionSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True";
+
+        public DataTable ExecuteQueryPhanQuyen(string query, Dictionary<String, String> parameters)
         {
             DataTable data = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionSTR))
@@ -38,6 +38,19 @@ namespace QuanLyPhongKham.BLL
                 {
                     command.Parameters.AddWithValue(key, parameters[key]);
                 }
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(data);
+                return data;
+            }
+        }
+
+        public DataTable ExecuteQuery(string query)
+        {
+            DataTable data = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
                 return data;

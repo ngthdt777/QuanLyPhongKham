@@ -150,3 +150,8 @@ INSERT INTO Dangnhap
 
 
  //----------------------------------------------------------------------
+
+
+ SELECT * FROM BenhNhan
+
+ SELECT * FROM THUOC

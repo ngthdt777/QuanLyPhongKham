@@ -62,14 +62,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\DataProvider.cs" />
-    <Compile Include="DAL\BenhNhan.cs" />
+    <Compile Include="BLL\ObjBenhNhanBLL.cs" />
+    <Compile Include="BLL\ObjDonThuocBLL.cs" />
+    <Compile Include="BLL\ObjHoaDonBLL.cs" />
+    <Compile Include="BLL\ObjNhanVienBLL.cs" />
+    <Compile Include="BLL\ObjThuocBLL.cs" />
+    <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\ObjBenhNhanDAL.cs" />
     <Compile Include="DAL\CTHD.cs" />
-    <Compile Include="DAL\DonThuoc.cs" />
-    <Compile Include="DAL\HoaDon.cs" />
+    <Compile Include="DAL\ObjDonThuocDAL.cs" />
+    <Compile Include="DAL\ObjHoaDonDAL.cs" />
     <Compile Include="DAL\LoaiNhanVien.cs" />
-    <Compile Include="DAL\NhanVien.cs" />
-    <Compile Include="DAL\Thuoc.cs" />
+    <Compile Include="DAL\ObjNhanVienDAL.cs" />
+    <Compile Include="DAL\ObjThuocDAL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
