@@ -42,10 +42,31 @@ namespace QuanLyPhongKham.DAL
         {
             DataTable dt = new DataTable();
             string LoadQuery = "SELECT * FROM THUOC";
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
             return dt;
         }
 
+        public DataTable GetInfoByName(string name)
+        {
+            DataTable dt = new DataTable();
+            string LoadQuery = "";
+            LoadQuery += "SELECT * FROM Thuoc ";
+            LoadQuery += "WHERE TenThuoc = @TenTh";
+
+            Form main = Application.OpenForms["frmMain"];
+
+            Dictionary<String, String> param = new Dictionary<string, string>();
+            param.Add("@TenTh", ((frmMain)main).tb_tenThuoc.Text.Trim());
+
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, param);
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Lấy thuốc không thành công");
+                return null;
+            }
+
+            return dt;
+        }
 
         public void AddThuoc()
         {
@@ -63,7 +84,7 @@ namespace QuanLyPhongKham.DAL
             string AddQuery = "INSERT INTO THUOC(MaThuoc,TenThuoc,SoLuong,NSX,HSD,NCC,Gia)" +
                     "VALUES('" + id + "', '" + ten + "', '" + slg + "', '" + nsx + "', '" + hsd + "', '" + ncc + "', '" +
                       giathanh + "')";
-            int result = DataProvider.Instance.ExecuteNonQuery(AddQuery);
+            int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, null);
             if (result > 0)
             {
                 MessageBox.Show("Thuốc đã thêm vào kho ");
@@ -78,7 +99,7 @@ namespace QuanLyPhongKham.DAL
             string id_xoa = ((frmMain)f).tb_maThuoc.Text;
 
             string DeleteQuery = "DELETE FROM THUOC WHERE MaThuoc = '" + id_xoa + "'";
-            int result = DataProvider.Instance.ExecuteNonQuery(DeleteQuery);
+            int result = DataProvider.Instance.ExecuteNonQuery(DeleteQuery, null);
             if (result > 0)
             {
                 MessageBox.Show("Thông tin thuốc đã bị xoá,bấm xem để xem dữ liệu mới", "Thông báo", MessageBoxButtons.OK);
@@ -100,7 +121,7 @@ namespace QuanLyPhongKham.DAL
             string UpdateQuery = "UPDATE THUOC " +
                    "SET TenThuoc= '" + ten + "', SoLuong='" + slg + "',NCC= '" + ncc + "',Gia= '" + giathanh + "',NSX= '" + nsx + "', HSD='" +
                      hsd + "' WHERE MaThuoc = '"+id+"'";
-            int result = DataProvider.Instance.ExecuteNonQuery(UpdateQuery);
+            int result = DataProvider.Instance.ExecuteNonQuery(UpdateQuery, null);
             if (result > 0)
             {
                 MessageBox.Show("Thông tin thuốc đã được sửa ");
@@ -161,7 +182,7 @@ namespace QuanLyPhongKham.DAL
                                 " where MaThuoc " + id + " and TenThuoc " + ten + " and SoLuong " + slg + "" +
                                  " and NSX " + nsx + "  and HSD " + hsd + " and Gia " + gia;       
 
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
             return dt;
         }
     }

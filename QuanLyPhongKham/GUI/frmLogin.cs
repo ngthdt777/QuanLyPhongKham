@@ -42,7 +42,7 @@ namespace QuanLyPhongKham.GUI
             dic.Add("@tk", acc);
             dic.Add("@mk", pass);
 
-            DataTable result = DataProvider.Instance.ExecuteQueryPhanQuyen(query,dic);
+            DataTable result = DataProvider.Instance.ExecuteQuery(query,dic);
             if (result.Rows.Count > 0)
             {
                 frmMain form = new frmMain(result.Rows[0][0].ToString(), result.Rows[0][1].ToString(), result.Rows[0][2].ToString());

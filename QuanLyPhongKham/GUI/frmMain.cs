@@ -64,13 +64,11 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 1)
             {
-
-
+                ObjThuocBLL.Instance.AddThuoc();
             }
             else if (check == 2)
             {
-                ObjThuocBLL.Instance.AddThuoc();
-
+                ObjDonThuocBLL.Instance.Add();
             }
             else if (check == 3)
             {
@@ -78,7 +76,7 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 4)
             {
-
+                ObjHoaDonBLL.Instance.Add();
             }
             else if (check == 5)
             {
@@ -104,13 +102,11 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 1)
             {
-
-
+                ObjThuocBLL.Instance.XoaThuoc();
             }
             else if (check == 2)
             {
-                ObjThuocBLL.Instance.XoaThuoc();
-
+                ObjDonThuocBLL.Instance.Xoa();
             }
             else if (check == 3)
             {
@@ -144,13 +140,11 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 1)
             {
-
-
+                ObjThuocBLL.Instance.SuaThuoc();
             }
             else if (check == 2)
             {
-                ObjThuocBLL.Instance.SuaThuoc();
-
+                ObjDonThuocBLL.Instance.Sua();
             }
             else if (check == 3)
             {
@@ -230,13 +224,11 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 1)
             {
-
-
+                dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.FindThuoc();
             }
             else if (check == 2)
             {
-                dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.FindThuoc();
-
+                dgvDT.DataSource = ObjDonThuocBLL.Instance.Find();
             }
             else if (check == 3)
             {
@@ -244,7 +236,7 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 4)
             {
-
+                dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.Find();
             }
             else if (check == 5)
             {
@@ -307,42 +299,38 @@ namespace QuanLyPhongKham.GUI
             dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.GetData();
             dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.GetData();
             int check = CheckTabPage();
-                if (check == 0)
-                {
-                //ObjBenhNhanBLL.Instance.GetData();
-                    
+            if (check == 0)
+            {
+                ObjBenhNhanBLL.Instance.GetData();
+            }
+            else if (check == 1)
+            {
+                ObjThuocBLL.Instance.GetData();
+            }
+            else if (check == 2)
+            {
+                ObjDonThuocBLL.Instance.GetData();
+            }
+            else if (check == 3)
+            {
+                
+            }
+            else if (check == 4)
+            {
 
-                }
-                else if (check == 1)
-                {
-                    
+            }
+            else if (check == 5)
+            {
 
-                }
-                else if (check == 2)
-                {
+            }
+            else if (check == 6)
+            {
 
-                    
-                }
-                else if (check == 3)
-                {
+            }
+            else if (check == 7)
+            {
 
-                }
-                else if (check == 4)
-                {
-                    
-                }
-                else if (check == 5)
-                {
-
-                }
-                else if (check == 6)
-                {
-
-                }
-                else if (check == 7)
-                {
-
-                }
+            }
         }
     }
 }

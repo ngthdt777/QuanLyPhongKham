@@ -15,6 +15,8 @@ namespace QuanLyPhongKham.DAL
     public class DataProvider
     {
         private static DataProvider instance;
+        private string connectionSTR;        
+
         public static DataProvider Instance
         {
             get
@@ -24,19 +26,28 @@ namespace QuanLyPhongKham.DAL
             }
             private set => instance = value;
         }
-        public DataProvider() { }
-        private string connectionSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True";
 
-        public DataTable ExecuteQueryPhanQuyen(string query, Dictionary<String, String> parameters)
+        private DataProvider() {
+            var config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            config.AppSettings.Settings["ConnectionString"].Value = String.Format("Data Source={0};Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+            connectionSTR = ConfigurationManager.AppSettings["ConnectionString"];
+        }
+
+        public DataTable ExecuteQuery(string query, Dictionary<String, String> parameters)
         {
             DataTable data = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-                foreach (String key in parameters.Keys)
+                if (parameters != null)
                 {
-                    command.Parameters.AddWithValue(key, parameters[key]);
+                    foreach (String key in parameters.Keys)
+                    {
+                        command.Parameters.AddWithValue(key, parameters[key]);
+                    }
                 }
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
@@ -44,19 +55,7 @@ namespace QuanLyPhongKham.DAL
             }
         }
 
-        public DataTable ExecuteQuery(string query)
-        {
-            DataTable data = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connectionSTR))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(data);
-                return data;
-            }
-        }
-        public int ExecuteNonQuery(string query)
+        public int ExecuteNonQuery(string query, Dictionary<String, String> parameters)
         {
 
             int data = 0;
@@ -64,14 +63,20 @@ namespace QuanLyPhongKham.DAL
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-
+                if (parameters != null)
+                {
+                    foreach (String key in parameters.Keys)
+                    {
+                        command.Parameters.AddWithValue(key, parameters[key]);
+                    }
+                }
                 data = command.ExecuteNonQuery();
 
                 return data;
             }
         }
 
-        public object ExecuteScalar(string query)
+        public object ExecuteScalar(string query, Dictionary<String, String> parameters)
         {
 
             object data = 0;
@@ -79,7 +84,13 @@ namespace QuanLyPhongKham.DAL
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-
+                if (parameters != null)
+                {
+                    foreach (String key in parameters.Keys)
+                    {
+                        command.Parameters.AddWithValue(key, parameters[key]);
+                    }
+                }
                 data = command.ExecuteScalar();
 
                 return data;

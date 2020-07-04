@@ -46,7 +46,7 @@ namespace QuanLyPhongKham.DAL
         {
             DataTable dt = new DataTable();
             string LoadQuery = "SELECT * FROM BENHNHAN";
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
             return dt;
         }
 
@@ -69,7 +69,7 @@ namespace QuanLyPhongKham.DAL
             string AddQuery = "INSERT INTO BENHNHAN(MaBN,TenBN,SoDT,GioiTinh,DiaChi,NgSinh,NgKham,TrieuChung,KetLuanBenh,BaoHiem)" + 
                     "VALUES('" + id + "', '" + ten + "', '" + sdt + "', '" + gtinh + "', '" + dchi + "', '" + ngsinh + "', '"+
                       ngkham + "', '" + trieuchung + "', '" + klb + "', '" + baohiem + "' )";
-                int result = DataProvider.Instance.ExecuteNonQuery(AddQuery);
+                int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, null);
                 if (result > 0)
                 {
                     MessageBox.Show("OKE đã thêm ");
@@ -85,7 +85,7 @@ namespace QuanLyPhongKham.DAL
             System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["frmMain"];
             string id_xoa = ((frmMain)f).tb_bn_id.Text;
             string DeleteQuery = "DELETE FROM BENHNHAN WHERE MaBN = '" + id_xoa + "'";
-            int result = DataProvider.Instance.ExecuteNonQuery(DeleteQuery);
+            int result = DataProvider.Instance.ExecuteNonQuery(DeleteQuery, null);
             if (result > 0)
             {
                 MessageBox.Show("Bệnh nhân đã bị xoá,bấm xem để xem dữ liệu mới", "Thông báo", MessageBoxButtons.OK);
@@ -111,7 +111,7 @@ namespace QuanLyPhongKham.DAL
             string UpdateQuery = "UPDATE BENHNHAN " +
                    "SET TenBN= '" + ten + "', SoDT='" + sdt + "',GioiTinh= '" + gtinh + "',DiaChi= '" + dchi + "',NgSinh= '" + ngsinh + "', NgKham='" +
                      ngkham + "', TrieuChung='" + trieuchung + "', KetLuanBenh='" + klb + "', BaoHiem='" + baohiem + "'  WHERE MaBN='"+id+"'";
-            int result = DataProvider.Instance.ExecuteNonQuery(UpdateQuery);
+            int result = DataProvider.Instance.ExecuteNonQuery(UpdateQuery, null);
             if (result > 0)
             {
                 MessageBox.Show("Thông tin bệnh nhân đã được sửa ");
@@ -186,8 +186,8 @@ namespace QuanLyPhongKham.DAL
                                 " where MaBN " + id + " and TenBN " + ten + " and SoDT " + sdt + "" +
                                  " and GioiTinh " + gtinh + "  and DiaChi " + dchi + " and NgSinh " + ngsinh + " and NgKham " + ngkham + " and TrieuChung " + trieuchung +
                                  " and KetLuanBenh " + klb +  " And BaoHiem " + baohiem;
-                                 
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
             return dt;
 
     

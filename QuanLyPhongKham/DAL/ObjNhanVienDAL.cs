@@ -40,7 +40,7 @@ namespace QuanLyPhongKham.DAL
         {
             DataTable dt = new DataTable();
             string LoadQuery = "SELECT * FROM NHANVIEN";
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
             return dt;
         }
 

@@ -33,5 +33,24 @@ namespace QuanLyPhongKham.BLL
             return ObjDonThuocDAL.Instance.GetInfo();
         }
 
+        public void Add()
+        {
+            ObjDonThuocDAL.Instance.Add();
+        }
+
+        public void Xoa()
+        {
+            ObjDonThuocDAL.Instance.Xoa();
+        }
+
+        public void Sua()
+        {
+            ObjDonThuocDAL.Instance.Sua();
+        }
+
+        public DataTable Find()
+        {
+            return ObjDonThuocDAL.Instance.Find();
+        }
     }
 }

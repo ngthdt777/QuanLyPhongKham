@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Data;
 using QuanLyPhongKham.BLL;
 using QuanLyPhongKham.DAL;
+using System.Windows.Forms;
+using QuanLyPhongKham.GUI;
 
 namespace QuanLyPhongKham.DAL
 {
@@ -35,10 +37,59 @@ namespace QuanLyPhongKham.DAL
         public DataTable GetInfo()
         {
             DataTable dt = new DataTable();
-            string LoadQuery = "SELECT * FROM DONTHUOC";
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+            string LoadQuery = "SELECT * FROM HoaDon";
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
             return dt;
         }
 
+        public void Add()
+        {
+            Form main = Application.OpenForms["frmMain"];
+
+            string AddQuery = "";
+            AddQuery += "INSERT INTO HoaDon(MaHD, MaDT, NgHD, TriGia) ";
+            AddQuery += "VALUES (@MaHD, @MaDT, @NgHD, @TG)";
+
+            DataTable dt = ObjThuocBLL.Instance.GetInfoByName(((frmMain)main).tb_tenThuoc.Text);
+
+            Dictionary<String, String> param = new Dictionary<string, string>();
+            param.Add("@MaHD", ((frmMain)main).tb_maHD.Text);
+            param.Add("@MaDT", ((frmMain)main).tb_maDTHoaDon.Text);
+            param.Add("@NgHD", DateTime.Now.ToString());
+            param.Add("@TG", ((frmMain)main).tb_triGia.Text);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, param);
+            if (result > 0)
+            {
+                MessageBox.Show("Thêm hóa đơn thành công");
+            }
+        }
+
+        public void Xoa()
+        {
+
+        }
+
+        public void Sua()
+        {
+
+        }
+
+        public DataTable Find()
+        {
+            DataTable dt = new DataTable();
+
+            Form main = Application.OpenForms["frmMain"];
+
+            string FindQuery = "";
+            FindQuery += "SELECT * FROM HoaDon ";
+            FindQuery += "WHERE MaHD = @MaHD";
+
+            Dictionary<String, String> param = new Dictionary<string, string>();
+            param.Add("@MaHD", ((frmMain)main).tb_maHD.Text.Trim());
+
+            dt = DataProvider.Instance.ExecuteQuery(FindQuery, param);
+            return dt;
+        }
     }
 }
