@@ -155,3 +155,5 @@ INSERT INTO Dangnhap
  SELECT * FROM BenhNhan
 
  SELECT * FROM Thuoc
+
+ SELECT * FROM BenhNhan WHERE GioiTinh = 'Nam'

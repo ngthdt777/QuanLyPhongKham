@@ -191,11 +191,11 @@ namespace QuanLyPhongKham.GUI
             {
                 tb_bn_id.Text= dgvHoSo.Rows[e.RowIndex].Cells["MaBn"].Value.ToString();
                 tb_bn_ten.Text=dgvHoSo.Rows[e.RowIndex].Cells["TenBn"].Value.ToString();
-                tb_bn_sdt.Text=dgvHoSo.Rows[e.RowIndex].Cells["SDT"].Value.ToString();
+                tb_bn_sdt.Text=dgvHoSo.Rows[e.RowIndex].Cells["SoDT"].Value.ToString();
                 cb_bn_sex.Text=dgvHoSo.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
                 tb_bn_add.Text=dgvHoSo.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
-                ngaySinhPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgaySinh"].Value.ToString();
-                ngayKhamPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgayKham"].Value.ToString();
+                ngaySinhPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgSinh"].Value.ToString();
+                ngayKhamPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgKham"].Value.ToString();
                 tb_bn_trieuchung.Text=dgvHoSo.Rows[e.RowIndex].Cells["TrieuChung"].Value.ToString();
                 tb_bn_klb.Text=dgvHoSo.Rows[e.RowIndex].Cells["KetLuanBenh"].Value.ToString();
                 tb_bn_baohiem.Text=dgvHoSo.Rows[e.RowIndex].Cells["BaoHiem"].Value.ToString();
@@ -204,7 +204,92 @@ namespace QuanLyPhongKham.GUI
 
         private void dgvHoSo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int index = e.RowIndex;
+            if (index >= 0)
+            {
+                tb_bn_id.Text = dgvHoSo.Rows[e.RowIndex].Cells["MaBn"].Value.ToString();
+                tb_bn_ten.Text = dgvHoSo.Rows[e.RowIndex].Cells["TenBn"].Value.ToString();
+                tb_bn_sdt.Text = dgvHoSo.Rows[e.RowIndex].Cells["SoDT"].Value.ToString();
+                cb_bn_sex.Text = dgvHoSo.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
+                tb_bn_add.Text = dgvHoSo.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
+                ngaySinhPicker.Text = dgvHoSo.Rows[e.RowIndex].Cells["NgSinh"].Value.ToString();
+                ngayKhamPicker.Text = dgvHoSo.Rows[e.RowIndex].Cells["NgKham"].Value.ToString();
+                tb_bn_trieuchung.Text = dgvHoSo.Rows[e.RowIndex].Cells["TrieuChung"].Value.ToString();
+                tb_bn_klb.Text = dgvHoSo.Rows[e.RowIndex].Cells["KetLuanBenh"].Value.ToString();
+                tb_bn_baohiem.Text = dgvHoSo.Rows[e.RowIndex].Cells["BaoHiem"].Value.ToString();
+            }
+        }
 
+        private void Btt_Find_Click(object sender, EventArgs e)
+        {
+            int check = CheckTabPage();
+            if (check == 0)
+            {
+                dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.FindBN();
+                
+            }
+            else if (check == 1)
+            {
+
+
+            }
+            else if (check == 2)
+            {
+                dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.FindThuoc();
+
+            }
+            else if (check == 3)
+            {
+
+            }
+            else if (check == 4)
+            {
+
+            }
+            else if (check == 5)
+            {
+
+            }
+            else if (check == 6)
+            {
+
+            }
+            else if (check == 7)
+            {
+
+            }
+        }
+
+        private void dgvKhoThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+          /*  int index = e.RowIndex;
+            if (index >= 0)
+            {
+                tb_maThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["MaThuoc"].Value.ToString();
+                tb_tenThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["TenThuoc"].Value.ToString();
+                tb_slThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
+                tb_nhaCC.Text = dgvDT.Rows[e.RowIndex].Cells["NCC"].Value.ToString();
+                ngaySanXuatPicker.Text = dgvDT.Rows[e.RowIndex].Cells["NSX"].Value.ToString();
+                hanSDPicker.Text = dgvDT.Rows[e.RowIndex].Cells["HSD"].Value.ToString();
+                tb_giaThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["Gia"].Value.ToString();
+
+            }*/
+        }
+
+        private void dgvKhoThuoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+         /*   int index = e.RowIndex;
+            if (index >= 0)
+            {
+                tb_maThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["MaThuoc"].Value.ToString();
+                tb_tenThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["TenThuoc"].Value.ToString();
+                tb_slThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["SoLuong"].Value.ToString();
+                tb_nhaCC.Text = dgvDT.Rows[e.RowIndex].Cells["NCC"].Value.ToString();
+                ngaySanXuatPicker.Text = dgvDT.Rows[e.RowIndex].Cells["NSX"].Value.ToString();
+                hanSDPicker.Text = dgvDT.Rows[e.RowIndex].Cells["HSD"].Value.ToString();
+                tb_giaThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["Gia"].Value.ToString();
+
+            }*/
         }
 
         int CheckTabPage()

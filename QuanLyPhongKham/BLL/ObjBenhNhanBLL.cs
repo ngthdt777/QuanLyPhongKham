@@ -49,6 +49,11 @@ namespace QuanLyPhongKham.BLL
             ObjBenhNhanDAL.Instance.SuaBN();
         }
 
+        public DataTable FindBN()
+        {
+            return ObjBenhNhanDAL.Instance.FindBN();
+        }
+
 
     }
 }

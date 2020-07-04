@@ -108,5 +108,61 @@ namespace QuanLyPhongKham.DAL
 
         }
 
+
+
+        public DataTable FindThuoc()
+        {
+            System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["frmMain"];
+
+
+
+            string id, ten, slg, nsx, hsd, ncc, gia;
+
+
+            if (!string.IsNullOrEmpty(((frmMain)f).tb_maThuoc.Text))
+                id = "='" + ((frmMain)f).tb_maThuoc.Text + "'";
+            else id = "is not null";
+
+
+
+            if (!string.IsNullOrEmpty(((frmMain)f).tb_tenThuocKho.Text))
+                ten = "='" + ((frmMain)f).tb_tenThuocKho.Text + "'";
+            else ten = "is not null";
+
+            if (!string.IsNullOrEmpty(((frmMain)f).tb_slThuocKho.Text))
+                slg = "='" + ((frmMain)f).tb_slThuocKho.Text + "'";
+            else slg = "is not null";
+
+            string today = DateTime.Now.ToString("dd/MM/yyyy");
+
+
+
+            if (((frmMain)f).ngaySanXuatPicker.Text != today)
+                nsx = "='" + ((frmMain)f).ngaySanXuatPicker.Text + "'";
+            else nsx = "is not null";
+
+            if (!string.IsNullOrEmpty(((frmMain)f).hanSDPicker.Text))
+                hsd = "='" + ((frmMain)f).hanSDPicker.Text + "'";
+            else hsd = "is not null";
+
+
+            if (!string.IsNullOrEmpty(((frmMain)f).tb_nhaCC.Text))
+                ncc = "='" + ((frmMain)f).tb_bn_klb.Text + "'";
+            else ncc = "is not null";
+
+            if (!string.IsNullOrEmpty(((frmMain)f).tb_giaThuoc.Text))
+                gia = "='" + ((frmMain)f).tb_giaThuoc.Text + "'";
+            else gia = "is not null";
+
+
+
+            DataTable dt = new DataTable();
+            string LoadQuery = "SELECT * FROM Thuoc" +
+                                " where MaThuoc " + id + " and TenThuoc " + ten + " and SoLuong " + slg + "" +
+                                 " and NSX " + nsx + "  and HSD " + hsd + " and Gia " + gia;       
+
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery);
+            return dt;
+        }
     }
 }

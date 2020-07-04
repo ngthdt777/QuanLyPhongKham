@@ -49,6 +49,11 @@ namespace QuanLyPhongKham.BLL
         }
 
 
+        public DataTable FindThuoc()
+        {
+            return ObjThuocDAL.Instance.FindThuoc();
+        }
+
 
     }
 }

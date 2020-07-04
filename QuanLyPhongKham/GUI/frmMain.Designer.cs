@@ -54,6 +54,7 @@
             this.btt_in = new Guna.UI.WinForms.GunaAdvenceButton();
             this.tabcontrolmain = new MetroFramework.Controls.MetroTabControl();
             this.tabp_hsbn = new MetroFramework.Controls.MetroTabPage();
+            this.btt_hsbn_Reload = new Guna.UI.WinForms.GunaButton();
             this.cb_bn_sex = new System.Windows.Forms.ComboBox();
             this.dgvHoSo = new System.Windows.Forms.DataGridView();
             this.ngayKhamPicker = new System.Windows.Forms.DateTimePicker();
@@ -76,6 +77,7 @@
             this.lb_bn_name = new System.Windows.Forms.Label();
             this.lb_bn_id = new System.Windows.Forms.Label();
             this.tabp_kho = new MetroFramework.Controls.MetroTabPage();
+            this.btt_khothuoc_Reload = new Guna.UI.WinForms.GunaButton();
             this.dgvKhoThuoc = new System.Windows.Forms.DataGridView();
             this.hanSDPicker = new System.Windows.Forms.DateTimePicker();
             this.ngaySanXuatPicker = new System.Windows.Forms.DateTimePicker();
@@ -107,18 +109,23 @@
             this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
             this.tabp_pnh = new MetroFramework.Controls.MetroTabPage();
             this.tabp_dth = new MetroFramework.Controls.MetroTabPage();
-            this.btt_hsbn_Reload = new Guna.UI.WinForms.GunaButton();
-            this.btt_khothuoc_Reload = new Guna.UI.WinForms.GunaButton();
             this.MaBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgSinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgKham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrieuChung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KetLuanBenh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BaoHiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NSX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnstrip_main.SuspendLayout();
             this.gunaGradientPanel1.SuspendLayout();
             this.tabp_donthuoc.SuspendLayout();
@@ -215,6 +222,7 @@
             this.Btt_Find.TabIndex = 5;
             this.Btt_Find.Text = "Tìm";
             this.Btt_Find.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btt_Find.Click += new System.EventHandler(this.Btt_Find_Click);
             // 
             // btt_Sua
             // 
@@ -486,7 +494,7 @@
             this.tabcontrolmain.Location = new System.Drawing.Point(133, 31);
             this.tabcontrolmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabcontrolmain.Name = "tabcontrolmain";
-            this.tabcontrolmain.SelectedIndex = 0;
+            this.tabcontrolmain.SelectedIndex = 2;
             this.tabcontrolmain.Size = new System.Drawing.Size(1235, 678);
             this.tabcontrolmain.TabIndex = 4;
             // 
@@ -526,6 +534,30 @@
             this.tabp_hsbn.VerticalScrollbarBarColor = true;
             this.tabp_hsbn.VerticalScrollbarSize = 11;
             // 
+            // btt_hsbn_Reload
+            // 
+            this.btt_hsbn_Reload.AnimationHoverSpeed = 0.07F;
+            this.btt_hsbn_Reload.AnimationSpeed = 0.03F;
+            this.btt_hsbn_Reload.BaseColor = System.Drawing.Color.White;
+            this.btt_hsbn_Reload.BorderColor = System.Drawing.Color.Black;
+            this.btt_hsbn_Reload.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btt_hsbn_Reload.FocusedColor = System.Drawing.Color.Empty;
+            this.btt_hsbn_Reload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btt_hsbn_Reload.ForeColor = System.Drawing.Color.White;
+            this.btt_hsbn_Reload.Image = ((System.Drawing.Image)(resources.GetObject("btt_hsbn_Reload.Image")));
+            this.btt_hsbn_Reload.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_hsbn_Reload.ImageSize = new System.Drawing.Size(30, 30);
+            this.btt_hsbn_Reload.Location = new System.Drawing.Point(1161, 230);
+            this.btt_hsbn_Reload.Name = "btt_hsbn_Reload";
+            this.btt_hsbn_Reload.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btt_hsbn_Reload.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btt_hsbn_Reload.OnHoverForeColor = System.Drawing.Color.White;
+            this.btt_hsbn_Reload.OnHoverImage = null;
+            this.btt_hsbn_Reload.OnPressedColor = System.Drawing.Color.Black;
+            this.btt_hsbn_Reload.Size = new System.Drawing.Size(51, 51);
+            this.btt_hsbn_Reload.TabIndex = 25;
+            this.btt_hsbn_Reload.Click += new System.EventHandler(this.btt_hsbn_Reload_Click);
+            // 
             // cb_bn_sex
             // 
             this.cb_bn_sex.FormattingEnabled = true;
@@ -548,15 +580,15 @@
             this.dgvHoSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaBN,
-            this.SDT,
+            this.TenBN,
+            this.SoDT,
             this.GioiTinh,
             this.DiaChi,
-            this.NgaySinh,
-            this.NgayKham,
+            this.NgSinh,
+            this.NgKham,
             this.TrieuChung,
             this.KetLuanBenh,
-            this.BaoHiem,
-            this.TenBN});
+            this.BaoHiem});
             this.dgvHoSo.Location = new System.Drawing.Point(4, 288);
             this.dgvHoSo.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHoSo.Name = "dgvHoSo";
@@ -564,6 +596,7 @@
             this.dgvHoSo.Size = new System.Drawing.Size(1208, 332);
             this.dgvHoSo.TabIndex = 23;
             this.dgvHoSo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoSo_CellClick);
+            this.dgvHoSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoSo_CellContentClick);
             // 
             // ngayKhamPicker
             // 
@@ -773,14 +806,53 @@
             this.tabp_kho.VerticalScrollbarBarColor = true;
             this.tabp_kho.VerticalScrollbarSize = 11;
             // 
+            // btt_khothuoc_Reload
+            // 
+            this.btt_khothuoc_Reload.AnimationHoverSpeed = 0.07F;
+            this.btt_khothuoc_Reload.AnimationSpeed = 0.03F;
+            this.btt_khothuoc_Reload.BaseColor = System.Drawing.Color.White;
+            this.btt_khothuoc_Reload.BorderColor = System.Drawing.Color.Black;
+            this.btt_khothuoc_Reload.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btt_khothuoc_Reload.FocusedColor = System.Drawing.Color.Empty;
+            this.btt_khothuoc_Reload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btt_khothuoc_Reload.ForeColor = System.Drawing.Color.White;
+            this.btt_khothuoc_Reload.Image = ((System.Drawing.Image)(resources.GetObject("btt_khothuoc_Reload.Image")));
+            this.btt_khothuoc_Reload.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_khothuoc_Reload.ImageSize = new System.Drawing.Size(30, 30);
+            this.btt_khothuoc_Reload.Location = new System.Drawing.Point(1161, 103);
+            this.btt_khothuoc_Reload.Name = "btt_khothuoc_Reload";
+            this.btt_khothuoc_Reload.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btt_khothuoc_Reload.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btt_khothuoc_Reload.OnHoverForeColor = System.Drawing.Color.White;
+            this.btt_khothuoc_Reload.OnHoverImage = null;
+            this.btt_khothuoc_Reload.OnPressedColor = System.Drawing.Color.Black;
+            this.btt_khothuoc_Reload.Size = new System.Drawing.Size(51, 51);
+            this.btt_khothuoc_Reload.TabIndex = 26;
+            this.btt_khothuoc_Reload.Click += new System.EventHandler(this.btt_khothuoc_Reload_Click);
+            // 
             // dgvKhoThuoc
             // 
+            this.dgvKhoThuoc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKhoThuoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvKhoThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKhoThuoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaThuoc,
+            this.TenThuoc,
+            this.SoLuong,
+            this.NSX,
+            this.HSD,
+            this.NCC,
+            this.Gia});
             this.dgvKhoThuoc.Location = new System.Drawing.Point(4, 155);
             this.dgvKhoThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKhoThuoc.Name = "dgvKhoThuoc";
+            this.dgvKhoThuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKhoThuoc.Size = new System.Drawing.Size(1208, 465);
             this.dgvKhoThuoc.TabIndex = 18;
+            this.dgvKhoThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoThuoc_CellClick);
+            this.dgvKhoThuoc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoThuoc_CellContentClick);
             // 
             // hanSDPicker
             // 
@@ -1102,103 +1174,111 @@
             this.tabp_dth.VerticalScrollbarBarColor = true;
             this.tabp_dth.VerticalScrollbarSize = 11;
             // 
-            // btt_hsbn_Reload
-            // 
-            this.btt_hsbn_Reload.AnimationHoverSpeed = 0.07F;
-            this.btt_hsbn_Reload.AnimationSpeed = 0.03F;
-            this.btt_hsbn_Reload.BaseColor = System.Drawing.Color.White;
-            this.btt_hsbn_Reload.BorderColor = System.Drawing.Color.Black;
-            this.btt_hsbn_Reload.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btt_hsbn_Reload.FocusedColor = System.Drawing.Color.Empty;
-            this.btt_hsbn_Reload.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btt_hsbn_Reload.ForeColor = System.Drawing.Color.White;
-            this.btt_hsbn_Reload.Image = ((System.Drawing.Image)(resources.GetObject("btt_hsbn_Reload.Image")));
-            this.btt_hsbn_Reload.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btt_hsbn_Reload.ImageSize = new System.Drawing.Size(30, 30);
-            this.btt_hsbn_Reload.Location = new System.Drawing.Point(1161, 230);
-            this.btt_hsbn_Reload.Name = "btt_hsbn_Reload";
-            this.btt_hsbn_Reload.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btt_hsbn_Reload.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btt_hsbn_Reload.OnHoverForeColor = System.Drawing.Color.White;
-            this.btt_hsbn_Reload.OnHoverImage = null;
-            this.btt_hsbn_Reload.OnPressedColor = System.Drawing.Color.Black;
-            this.btt_hsbn_Reload.Size = new System.Drawing.Size(51, 51);
-            this.btt_hsbn_Reload.TabIndex = 25;
-            this.btt_hsbn_Reload.Click += new System.EventHandler(this.btt_hsbn_Reload_Click);
-            // 
-            // btt_khothuoc_Reload
-            // 
-            this.btt_khothuoc_Reload.AnimationHoverSpeed = 0.07F;
-            this.btt_khothuoc_Reload.AnimationSpeed = 0.03F;
-            this.btt_khothuoc_Reload.BaseColor = System.Drawing.Color.White;
-            this.btt_khothuoc_Reload.BorderColor = System.Drawing.Color.Black;
-            this.btt_khothuoc_Reload.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btt_khothuoc_Reload.FocusedColor = System.Drawing.Color.Empty;
-            this.btt_khothuoc_Reload.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btt_khothuoc_Reload.ForeColor = System.Drawing.Color.White;
-            this.btt_khothuoc_Reload.Image = ((System.Drawing.Image)(resources.GetObject("btt_khothuoc_Reload.Image")));
-            this.btt_khothuoc_Reload.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btt_khothuoc_Reload.ImageSize = new System.Drawing.Size(30, 30);
-            this.btt_khothuoc_Reload.Location = new System.Drawing.Point(1161, 103);
-            this.btt_khothuoc_Reload.Name = "btt_khothuoc_Reload";
-            this.btt_khothuoc_Reload.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.btt_khothuoc_Reload.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btt_khothuoc_Reload.OnHoverForeColor = System.Drawing.Color.White;
-            this.btt_khothuoc_Reload.OnHoverImage = null;
-            this.btt_khothuoc_Reload.OnPressedColor = System.Drawing.Color.Black;
-            this.btt_khothuoc_Reload.Size = new System.Drawing.Size(51, 51);
-            this.btt_khothuoc_Reload.TabIndex = 26;
-            this.btt_khothuoc_Reload.Click += new System.EventHandler(this.btt_khothuoc_Reload_Click);
-            // 
             // MaBN
             // 
+            this.MaBN.DataPropertyName = "MaBN";
+            this.MaBN.FillWeight = 40F;
             this.MaBN.HeaderText = "Mã Bệnh Nhân";
             this.MaBN.Name = "MaBN";
+            this.MaBN.Width = 70;
             // 
-            // SDT
+            // TenBN
             // 
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.Name = "SDT";
+            this.TenBN.DataPropertyName = "TenBN";
+            this.TenBN.HeaderText = "Họ Tên";
+            this.TenBN.Name = "TenBN";
+            // 
+            // SoDT
+            // 
+            this.SoDT.DataPropertyName = "SoDT";
+            this.SoDT.HeaderText = "SĐT";
+            this.SoDT.Name = "SoDT";
             // 
             // GioiTinh
             // 
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.FillWeight = 40F;
             this.GioiTinh.HeaderText = "Giới Tính";
             this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.Width = 40;
             // 
             // DiaChi
             // 
+            this.DiaChi.DataPropertyName = "DiaChi";
             this.DiaChi.HeaderText = "Địa Chỉ";
             this.DiaChi.Name = "DiaChi";
             // 
-            // NgaySinh
+            // NgSinh
             // 
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.Name = "NgaySinh";
+            this.NgSinh.DataPropertyName = "NgSinh";
+            this.NgSinh.HeaderText = "Ngày Sinh";
+            this.NgSinh.Name = "NgSinh";
             // 
-            // NgayKham
+            // NgKham
             // 
-            this.NgayKham.HeaderText = "Ngày Khám";
-            this.NgayKham.Name = "NgayKham";
+            this.NgKham.DataPropertyName = "NgKham";
+            this.NgKham.HeaderText = "Ngày Khám";
+            this.NgKham.Name = "NgKham";
             // 
             // TrieuChung
             // 
+            this.TrieuChung.DataPropertyName = "TrieuChung";
             this.TrieuChung.HeaderText = "Triệu Chứng";
             this.TrieuChung.Name = "TrieuChung";
             // 
             // KetLuanBenh
             // 
+            this.KetLuanBenh.DataPropertyName = "KetLuanBenh";
             this.KetLuanBenh.HeaderText = "Kết Luận Bệnh";
             this.KetLuanBenh.Name = "KetLuanBenh";
             // 
             // BaoHiem
             // 
+            this.BaoHiem.DataPropertyName = "BaoHiem";
             this.BaoHiem.HeaderText = "Bảo Hiểm";
             this.BaoHiem.Name = "BaoHiem";
             // 
-            // TenBN
+            // MaThuoc
             // 
-            this.TenBN.HeaderText = "Họ Tên";
-            this.TenBN.Name = "TenBN";
+            this.MaThuoc.DataPropertyName = "MaThuoc";
+            this.MaThuoc.HeaderText = "Mã Thuốc";
+            this.MaThuoc.Name = "MaThuoc";
+            // 
+            // TenThuoc
+            // 
+            this.TenThuoc.DataPropertyName = "TenThuoc";
+            this.TenThuoc.HeaderText = "Tên Thuốc";
+            this.TenThuoc.Name = "TenThuoc";
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số Lượng";
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // NSX
+            // 
+            this.NSX.DataPropertyName = "NSX";
+            this.NSX.HeaderText = "NSX";
+            this.NSX.Name = "NSX";
+            // 
+            // HSD
+            // 
+            this.HSD.DataPropertyName = "HSD";
+            this.HSD.HeaderText = "HSD";
+            this.HSD.Name = "HSD";
+            // 
+            // NCC
+            // 
+            this.NCC.DataPropertyName = "NCC";
+            this.NCC.HeaderText = "Nhà cung cấp";
+            this.NCC.Name = "NCC";
+            // 
+            // Gia
+            // 
+            this.Gia.DataPropertyName = "Gia";
+            this.Gia.HeaderText = "Giá thành";
+            this.Gia.Name = "Gia";
             // 
             // frmMain
             // 
@@ -1320,14 +1400,21 @@
         public Guna.UI.WinForms.GunaButton btt_hsbn_Reload;
         public Guna.UI.WinForms.GunaButton btt_khothuoc_Reload;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaBN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenBN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayKham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgSinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgKham;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrieuChung;
         private System.Windows.Forms.DataGridViewTextBoxColumn KetLuanBenh;
         private System.Windows.Forms.DataGridViewTextBoxColumn BaoHiem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenBN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaThuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenThuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NSX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HSD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NCC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gia;
     }
 }
