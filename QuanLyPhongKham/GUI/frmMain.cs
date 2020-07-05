@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyPhongKham.GUI;
 using QuanLyPhongKham.BLL;
+using System.Drawing.Printing;
 
 namespace QuanLyPhongKham.GUI
 {
@@ -282,6 +283,89 @@ namespace QuanLyPhongKham.GUI
                 tb_giaThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["Gia"].Value.ToString();
 
             }*/
+        }
+
+        private void btt_in_Click(object sender, EventArgs e)
+        {
+            var resultDialog = MessageBox.Show("In phiếu khám bệnh?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            
+            if (resultDialog == DialogResult.OK)
+            {
+                bool result = PrintPDFPKB();
+
+                if (result)
+                {
+                    MessageBox.Show("In pkb thành công");
+                }
+                else
+                {
+                    MessageBox.Show("In pkb thất bại");
+                }
+            }
+        }
+
+        private bool PrintPDFPKB()
+        {
+            printDocument1.DefaultPageSettings.Landscape = true;
+            printDocument1.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A3;
+
+            var resultDialog = printDialog1.ShowDialog();
+
+            if (resultDialog == DialogResult.OK)
+            {
+                try
+                {
+                    printDocument1.Print();
+                    ObjPkbBLL.Instance.Add();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.ScaleTransform(1.5f, 1.5f);
+            
+            DataTable dt = ObjBenhNhanBLL.Instance.GetInfoByID(tb_maBNPKB.Text);
+
+            Font font = new Font("Courier New", 12);
+            Brush brush = new SolidBrush(Color.Black);
+
+            float fontHeight = font.GetHeight();
+
+            int startX = 10, startY = 10;
+
+            //info benh nhan
+            string id = String.Format("Mã bệnh nhân: {0}", tb_maBNPKB.Text);
+            string name = String.Format("Tên bệnh nhân: {0}", dt.Rows[0]["TenBN"].ToString());
+            string birthDate = String.Format("Ngày sinh: {0}", dt.Rows[0]["NgSinh"].ToString());
+            string address = String.Format("Địa chỉ: {0}", dt.Rows[0]["DiaChi"].ToString());
+            string phone = String.Format("SĐT: {0}", dt.Rows[0]["SoDT"].ToString());
+            string symptom = String.Format("Triệu chứng: {0}", dt.Rows[0]["TrieuChung"].ToString());
+            string insurance = String.Format("Bảo hiểm: {0}", dt.Rows[0]["BaoHiem"].ToString());
+            string date = String.Format("Ngày khám: {0}", DateTime.Now.ToString());
+
+            Graphics graphic = e.Graphics;
+            graphic.DrawString("PHIẾU KHÁM BỆNH", new Font("Courier New", 18, FontStyle.Bold), new SolidBrush(Color.Red), startX, 0);
+
+            graphic.DrawString(id, font, brush, startX, startY + 20);
+            graphic.DrawString(name, font, brush, startX, startY + 40);
+            graphic.DrawString(birthDate, font, brush, startX, startY + 60);
+            graphic.DrawString(address, font, brush, startX, startY + 80);
+            graphic.DrawString(phone, font, brush, startX, startY + 100);
+            graphic.DrawString("--------------------------------", font, brush, startX, 120);
+            graphic.DrawString(date, font, brush, startX, startY + 140);
+            graphic.DrawString(symptom, font, brush, startX, startY + 160);
+            graphic.DrawString("--------------------------------", font, brush, startX, 180);
+            graphic.DrawString(String.Format("In ngày: {0}", DateTime.Now.ToString()), font, brush, startX, startY + 200);
+            graphic.DrawString(insurance, font, brush, startX, startY + 220);
+
+            graphic.DrawImage(Properties.Resources.pill, startX, startY + 260);
         }
 
         int CheckTabPage()

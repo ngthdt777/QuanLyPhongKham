@@ -32,6 +32,11 @@ namespace QuanLyPhongKham.BLL
             return ObjBenhNhanDAL.Instance.GetInfo();
         }
 
+        public DataTable GetInfoByID(String id)
+        {
+            return ObjBenhNhanDAL.Instance.GetInfoByID(id);
+        }
+
         public void Add()
         {
             ObjBenhNhanDAL.Instance.AddBN();

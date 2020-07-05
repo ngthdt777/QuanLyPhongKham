@@ -50,6 +50,18 @@ namespace QuanLyPhongKham.DAL
             return dt;
         }
 
+        public DataTable GetInfoByID(String id)
+        {
+            string LoadQuery = "";
+            LoadQuery += "SELECT * FROM BenhNhan ";
+            LoadQuery += "WHERE MaBN = @MaBN";
+
+            Dictionary<String, String> param = new Dictionary<string, string>();
+            param.Add("@MaBN", id);
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(LoadQuery, param);
+            return dt;
+        }
 
         public void AddBN()
         {

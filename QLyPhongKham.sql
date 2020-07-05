@@ -24,6 +24,14 @@ create table BenhNhan
  BaoHiem varchar(45),
 )
 
+create table PKB (
+MaPKB varchar(10) primary key not null,
+MaBN varchar(10) foreign key references BenhNhan(MaBN) not null,
+MaNV varchar(10) foreign key references NhanVien(MaNV) not null,
+NgayKham datetime not null,
+ChuanDoan nvarchar(max)
+)
+
  -------------------------------------INSERT BENHNHAN------------------------------------------------
  INSErt into BenhNhan values ('BN001','Nguyen Thanh Cong','0945165187','Nam','784 Truong Chinh, Q1, Tp.Ho Chi Minh','28-01-1987','01-03-2020','Ho, dau hong','Nhiem Covid19', 'Bao Hiem Nhan Tho')
  INSErt into BenhNhan values ('BN002','Van Cong Vinh','0945958874','Nam','82/9 Truong Cong Dinh,Q8, Tp.Ho Chi Minh','2-2-1994','01-03-2020','Dau co chan trai','Trat khop co chan trai', 'Bao Hiem Phuong')

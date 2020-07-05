@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabp_pkb = new MetroFramework.Controls.MetroTabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.btt_in = new Guna.UI.WinForms.GunaAdvenceButton();
             this.tabcontrolmain = new MetroFramework.Controls.MetroTabControl();
             this.tabp_hsbn = new MetroFramework.Controls.MetroTabPage();
@@ -86,6 +87,17 @@
             this.lb_bn_sdt = new System.Windows.Forms.Label();
             this.lb_bn_name = new System.Windows.Forms.Label();
             this.lb_bn_id = new System.Windows.Forms.Label();
+            this.tabp_hoadon = new MetroFramework.Controls.MetroTabPage();
+            this.dgv_hoadon = new System.Windows.Forms.DataGridView();
+            this.ngayHoaDonPicker = new System.Windows.Forms.DateTimePicker();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tb_triGia = new System.Windows.Forms.TextBox();
+            this.tb_maDTHoaDon = new System.Windows.Forms.TextBox();
+            this.tb_maHD = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabp_kho = new MetroFramework.Controls.MetroTabPage();
             this.btt_khothuoc_Reload = new Guna.UI.WinForms.GunaButton();
             this.dgvKhoThuoc = new System.Windows.Forms.DataGridView();
@@ -111,21 +123,17 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.tabp_hoadon = new MetroFramework.Controls.MetroTabPage();
-            this.dgv_hoadon = new System.Windows.Forms.DataGridView();
-            this.ngayHoaDonPicker = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tb_triGia = new System.Windows.Forms.TextBox();
-            this.tb_maDTHoaDon = new System.Windows.Forms.TextBox();
-            this.tb_maHD = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabp_pxh = new MetroFramework.Controls.MetroTabPage();
             this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
             this.tabp_pnh = new MetroFramework.Controls.MetroTabPage();
             this.tabp_dth = new MetroFramework.Controls.MetroTabPage();
+            this.tb_maNVPKB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tb_maBNPKB = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.mnstrip_main.SuspendLayout();
             this.gunaGradientPanel1.SuspendLayout();
             this.tabp_donthuoc.SuspendLayout();
@@ -134,10 +142,10 @@
             this.tabcontrolmain.SuspendLayout();
             this.tabp_hsbn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoSo)).BeginInit();
-            this.tabp_kho.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).BeginInit();
             this.tabp_hoadon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
+            this.tabp_kho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).BeginInit();
             this.tabp_pxh.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -424,6 +432,12 @@
             // tabp_pkb
             // 
             this.tabp_pkb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_pkb.Controls.Add(this.label8);
+            this.tabp_pkb.Controls.Add(this.dateTimePicker1);
+            this.tabp_pkb.Controls.Add(this.tb_maBNPKB);
+            this.tabp_pkb.Controls.Add(this.label7);
+            this.tabp_pkb.Controls.Add(this.tb_maNVPKB);
+            this.tabp_pkb.Controls.Add(this.label6);
             this.tabp_pkb.Controls.Add(this.btt_in);
             this.tabp_pkb.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.tabp_pkb.HorizontalScrollbarBarColor = true;
@@ -436,6 +450,15 @@
             this.tabp_pkb.Text = "Phiếu khám bệnh";
             this.tabp_pkb.VerticalScrollbarBarColor = true;
             this.tabp_pkb.VerticalScrollbarSize = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Mã nhân viên";
             // 
             // btt_in
             // 
@@ -458,7 +481,7 @@
             this.btt_in.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btt_in.ImageSize = new System.Drawing.Size(20, 20);
             this.btt_in.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
-            this.btt_in.Location = new System.Drawing.Point(2, 2);
+            this.btt_in.Location = new System.Drawing.Point(2, 88);
             this.btt_in.Margin = new System.Windows.Forms.Padding(2);
             this.btt_in.Name = "btt_in";
             this.btt_in.OnHoverBaseColor = System.Drawing.Color.Lavender;
@@ -471,14 +494,15 @@
             this.btt_in.TabIndex = 3;
             this.btt_in.Text = "In phiếu khám bệnh";
             this.btt_in.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_in.Click += new System.EventHandler(this.btt_in_Click);
             // 
             // tabcontrolmain
             // 
             this.tabcontrolmain.Controls.Add(this.tabp_hsbn);
-            this.tabcontrolmain.Controls.Add(this.tabp_kho);
             this.tabcontrolmain.Controls.Add(this.tabp_donthuoc);
-            this.tabcontrolmain.Controls.Add(this.tabp_pkb);
             this.tabcontrolmain.Controls.Add(this.tabp_hoadon);
+            this.tabcontrolmain.Controls.Add(this.tabp_kho);
+            this.tabcontrolmain.Controls.Add(this.tabp_pkb);
             this.tabcontrolmain.Controls.Add(this.tabp_pxh);
             this.tabcontrolmain.Controls.Add(this.tabp_pnh);
             this.tabcontrolmain.Controls.Add(this.tabp_dth);
@@ -812,6 +836,113 @@
             this.lb_bn_id.TabIndex = 2;
             this.lb_bn_id.Text = "Mã bệnh nhân";
             // 
+            // tabp_hoadon
+            // 
+            this.tabp_hoadon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_hoadon.Controls.Add(this.dgv_hoadon);
+            this.tabp_hoadon.Controls.Add(this.ngayHoaDonPicker);
+            this.tabp_hoadon.Controls.Add(this.label20);
+            this.tabp_hoadon.Controls.Add(this.tb_triGia);
+            this.tabp_hoadon.Controls.Add(this.tb_maDTHoaDon);
+            this.tabp_hoadon.Controls.Add(this.tb_maHD);
+            this.tabp_hoadon.Controls.Add(this.label19);
+            this.tabp_hoadon.Controls.Add(this.label18);
+            this.tabp_hoadon.Controls.Add(this.label17);
+            this.tabp_hoadon.Controls.Add(this.label16);
+            this.tabp_hoadon.HorizontalScrollbarBarColor = true;
+            this.tabp_hoadon.HorizontalScrollbarSize = 8;
+            this.tabp_hoadon.Location = new System.Drawing.Point(4, 35);
+            this.tabp_hoadon.Margin = new System.Windows.Forms.Padding(2);
+            this.tabp_hoadon.Name = "tabp_hoadon";
+            this.tabp_hoadon.Size = new System.Drawing.Size(918, 512);
+            this.tabp_hoadon.TabIndex = 4;
+            this.tabp_hoadon.Text = "Hóa đơn";
+            this.tabp_hoadon.VerticalScrollbarBarColor = true;
+            this.tabp_hoadon.VerticalScrollbarSize = 8;
+            // 
+            // dgv_hoadon
+            // 
+            this.dgv_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_hoadon.Location = new System.Drawing.Point(3, 87);
+            this.dgv_hoadon.Name = "dgv_hoadon";
+            this.dgv_hoadon.Size = new System.Drawing.Size(906, 424);
+            this.dgv_hoadon.TabIndex = 11;
+            // 
+            // ngayHoaDonPicker
+            // 
+            this.ngayHoaDonPicker.CustomFormat = "dd/MM/yyyy";
+            this.ngayHoaDonPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ngayHoaDonPicker.Location = new System.Drawing.Point(363, 40);
+            this.ngayHoaDonPicker.Name = "ngayHoaDonPicker";
+            this.ngayHoaDonPicker.Size = new System.Drawing.Size(130, 20);
+            this.ngayHoaDonPicker.TabIndex = 10;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(644, 43);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(30, 13);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "VNĐ";
+            // 
+            // tb_triGia
+            // 
+            this.tb_triGia.Location = new System.Drawing.Point(538, 40);
+            this.tb_triGia.Name = "tb_triGia";
+            this.tb_triGia.Size = new System.Drawing.Size(100, 20);
+            this.tb_triGia.TabIndex = 8;
+            // 
+            // tb_maDTHoaDon
+            // 
+            this.tb_maDTHoaDon.Location = new System.Drawing.Point(197, 40);
+            this.tb_maDTHoaDon.Name = "tb_maDTHoaDon";
+            this.tb_maDTHoaDon.Size = new System.Drawing.Size(100, 20);
+            this.tb_maDTHoaDon.TabIndex = 7;
+            // 
+            // tb_maHD
+            // 
+            this.tb_maHD.Location = new System.Drawing.Point(39, 40);
+            this.tb_maHD.Name = "tb_maHD";
+            this.tb_maHD.Size = new System.Drawing.Size(100, 20);
+            this.tb_maHD.TabIndex = 6;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(535, 24);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(36, 13);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Trị giá";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(360, 24);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(75, 13);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Ngày hóa đơn";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(194, 24);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Mã đơn thuốc";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(36, 24);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 13);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Mã hóa đơn";
+            // 
             // tabp_kho
             // 
             this.tabp_kho.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -887,7 +1018,7 @@
             this.dgvKhoThuoc.Location = new System.Drawing.Point(3, 126);
             this.dgvKhoThuoc.Name = "dgvKhoThuoc";
             this.dgvKhoThuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhoThuoc.Size = new System.Drawing.Size(180, 0);
+            this.dgvKhoThuoc.Size = new System.Drawing.Size(0, 0);
             this.dgvKhoThuoc.TabIndex = 18;
             this.dgvKhoThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoThuoc_CellClick);
             this.dgvKhoThuoc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoThuoc_CellContentClick);
@@ -1059,113 +1190,6 @@
             this.label21.TabIndex = 3;
             this.label21.Text = "Mã thuốc";
             // 
-            // tabp_hoadon
-            // 
-            this.tabp_hoadon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabp_hoadon.Controls.Add(this.dgv_hoadon);
-            this.tabp_hoadon.Controls.Add(this.ngayHoaDonPicker);
-            this.tabp_hoadon.Controls.Add(this.label20);
-            this.tabp_hoadon.Controls.Add(this.tb_triGia);
-            this.tabp_hoadon.Controls.Add(this.tb_maDTHoaDon);
-            this.tabp_hoadon.Controls.Add(this.tb_maHD);
-            this.tabp_hoadon.Controls.Add(this.label19);
-            this.tabp_hoadon.Controls.Add(this.label18);
-            this.tabp_hoadon.Controls.Add(this.label17);
-            this.tabp_hoadon.Controls.Add(this.label16);
-            this.tabp_hoadon.HorizontalScrollbarBarColor = true;
-            this.tabp_hoadon.HorizontalScrollbarSize = 8;
-            this.tabp_hoadon.Location = new System.Drawing.Point(4, 35);
-            this.tabp_hoadon.Margin = new System.Windows.Forms.Padding(2);
-            this.tabp_hoadon.Name = "tabp_hoadon";
-            this.tabp_hoadon.Size = new System.Drawing.Size(918, 512);
-            this.tabp_hoadon.TabIndex = 4;
-            this.tabp_hoadon.Text = "Hóa đơn";
-            this.tabp_hoadon.VerticalScrollbarBarColor = true;
-            this.tabp_hoadon.VerticalScrollbarSize = 8;
-            // 
-            // dgv_hoadon
-            // 
-            this.dgv_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_hoadon.Location = new System.Drawing.Point(3, 87);
-            this.dgv_hoadon.Name = "dgv_hoadon";
-            this.dgv_hoadon.Size = new System.Drawing.Size(906, 424);
-            this.dgv_hoadon.TabIndex = 11;
-            // 
-            // ngayHoaDonPicker
-            // 
-            this.ngayHoaDonPicker.CustomFormat = "dd/MM/yyyy";
-            this.ngayHoaDonPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ngayHoaDonPicker.Location = new System.Drawing.Point(363, 40);
-            this.ngayHoaDonPicker.Name = "ngayHoaDonPicker";
-            this.ngayHoaDonPicker.Size = new System.Drawing.Size(130, 20);
-            this.ngayHoaDonPicker.TabIndex = 10;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(644, 43);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 13);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "VNĐ";
-            // 
-            // tb_triGia
-            // 
-            this.tb_triGia.Location = new System.Drawing.Point(538, 40);
-            this.tb_triGia.Name = "tb_triGia";
-            this.tb_triGia.Size = new System.Drawing.Size(100, 20);
-            this.tb_triGia.TabIndex = 8;
-            // 
-            // tb_maDTHoaDon
-            // 
-            this.tb_maDTHoaDon.Location = new System.Drawing.Point(197, 40);
-            this.tb_maDTHoaDon.Name = "tb_maDTHoaDon";
-            this.tb_maDTHoaDon.Size = new System.Drawing.Size(100, 20);
-            this.tb_maDTHoaDon.TabIndex = 7;
-            // 
-            // tb_maHD
-            // 
-            this.tb_maHD.Location = new System.Drawing.Point(39, 40);
-            this.tb_maHD.Name = "tb_maHD";
-            this.tb_maHD.Size = new System.Drawing.Size(100, 20);
-            this.tb_maHD.TabIndex = 6;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(535, 24);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(36, 13);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Trị giá";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(360, 24);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 13);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Ngày hóa đơn";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(194, 24);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 13);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Mã đơn thuốc";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(36, 24);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 13);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Mã hóa đơn";
-            // 
             // tabp_pxh
             // 
             this.tabp_pxh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -1233,6 +1257,56 @@
             this.tabp_dth.VerticalScrollbarBarColor = true;
             this.tabp_dth.VerticalScrollbarSize = 8;
             // 
+            // tb_maNVPKB
+            // 
+            this.tb_maNVPKB.Location = new System.Drawing.Point(6, 27);
+            this.tb_maNVPKB.Name = "tb_maNVPKB";
+            this.tb_maNVPKB.Size = new System.Drawing.Size(100, 20);
+            this.tb_maNVPKB.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(138, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Mã bệnh nhân";
+            // 
+            // tb_maBNPKB
+            // 
+            this.tb_maBNPKB.Location = new System.Drawing.Point(141, 27);
+            this.tb_maBNPKB.Name = "tb_maBNPKB";
+            this.tb_maBNPKB.Size = new System.Drawing.Size(100, 20);
+            this.tb_maBNPKB.TabIndex = 7;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(280, 27);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(277, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Ngày khám";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1255,16 +1329,17 @@
             this.tabp_donthuoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();
             this.tabp_pkb.ResumeLayout(false);
+            this.tabp_pkb.PerformLayout();
             this.tabcontrolmain.ResumeLayout(false);
             this.tabp_hsbn.ResumeLayout(false);
             this.tabp_hsbn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoSo)).EndInit();
-            this.tabp_kho.ResumeLayout(false);
-            this.tabp_kho.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).EndInit();
             this.tabp_hoadon.ResumeLayout(false);
             this.tabp_hoadon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).EndInit();
+            this.tabp_kho.ResumeLayout(false);
+            this.tabp_kho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).EndInit();
             this.tabp_pxh.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1369,5 +1444,13 @@
         public System.Windows.Forms.TextBox tb_triGia;
         public System.Windows.Forms.TextBox tb_maDTHoaDon;
         public System.Windows.Forms.TextBox tb_maHD;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox tb_maBNPKB;
+        public System.Windows.Forms.TextBox tb_maNVPKB;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
