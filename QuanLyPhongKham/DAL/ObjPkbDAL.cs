@@ -101,5 +101,51 @@ namespace QuanLyPhongKham.DAL
         public void Xoa() { }
 
         public void Sua() { }
+
+        public DataTable FindNv()
+        {
+            Form main = Application.OpenForms["frmMain"];
+            string idnv = ((frmMain)main).tb_pkb_findnv.Text.ToString();
+
+            string Query = "";
+            Query += "SELECT  MaNv,TenNV ";
+            Query += "FROM NhanVien ";
+            Query += "Where MaNv='" + idnv + "'";
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, null);
+
+            return dt;
+        }
+
+        public DataTable FindBn()
+        {
+            Form main = Application.OpenForms["frmMain"];
+            string idbn = ((frmMain)main).tb_pkb_findbn.Text.ToString();
+
+            string Query = "";
+            Query += "SELECT  MaBN,TenBN ";
+            Query += "FROM BenhNhan ";
+            Query += "Where MaBN=" + idbn + "'";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, null);
+
+            return dt;
+        }
+
+        public DataTable GetDataNV()
+        {
+            DataTable dt = new DataTable();
+            string LoadQuery = "SELECT * FROM NhanVien";
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
+            return dt;
+
+        }
+
+
+
+
+
+
+
+
     }
 }

@@ -368,6 +368,31 @@ namespace QuanLyPhongKham.GUI
             graphic.DrawImage(Properties.Resources.pill, startX, startY + 260);
         }
 
+        private void btt_pkb_findnv_Click(object sender, EventArgs e)
+        {
+            dgv_pkb_nv.DataSource = ObjPkbBLL.Instance.FindNv();
+        }
+
+        private void btt_pkb_findbn_Click(object sender, EventArgs e)
+        {
+            dgv_pkb_bn.DataSource= ObjPkbBLL.Instance.FindBn();
+        }
+
+        private void tb_pkb_findnv_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_pkb_findnv_Click(object sender, EventArgs e)
+        {
+            tb_pkb_findnv.Text = "";
+        }
+
+        private void tb_pkb_findbn_Click(object sender, EventArgs e)
+        {
+            tb_pkb_findbn.Text = "";
+        }
+
         int CheckTabPage()
         {
 
@@ -385,19 +410,24 @@ namespace QuanLyPhongKham.GUI
             int check = CheckTabPage();
             if (check == 0)
             {
+                check = CheckTabPage();
                 ObjBenhNhanBLL.Instance.GetData();
             }
             else if (check == 1)
             {
+                check = CheckTabPage();
                 ObjThuocBLL.Instance.GetData();
             }
             else if (check == 2)
             {
+                check = CheckTabPage();
                 ObjDonThuocBLL.Instance.GetData();
             }
             else if (check == 3)
             {
-                
+                check = CheckTabPage();
+                dgv_pkb_bn.DataSource = ObjBenhNhanBLL.Instance.GetData();
+                dgv_pkb_nv.DataSource = ObjPkbBLL.Instance.GetDataNV();
             }
             else if (check == 4)
             {

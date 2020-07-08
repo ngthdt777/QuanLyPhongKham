@@ -29,7 +29,7 @@ namespace QuanLyPhongKham.DAL
 
         private DataProvider() {
             var config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
-            config.AppSettings.Settings["ConnectionString"].Value = String.Format("Data Source={0};Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+            config.AppSettings.Settings["ConnectionString"].Value = String.Format(@"Data Source=.\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
             connectionSTR = ConfigurationManager.AppSettings["ConnectionString"];
