@@ -123,9 +123,9 @@ namespace QuanLyPhongKham.DAL
             string idbn = ((frmMain)main).tb_pkb_findbn.Text.ToString();
 
             string Query = "";
-            Query += "SELECT  MaBN,TenBN ";
+            Query += "SELECT  MaBN,TenBN,GioiTinh,NgKham,TrieuChung ";
             Query += "FROM BenhNhan ";
-            Query += "Where MaBN=" + idbn + "'";
+            Query += "Where MaBN='" + idbn + "'";
             DataTable dt = DataProvider.Instance.ExecuteQuery(Query, null);
 
             return dt;
