@@ -569,16 +569,15 @@
             // 
             // dgv_pkb_nv
             // 
-            this.dgv_pkb_nv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_pkb_nv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_pkb_nv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgv_pkb_nv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PKB_MaNV,
             this.PKB_TenNV});
             this.dgv_pkb_nv.EnableHeadersVisualStyles = false;
             this.dgv_pkb_nv.Location = new System.Drawing.Point(5, 46);
             this.dgv_pkb_nv.Name = "dgv_pkb_nv";
+            this.dgv_pkb_nv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_pkb_nv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_pkb_nv.Size = new System.Drawing.Size(429, 250);
             this.dgv_pkb_nv.TabIndex = 25;
@@ -598,9 +597,6 @@
             // 
             // dgv_pkb_bn
             // 
-            this.dgv_pkb_bn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_pkb_bn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_pkb_bn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PKB_MaBN,
@@ -609,8 +605,11 @@
             this.PKB_NgKham,
             this.PKB_TrieuChung});
             this.dgv_pkb_bn.EnableHeadersVisualStyles = false;
-            this.dgv_pkb_bn.Location = new System.Drawing.Point(487, 46);
+            this.dgv_pkb_bn.Location = new System.Drawing.Point(645, 57);
+            this.dgv_pkb_bn.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_pkb_bn.Name = "dgv_pkb_bn";
+            this.dgv_pkb_bn.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv_pkb_bn.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_pkb_bn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_pkb_bn.Size = new System.Drawing.Size(429, 250);
             this.dgv_pkb_bn.TabIndex = 24;
@@ -748,8 +747,8 @@
             this.tabcontrolmain.Location = new System.Drawing.Point(100, 25);
             this.tabcontrolmain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabcontrolmain.Name = "tabcontrolmain";
-            this.tabcontrolmain.SelectedIndex = 6;
-            this.tabcontrolmain.Size = new System.Drawing.Size(926, 551);
+            this.tabcontrolmain.SelectedIndex = 0;
+            this.tabcontrolmain.Size = new System.Drawing.Size(1235, 678);
             this.tabcontrolmain.TabIndex = 4;
             // 
             // tabp_hsbn
@@ -844,10 +843,11 @@
             this.TrieuChung,
             this.KetLuanBenh,
             this.BaoHiem});
-            this.dgvHoSo.Location = new System.Drawing.Point(3, 234);
+            this.dgvHoSo.Location = new System.Drawing.Point(4, 286);
+            this.dgvHoSo.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHoSo.Name = "dgvHoSo";
             this.dgvHoSo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoSo.Size = new System.Drawing.Size(906, 270);
+            this.dgvHoSo.Size = new System.Drawing.Size(1215, 258);
             this.dgvHoSo.TabIndex = 23;
             this.dgvHoSo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoSo_CellClick);
             this.dgvHoSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoSo_CellContentClick);
@@ -858,19 +858,21 @@
             this.MaBN.FillWeight = 40F;
             this.MaBN.HeaderText = "Mã Bệnh Nhân";
             this.MaBN.Name = "MaBN";
-            this.MaBN.Width = 70;
+            this.MaBN.Width = 53;
             // 
             // TenBN
             // 
             this.TenBN.DataPropertyName = "TenBN";
             this.TenBN.HeaderText = "Họ Tên";
             this.TenBN.Name = "TenBN";
+            this.TenBN.Width = 133;
             // 
             // SoDT
             // 
             this.SoDT.DataPropertyName = "SoDT";
             this.SoDT.HeaderText = "SĐT";
             this.SoDT.Name = "SoDT";
+            this.SoDT.Width = 134;
             // 
             // GioiTinh
             // 
@@ -878,43 +880,49 @@
             this.GioiTinh.FillWeight = 40F;
             this.GioiTinh.HeaderText = "Giới Tính";
             this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.Width = 40;
+            this.GioiTinh.Width = 53;
             // 
             // DiaChi
             // 
             this.DiaChi.DataPropertyName = "DiaChi";
             this.DiaChi.HeaderText = "Địa Chỉ";
             this.DiaChi.Name = "DiaChi";
+            this.DiaChi.Width = 133;
             // 
             // NgSinh
             // 
             this.NgSinh.DataPropertyName = "NgSinh";
             this.NgSinh.HeaderText = "Ngày Sinh";
             this.NgSinh.Name = "NgSinh";
+            this.NgSinh.Width = 133;
             // 
             // NgKham
             // 
             this.NgKham.DataPropertyName = "NgKham";
             this.NgKham.HeaderText = "Ngày Khám";
             this.NgKham.Name = "NgKham";
+            this.NgKham.Width = 133;
             // 
             // TrieuChung
             // 
             this.TrieuChung.DataPropertyName = "TrieuChung";
             this.TrieuChung.HeaderText = "Triệu Chứng";
             this.TrieuChung.Name = "TrieuChung";
+            this.TrieuChung.Width = 134;
             // 
             // KetLuanBenh
             // 
             this.KetLuanBenh.DataPropertyName = "KetLuanBenh";
             this.KetLuanBenh.HeaderText = "Kết Luận Bệnh";
             this.KetLuanBenh.Name = "KetLuanBenh";
+            this.KetLuanBenh.Width = 133;
             // 
             // BaoHiem
             // 
             this.BaoHiem.DataPropertyName = "BaoHiem";
             this.BaoHiem.HeaderText = "Bảo Hiểm";
             this.BaoHiem.Name = "BaoHiem";
+            this.BaoHiem.Width = 133;
             // 
             // ngayKhamPicker
             // 
