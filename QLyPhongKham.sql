@@ -106,6 +106,23 @@ Insert into Thuoc values ('TH010','Augmentin 1g','80','11-1-2019','11-1-2030','C
 
 
 ----------------------------------------------------------------------------------
+create table PhNhap (
+MaPN int primary key not null,
+NgPhieuNhap datetime
+)
+
+create table CTPN (
+MaCTPN int primary key not null,
+MaPN int foreign key references PhNhap(MaPN) not null,
+MaThuoc varchar(10) not null,
+TenThuoc varchar(45),
+SoLuong int,
+NSX datetime,
+HSD datetime,
+NCC varchar(45),
+Gia money,
+)
+
 create table DonThuoc
 (
  MaDT varchar(10) primary key not null,

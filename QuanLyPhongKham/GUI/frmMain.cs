@@ -10,18 +10,36 @@ using System.Windows.Forms;
 using QuanLyPhongKham.GUI;
 using QuanLyPhongKham.BLL;
 using System.Drawing.Printing;
+using QuanLyPhongKham.DAL;
+using System.Runtime.Remoting.Messaging;
 
 namespace QuanLyPhongKham.GUI
 {
     public partial class frmMain : Form
     {
         string acc = "", pass = "", chucvi = "";
+        private int nextPNID;
+        private Dictionary<string, string[]> listPhNhap = new Dictionary<string, string[]>();
+
         public frmMain(string acc, string pass, string chucvi)
         {
             InitializeComponent();
             this.acc = acc;
             this.pass = pass;
             this.chucvi = chucvi;
+
+            ObjPhNhapBLL.Instance.GetNextID(out nextPNID);
+            tb_pn_id.Text = nextPNID.ToString();
+
+            dgvPNH.AutoGenerateColumns = false;
+            
+            dgvPNH.Columns.Add("MaThuoc", "Mã thuốc");
+            dgvPNH.Columns.Add("TenThuoc", "Tên thuốc");
+            dgvPNH.Columns.Add("SL", "Số lượng");
+            dgvPNH.Columns.Add("NSX", "Ngày sản xuất");
+            dgvPNH.Columns.Add("HSD", "Hạn sử dụng");
+            dgvPNH.Columns.Add("NCC", "Nhà cung cấp");
+            dgvPNH.Columns.Add("Gia", "Giá thuốc");
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -83,9 +101,32 @@ namespace QuanLyPhongKham.GUI
             {
 
             }
-            else if (check == 6)
+            else if (check == 6) //phieu nhap
             {
+                try
+                {
+                    listPhNhap.Add(tb_maThuocPN.Text, new string[]
+                    {
+                        tb_maThuocPN.Text,
+                        tb_tenThuocPN.Text,
+                        tb_slPN.Text,
+                        dt_nsxPN.Value.ToString(),
+                        dt_hsdPN.Value.ToString(),
+                        tb_nccPN.Text,
+                        tb_giaPN.Text
+                    });
 
+                    dgvPNH.Rows.Add(listPhNhap.Values.Last());
+
+                    //clear text boxes
+                    tb_maThuocPN.Text = tb_tenThuocPN.Text = tb_slPN.Text = tb_nccPN.Text = tb_giaPN.Text = String.Empty;
+                    dt_nsxPN.Value = dt_hsdPN.Value = DateTime.Now;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Trùng mã phiếu nhập hàng", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex.Message);
+                }
             }
             else if (check == 7)
             {
@@ -121,9 +162,15 @@ namespace QuanLyPhongKham.GUI
             {
 
             }
-            else if (check == 6)
+            else if (check == 6) //phieu nhap
             {
+                if (dgvPNH.Rows.Count == 0)
+                {
+                    return;
+                }
 
+                listPhNhap.Remove(dgvPNH.CurrentRow.Cells["MaThuoc"].Value.ToString());
+                dgvPNH.Rows.RemoveAt(dgvPNH.CurrentRow.Index);
             }
             else if (check == 7)
             {
@@ -159,7 +206,7 @@ namespace QuanLyPhongKham.GUI
             {
 
             }
-            else if (check == 6)
+            else if (check == 6) //phieu nhap
             {
 
             }
@@ -296,6 +343,7 @@ namespace QuanLyPhongKham.GUI
                 if (result)
                 {
                     MessageBox.Show("In pkb thành công");
+                    ObjPhNhapBLL.Instance.Add();
                 }
                 else
                 {
@@ -324,6 +372,121 @@ namespace QuanLyPhongKham.GUI
                     return false;
                 }
             }
+            return false;
+        }
+
+        private void updateSLInThuoc(string maThuoc, int sl)
+        {
+            DataTable dt = ObjThuocBLL.Instance.GetInfoByID(maThuoc);
+            if (dt.Rows.Count > 0)
+            {
+                int slCu = 0;
+                Int32.TryParse(dt.Rows[0]["SoLuong"].ToString(), out slCu);
+
+                Dictionary<string, string> param = new Dictionary<string, string>();
+                param.Add("@MaThuoc", maThuoc);
+                param.Add("@SL", (slCu + sl).ToString());
+
+                ObjThuocBLL.Instance.Update(param);
+            }
+        }
+
+        private void insertIntoCTPN()
+        {
+            for (int row = 0; row < dgvPNH.Rows.Count; ++row)
+            {
+                int idPN = 1, sl = 0;
+                decimal gia = 0;
+                
+                Int32.TryParse(tb_pn_id.Text, out idPN);
+                Int32.TryParse(dgvPNH.Rows[row].Cells["SL"].Value.ToString(), out sl);
+                Decimal.TryParse(dgvPNH.Rows[row].Cells["Gia"].Value.ToString(), out gia);
+
+                DataTable dt = ObjThuocBLL.Instance.GetInfoByID(dgvPNH.Rows[row].Cells["MaThuoc"].Value.ToString());
+                if (dt.Rows.Count > 0)
+                {
+                    updateSLInThuoc(dgvPNH.Rows[row].Cells["MaThuoc"].Value.ToString(), sl);
+                }
+                else
+                {
+                    Dictionary<string, string> param = new Dictionary<string, string>();
+                    param.Add("@MaThuoc", dgvPNH.Rows[row].Cells["MaThuoc"].Value.ToString());
+                    param.Add("@TenThuoc", dgvPNH.Rows[row].Cells["TenThuoc"].Value.ToString());
+                    param.Add("SL", dgvPNH.Rows[row].Cells["SL"].Value.ToString());
+                    param.Add("NSX", dgvPNH.Rows[row].Cells["NSX"].Value.ToString());
+                    param.Add("HSD", dgvPNH.Rows[row].Cells["HSD"].Value.ToString());
+                    param.Add("NCC", dgvPNH.Rows[row].Cells["NCC"].Value.ToString());
+                    param.Add("Gia", dgvPNH.Rows[row].Cells["Gia"].Value.ToString());
+
+                    ObjThuocBLL.Instance.Add(param);
+                }
+
+                ObjCTPNBLL.Instance.Add(new ObjCTPNDAL(
+                                        idPN,
+                                        dgvPNH.Rows[row].Cells["MaThuoc"].Value.ToString(),
+                                        dgvPNH.Rows[row].Cells["TenThuoc"].Value.ToString(),
+                                        sl,
+                                        dgvPNH.Rows[row].Cells["NSX"].Value.ToString(),
+                                        dgvPNH.Rows[row].Cells["HSD"].Value.ToString(),
+                                        dgvPNH.Rows[row].Cells["NCC"].Value.ToString(),
+                                        gia
+                                                      )
+                );
+            }
+        }
+        
+
+        private void bttn_in_phnhap_Click(object sender, EventArgs e)
+        {
+            var resultDialog = MessageBox.Show("In phiếu nhập hàng?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (resultDialog == DialogResult.OK)
+            {
+                bool result = PrintPDFPN();
+
+                if (result)
+                {
+                    MessageBox.Show("In phiếu nhập thành công");
+
+                    //insert into table PhNhap
+                    ObjPhNhapBLL.Instance.Add();
+
+                    //insert into table CTPN
+                    insertIntoCTPN();
+
+                    listPhNhap.Clear();
+                    dgvPNH.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("In phiếu nhập thất bại");
+                }
+            }
+
+            ObjPhNhapBLL.Instance.GetNextID(out nextPNID);
+            tb_pn_id.Text = nextPNID.ToString();
+        }
+
+        private bool PrintPDFPN()
+        {
+            printDocument2.DefaultPageSettings.Landscape = true;
+            printDocument2.DefaultPageSettings.PaperSize.RawKind = (int)PaperKind.A3;
+
+            var resultDialog = printDialog1.ShowDialog();
+
+            if (resultDialog == DialogResult.OK)
+            {
+                try
+                {
+                    printDocument2.Print();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+
             return false;
         }
 
@@ -368,6 +531,71 @@ namespace QuanLyPhongKham.GUI
             graphic.DrawImage(Properties.Resources.pill, startX, startY + 260);
         }
 
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.ScaleTransform(0.8f, 0.8f);
+
+            Font font = new Font("Courier New", 12);
+            Brush brush = new SolidBrush(Color.Black);
+
+            float fontHeight = font.GetHeight();
+
+            int startX = 10, startY = 10, offset = 100;
+
+            //get max string length
+            int maxLen = 0;
+            foreach (string[] item in listPhNhap.Values.ToList())
+            {
+                int maxLenStr = item.Max(str => str.Length);
+                if (maxLenStr > maxLen)
+                {
+                    maxLen = maxLenStr;
+                }
+            }
+
+            //info phieu nhap
+            string id = String.Format("Mã phiếu nhập: {0}", tb_pn_id.Text);
+            string date = String.Format("Ngày nhập hàng: {0}", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"));
+
+            string listHeader = String.Empty;
+            listHeader += String.Format("{0,-15}", "Mã thuốc");
+            listHeader += String.Format("{0,-15}", "Tên thuốc");
+            listHeader += String.Format("{0,-15}", "Số lượng");
+            listHeader += String.Format("{0,-15}", "Ngày sản xuất");
+            listHeader += String.Format("{0,-15}", "Hạn sử dụng");
+            listHeader += String.Format("{0,-15}", "Nhà cung cấp");
+            listHeader += String.Format("{0,-15}", "Giá thuốc");
+
+
+
+
+            Graphics graphic = e.Graphics;
+            graphic.DrawString("PHIẾU NHẬP HÀNG", new Font("Courier New", 18, FontStyle.Bold), new SolidBrush(Color.Red), startX, 0);
+            graphic.DrawString(id, font, brush, startX, startY + 20);
+            graphic.DrawString(date, font, brush, startX, startY + 40);
+
+            graphic.DrawString("--------------------------------", font, brush, startX, startY + 60);
+
+            graphic.DrawString(listHeader, font, brush, startX, startY + 80);
+
+            string format = "{0,-" + maxLen + "}\t";
+            foreach (string[] items in listPhNhap.Values.ToList())
+            {
+                string itemStr = String.Empty;
+
+                for (int itemInd = 0; itemInd < items.Length; ++itemInd)
+                {
+                    itemStr += String.Format(format, items[itemInd]);
+                }
+
+                graphic.DrawString(itemStr, font, new SolidBrush(Color.Gray), startX, startY + offset);
+
+                offset += (int)fontHeight + 5;
+            }
+
+            graphic.DrawImage(Properties.Resources.pill, startX, startY + offset);
+        }
+
         private void btt_pkb_findnv_Click(object sender, EventArgs e)
         {
             dgv_pkb_nv.DataSource = ObjPkbBLL.Instance.FindNv();
@@ -391,7 +619,7 @@ namespace QuanLyPhongKham.GUI
         private void tb_pkb_findbn_Click(object sender, EventArgs e)
         {
             tb_pkb_findbn.Text = "";
-        }
+        }        
 
         int CheckTabPage()
         {

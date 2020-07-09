@@ -46,6 +46,26 @@ namespace QuanLyPhongKham.DAL
             return dt;
         }
 
+        public DataTable GetInfoByID(string id)
+        {
+            DataTable dt = new DataTable();
+
+            string LoadQuery = String.Empty;
+            LoadQuery += "SELECT * FROM Thuoc ";
+            LoadQuery += "WHERE MaThuoc = @MaThuoc";
+
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("@MaThuoc", id);
+
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, param);
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Lấy thuốc không thành công");
+            }
+
+            return dt;
+        }
+
         public DataTable GetInfoByName(string name)
         {
             DataTable dt = new DataTable();
@@ -59,13 +79,39 @@ namespace QuanLyPhongKham.DAL
             param.Add("@TenTh", ((frmMain)main).tb_tenThuoc.Text.Trim());
 
             dt = DataProvider.Instance.ExecuteQuery(LoadQuery, param);
-            if (dt.Rows.Count == 0)
+            /*if (dt.Rows.Count == 0)
             {
                 MessageBox.Show("Lấy thuốc không thành công");
-                return null;
-            }
+            }*/
 
             return dt;
+        }
+
+        public void Add(Dictionary<string, string> parameters)
+        {
+            string AddQuery = String.Empty;
+            AddQuery += "INSERT INTO THUOC (MaThuoc, TenThuoc, SoLuong, NSX, HSD, NCC, Gia) ";
+            AddQuery += "VALUES (@MaThuoc, @TenThuoc, @SL, @NSX, @HSD, @NCC, @Gia)";
+
+            int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, parameters);
+            if (result > 0)
+            {
+                MessageBox.Show("Thuốc đã thêm vào kho");
+            }
+        }
+
+        public void Update(Dictionary<string, string> parameters)
+        {
+            string UpdateQuery = String.Empty;
+            UpdateQuery += "UPDATE THUOC SET ";
+            UpdateQuery += "SoLuong = @SL ";
+            UpdateQuery += "WHERE MaThuoc = @MaThuoc";
+
+            int result = DataProvider.Instance.ExecuteNonQuery(UpdateQuery, parameters);
+            if (result > 0)
+            {
+                MessageBox.Show("Thông tin thuốc đã được cập nhật");
+            }
         }
 
         public void AddThuoc()

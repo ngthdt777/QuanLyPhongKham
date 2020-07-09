@@ -63,20 +63,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ObjBenhNhanBLL.cs" />
+    <Compile Include="BLL\ObjCTPNBLL.cs" />
     <Compile Include="BLL\ObjDonThuocBLL.cs" />
     <Compile Include="BLL\ObjHoaDonBLL.cs" />
     <Compile Include="BLL\ObjNhanVienBLL.cs" />
+    <Compile Include="BLL\ObjPhNhapBLL.cs" />
     <Compile Include="BLL\ObjThuocBLL.cs" />
-	<Compile Include="BLL\ObjPkbBLL.cs" />
+    <Compile Include="BLL\ObjPkbBLL.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\ObjBenhNhanDAL.cs" />
     <Compile Include="DAL\CTHD.cs" />
+    <Compile Include="DAL\ObjCTPNDAL.cs" />
     <Compile Include="DAL\ObjDonThuocDAL.cs" />
     <Compile Include="DAL\ObjHoaDonDAL.cs" />
     <Compile Include="DAL\LoaiNhanVien.cs" />
     <Compile Include="DAL\ObjNhanVienDAL.cs" />
+    <Compile Include="DAL\ObjPhNhapDAL.cs" />
     <Compile Include="DAL\ObjThuocDAL.cs" />
-	<Compile Include="DAL\ObjPkbDAL.cs" />
+    <Compile Include="DAL\ObjPkbDAL.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

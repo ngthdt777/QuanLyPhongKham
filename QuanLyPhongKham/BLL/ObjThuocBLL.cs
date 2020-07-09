@@ -33,9 +33,24 @@ namespace QuanLyPhongKham.BLL
             return ObjThuocDAL.Instance.GetInfo();
         }
 
+        public DataTable GetInfoByID(string id)
+        {
+            return ObjThuocDAL.Instance.GetInfoByID(id);
+        }
+
         public DataTable GetInfoByName(string name)
         {
             return ObjThuocDAL.Instance.GetInfoByName(name);
+        }
+
+        public void Add(Dictionary<string, string> parameters)
+        {
+            ObjThuocDAL.Instance.Add(parameters);
+        }
+
+        public void Update(Dictionary<string, string> parameters)
+        {
+            ObjThuocDAL.Instance.Update(parameters);
         }
 
         public void AddThuoc()
