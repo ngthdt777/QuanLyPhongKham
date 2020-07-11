@@ -9,27 +9,49 @@ using QuanLyPhongKham.GUI;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections;
+using System.Threading;
 
 namespace QuanLyPhongKham.DAL
 {
     public class DataProvider
     {
-        private static DataProvider instance;
-        private string connectionSTR;        
+        private static readonly Lazy<DataProvider> instance = new Lazy<DataProvider>(() => new DataProvider());
+        private string connectionSTR;
+        private Thread thread;
 
         public static DataProvider Instance
         {
             get
             {
-                if (instance == null) instance = new DataProvider();
-                return DataProvider.instance;
+                return instance.Value;
             }
-            private set => instance = value;
         }
 
         private DataProvider() {
+            /*thread = new Thread(new ThreadStart(UpdateConnection));
+            thread.IsBackground = true;
+            thread.Start();*/
+            UpdateConnection();
+        }
+
+        private void UpdateConnection()
+        {
+            string connectionStrType = String.Format(@"Data Source={0}\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+
+            SqlConnection con = new SqlConnection(connectionStrType);
+            try
+            {
+                con.Open();
+            }
+            catch (Exception e)
+            {
+                connectionStrType = String.Format(@"Data Source={0};Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+                Console.WriteLine(String.Format("Exception: {0}\nNew connection string: {1}", e.Message, connectionStrType));
+            }
+            con.Close();
+
             var config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
-            config.AppSettings.Settings["ConnectionString"].Value = String.Format(@"Data Source={0};Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+            config.AppSettings.Settings["ConnectionString"].Value = connectionStrType;
             config.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
             connectionSTR = ConfigurationManager.AppSettings["ConnectionString"];

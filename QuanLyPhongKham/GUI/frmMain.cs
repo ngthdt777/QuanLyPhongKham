@@ -343,7 +343,7 @@ namespace QuanLyPhongKham.GUI
                 if (result)
                 {
                     MessageBox.Show("In pkb thành công");
-                    ObjPhNhapBLL.Instance.Add();
+                    ObjPkbBLL.Instance.Add();
                 }
                 else
                 {
@@ -364,7 +364,6 @@ namespace QuanLyPhongKham.GUI
                 try
                 {
                     printDocument1.Print();
-                    ObjPkbBLL.Instance.Add();
                     return true;
                 }
                 catch (Exception e)
