@@ -53,14 +53,14 @@ namespace QuanLyPhongKham.GUI
             {
                 tabcontrolmain.Controls.Remove(tabp_hoadon);
                 tabcontrolmain.Controls.Remove(tabp_pnh);
-                tabcontrolmain.Controls.Remove(tabp_pxh);
+
                 tabcontrolmain.Controls.Remove(tabp_kho);
                 tabcontrolmain.Controls.Remove(tabp_dth);
             }
             else if (this.chucvi.CompareTo("3") == 0)//Tiep tan
             {
                 tabcontrolmain.Controls.Remove(tabp_pnh);
-                tabcontrolmain.Controls.Remove(tabp_pxh);
+
                 tabcontrolmain.Controls.Remove(tabp_kho);
                 tabcontrolmain.Controls.Remove(tabp_dth);
             }
@@ -618,6 +618,11 @@ namespace QuanLyPhongKham.GUI
         private void tb_pkb_findbn_Click(object sender, EventArgs e)
         {
             tb_pkb_findbn.Text = "";
+        }
+
+        private void btt_hoadon_thanhtien_Click(object sender, EventArgs e)
+        {
+            dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.Check();
         }
 
         int CheckTabPage()

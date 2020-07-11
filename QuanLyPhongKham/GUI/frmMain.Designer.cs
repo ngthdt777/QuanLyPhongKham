@@ -107,15 +107,8 @@
             this.lb_bn_id = new System.Windows.Forms.Label();
             this.tabp_hoadon = new MetroFramework.Controls.MetroTabPage();
             this.dgv_hoadon = new System.Windows.Forms.DataGridView();
-            this.ngayHoaDonPicker = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tb_triGia = new System.Windows.Forms.TextBox();
             this.tb_maDTHoaDon = new System.Windows.Forms.TextBox();
-            this.tb_maHD = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabp_kho = new MetroFramework.Controls.MetroTabPage();
             this.btt_khothuoc_Reload = new Guna.UI.WinForms.GunaButton();
             this.dgvKhoThuoc = new System.Windows.Forms.DataGridView();
@@ -161,17 +154,18 @@
             this.tb_maThuocPN = new System.Windows.Forms.TextBox();
             this.tb_pn_id = new System.Windows.Forms.TextBox();
             this.tabp_dth = new MetroFramework.Controls.MetroTabPage();
+            this.lb_doanhthu_dt = new System.Windows.Forms.Label();
+            this.lb_doanhthu_tongbn = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btt_doanhthu_find = new Guna.UI.WinForms.GunaButton();
+            this.dtp_doanhthu_to = new System.Windows.Forms.DateTimePicker();
+            this.dtp_doanhthu_from = new System.Windows.Forms.DateTimePicker();
+            this.lb_doanhthu_to = new System.Windows.Forms.Label();
+            this.lb_doanhthu_from = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
-            this.lb_doanhthu_from = new System.Windows.Forms.Label();
-            this.lb_doanhthu_to = new System.Windows.Forms.Label();
-            this.dtp_doanhthu_from = new System.Windows.Forms.DateTimePicker();
-            this.dtp_doanhthu_to = new System.Windows.Forms.DateTimePicker();
-            this.btt_doanhthu_find = new Guna.UI.WinForms.GunaButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lb_doanhthu_tongbn = new System.Windows.Forms.Label();
-            this.lb_doanhthu_dt = new System.Windows.Forms.Label();
+            this.btt_hoadon_thanhtien = new Guna.UI.WinForms.GunaButton();
             this.mnstrip_main.SuspendLayout();
             this.gunaGradientPanel1.SuspendLayout();
             this.tabp_donthuoc.SuspendLayout();
@@ -761,17 +755,17 @@
             // tabcontrolmain
             // 
             this.tabcontrolmain.Controls.Add(this.tabp_hsbn);
+            this.tabcontrolmain.Controls.Add(this.tabp_dth);
             this.tabcontrolmain.Controls.Add(this.tabp_pkb);
             this.tabcontrolmain.Controls.Add(this.tabp_donthuoc);
             this.tabcontrolmain.Controls.Add(this.tabp_hoadon);
             this.tabcontrolmain.Controls.Add(this.tabp_kho);
             this.tabcontrolmain.Controls.Add(this.tabp_pnh);
-            this.tabcontrolmain.Controls.Add(this.tabp_dth);
             this.tabcontrolmain.CustomBackground = true;
             this.tabcontrolmain.Location = new System.Drawing.Point(133, 31);
             this.tabcontrolmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabcontrolmain.Name = "tabcontrolmain";
-            this.tabcontrolmain.SelectedIndex = 6;
+            this.tabcontrolmain.SelectedIndex = 3;
             this.tabcontrolmain.Size = new System.Drawing.Size(1647, 834);
             this.tabcontrolmain.TabIndex = 4;
             // 
@@ -1125,16 +1119,10 @@
             // tabp_hoadon
             // 
             this.tabp_hoadon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_hoadon.Controls.Add(this.btt_hoadon_thanhtien);
             this.tabp_hoadon.Controls.Add(this.dgv_hoadon);
-            this.tabp_hoadon.Controls.Add(this.ngayHoaDonPicker);
-            this.tabp_hoadon.Controls.Add(this.label20);
-            this.tabp_hoadon.Controls.Add(this.tb_triGia);
             this.tabp_hoadon.Controls.Add(this.tb_maDTHoaDon);
-            this.tabp_hoadon.Controls.Add(this.tb_maHD);
-            this.tabp_hoadon.Controls.Add(this.label19);
-            this.tabp_hoadon.Controls.Add(this.label18);
             this.tabp_hoadon.Controls.Add(this.label17);
-            this.tabp_hoadon.Controls.Add(this.label16);
             this.tabp_hoadon.HorizontalScrollbarBarColor = true;
             this.tabp_hoadon.Location = new System.Drawing.Point(4, 39);
             this.tabp_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1154,89 +1142,23 @@
             this.dgv_hoadon.Size = new System.Drawing.Size(1208, 522);
             this.dgv_hoadon.TabIndex = 11;
             // 
-            // ngayHoaDonPicker
-            // 
-            this.ngayHoaDonPicker.CustomFormat = "dd/MM/yyyy";
-            this.ngayHoaDonPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ngayHoaDonPicker.Location = new System.Drawing.Point(484, 49);
-            this.ngayHoaDonPicker.Margin = new System.Windows.Forms.Padding(4);
-            this.ngayHoaDonPicker.Name = "ngayHoaDonPicker";
-            this.ngayHoaDonPicker.Size = new System.Drawing.Size(172, 22);
-            this.ngayHoaDonPicker.TabIndex = 10;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(859, 53);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 17);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "VNĐ";
-            // 
-            // tb_triGia
-            // 
-            this.tb_triGia.Location = new System.Drawing.Point(717, 49);
-            this.tb_triGia.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_triGia.Name = "tb_triGia";
-            this.tb_triGia.Size = new System.Drawing.Size(132, 22);
-            this.tb_triGia.TabIndex = 8;
-            // 
             // tb_maDTHoaDon
             // 
-            this.tb_maDTHoaDon.Location = new System.Drawing.Point(263, 49);
+            this.tb_maDTHoaDon.Location = new System.Drawing.Point(86, 49);
             this.tb_maDTHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maDTHoaDon.Name = "tb_maDTHoaDon";
             this.tb_maDTHoaDon.Size = new System.Drawing.Size(132, 22);
             this.tb_maDTHoaDon.TabIndex = 7;
             // 
-            // tb_maHD
-            // 
-            this.tb_maHD.Location = new System.Drawing.Point(52, 49);
-            this.tb_maHD.Margin = new System.Windows.Forms.Padding(4);
-            this.tb_maHD.Name = "tb_maHD";
-            this.tb_maHD.Size = new System.Drawing.Size(132, 22);
-            this.tb_maHD.TabIndex = 6;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(713, 30);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 17);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Trị giá";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(480, 30);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 17);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Ngày hóa đơn";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(259, 30);
+            this.label17.Location = new System.Drawing.Point(83, 30);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 17);
             this.label17.TabIndex = 3;
             this.label17.Text = "Mã đơn thuốc";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(48, 30);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 17);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Mã hóa đơn";
             // 
             // tabp_kho
             // 
@@ -1746,49 +1668,32 @@
             this.tabp_dth.VerticalScrollbarBarColor = true;
             this.tabp_dth.VerticalScrollbarSize = 11;
             // 
-            // printDocument1
+            // lb_doanhthu_dt
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.lb_doanhthu_dt.AutoSize = true;
+            this.lb_doanhthu_dt.Location = new System.Drawing.Point(779, 522);
+            this.lb_doanhthu_dt.Name = "lb_doanhthu_dt";
+            this.lb_doanhthu_dt.Size = new System.Drawing.Size(78, 17);
+            this.lb_doanhthu_dt.TabIndex = 33;
+            this.lb_doanhthu_dt.Text = "Doanh thu:";
             // 
-            // printDialog1
+            // lb_doanhthu_tongbn
             // 
-            this.printDialog1.UseEXDialog = true;
+            this.lb_doanhthu_tongbn.AutoSize = true;
+            this.lb_doanhthu_tongbn.Location = new System.Drawing.Point(407, 522);
+            this.lb_doanhthu_tongbn.Name = "lb_doanhthu_tongbn";
+            this.lb_doanhthu_tongbn.Size = new System.Drawing.Size(117, 17);
+            this.lb_doanhthu_tongbn.TabIndex = 32;
+            this.lb_doanhthu_tongbn.Text = "Tổng bệnh nhân:";
             // 
-            // printDocument2
+            // dataGridView1
             // 
-            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
-            // 
-            // lb_doanhthu_from
-            // 
-            this.lb_doanhthu_from.AutoSize = true;
-            this.lb_doanhthu_from.Location = new System.Drawing.Point(407, 38);
-            this.lb_doanhthu_from.Name = "lb_doanhthu_from";
-            this.lb_doanhthu_from.Size = new System.Drawing.Size(29, 17);
-            this.lb_doanhthu_from.TabIndex = 2;
-            this.lb_doanhthu_from.Text = "Từ:";
-            // 
-            // lb_doanhthu_to
-            // 
-            this.lb_doanhthu_to.AutoSize = true;
-            this.lb_doanhthu_to.Location = new System.Drawing.Point(677, 38);
-            this.lb_doanhthu_to.Name = "lb_doanhthu_to";
-            this.lb_doanhthu_to.Size = new System.Drawing.Size(38, 17);
-            this.lb_doanhthu_to.TabIndex = 3;
-            this.lb_doanhthu_to.Text = "Đến:";
-            // 
-            // dtp_doanhthu_from
-            // 
-            this.dtp_doanhthu_from.Location = new System.Drawing.Point(459, 33);
-            this.dtp_doanhthu_from.Name = "dtp_doanhthu_from";
-            this.dtp_doanhthu_from.Size = new System.Drawing.Size(200, 22);
-            this.dtp_doanhthu_from.TabIndex = 4;
-            // 
-            // dtp_doanhthu_to
-            // 
-            this.dtp_doanhthu_to.Location = new System.Drawing.Point(731, 33);
-            this.dtp_doanhthu_to.Name = "dtp_doanhthu_to";
-            this.dtp_doanhthu_to.Size = new System.Drawing.Size(200, 22);
-            this.dtp_doanhthu_to.TabIndex = 5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(200, 83);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(919, 397);
+            this.dataGridView1.TabIndex = 31;
             // 
             // btt_doanhthu_find
             // 
@@ -1814,32 +1719,77 @@
             this.btt_doanhthu_find.Size = new System.Drawing.Size(60, 36);
             this.btt_doanhthu_find.TabIndex = 30;
             // 
-            // dataGridView1
+            // dtp_doanhthu_to
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(200, 83);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(919, 397);
-            this.dataGridView1.TabIndex = 31;
+            this.dtp_doanhthu_to.Location = new System.Drawing.Point(731, 33);
+            this.dtp_doanhthu_to.Name = "dtp_doanhthu_to";
+            this.dtp_doanhthu_to.Size = new System.Drawing.Size(200, 22);
+            this.dtp_doanhthu_to.TabIndex = 5;
             // 
-            // lb_doanhthu_tongbn
+            // dtp_doanhthu_from
             // 
-            this.lb_doanhthu_tongbn.AutoSize = true;
-            this.lb_doanhthu_tongbn.Location = new System.Drawing.Point(407, 522);
-            this.lb_doanhthu_tongbn.Name = "lb_doanhthu_tongbn";
-            this.lb_doanhthu_tongbn.Size = new System.Drawing.Size(117, 17);
-            this.lb_doanhthu_tongbn.TabIndex = 32;
-            this.lb_doanhthu_tongbn.Text = "Tổng bệnh nhân:";
+            this.dtp_doanhthu_from.Location = new System.Drawing.Point(459, 33);
+            this.dtp_doanhthu_from.Name = "dtp_doanhthu_from";
+            this.dtp_doanhthu_from.Size = new System.Drawing.Size(200, 22);
+            this.dtp_doanhthu_from.TabIndex = 4;
             // 
-            // lb_doanhthu_dt
+            // lb_doanhthu_to
             // 
-            this.lb_doanhthu_dt.AutoSize = true;
-            this.lb_doanhthu_dt.Location = new System.Drawing.Point(779, 522);
-            this.lb_doanhthu_dt.Name = "lb_doanhthu_dt";
-            this.lb_doanhthu_dt.Size = new System.Drawing.Size(78, 17);
-            this.lb_doanhthu_dt.TabIndex = 33;
-            this.lb_doanhthu_dt.Text = "Doanh thu:";
+            this.lb_doanhthu_to.AutoSize = true;
+            this.lb_doanhthu_to.Location = new System.Drawing.Point(677, 38);
+            this.lb_doanhthu_to.Name = "lb_doanhthu_to";
+            this.lb_doanhthu_to.Size = new System.Drawing.Size(38, 17);
+            this.lb_doanhthu_to.TabIndex = 3;
+            this.lb_doanhthu_to.Text = "Đến:";
+            // 
+            // lb_doanhthu_from
+            // 
+            this.lb_doanhthu_from.AutoSize = true;
+            this.lb_doanhthu_from.Location = new System.Drawing.Point(407, 38);
+            this.lb_doanhthu_from.Name = "lb_doanhthu_from";
+            this.lb_doanhthu_from.Size = new System.Drawing.Size(29, 17);
+            this.lb_doanhthu_from.TabIndex = 2;
+            this.lb_doanhthu_from.Text = "Từ:";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
+            // btt_hoadon_thanhtien
+            // 
+            this.btt_hoadon_thanhtien.AnimationHoverSpeed = 0.07F;
+            this.btt_hoadon_thanhtien.AnimationSpeed = 0.03F;
+            this.btt_hoadon_thanhtien.BaseColor = System.Drawing.Color.White;
+            this.btt_hoadon_thanhtien.BorderColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.BorderSize = 2;
+            this.btt_hoadon_thanhtien.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btt_hoadon_thanhtien.FocusedColor = System.Drawing.Color.Empty;
+            this.btt_hoadon_thanhtien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btt_hoadon_thanhtien.ForeColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.Image = null;
+            this.btt_hoadon_thanhtien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_hoadon_thanhtien.ImageSize = new System.Drawing.Size(30, 30);
+            this.btt_hoadon_thanhtien.Location = new System.Drawing.Point(267, 30);
+            this.btt_hoadon_thanhtien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btt_hoadon_thanhtien.Name = "btt_hoadon_thanhtien";
+            this.btt_hoadon_thanhtien.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btt_hoadon_thanhtien.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.OnHoverForeColor = System.Drawing.Color.White;
+            this.btt_hoadon_thanhtien.OnHoverImage = null;
+            this.btt_hoadon_thanhtien.OnPressedColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.Size = new System.Drawing.Size(125, 52);
+            this.btt_hoadon_thanhtien.TabIndex = 6;
+            this.btt_hoadon_thanhtien.Text = "thành tiền";
+            this.btt_hoadon_thanhtien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_hoadon_thanhtien.Click += new System.EventHandler(this.btt_hoadon_thanhtien_Click);
             // 
             // frmMain
             // 
@@ -1917,11 +1867,7 @@
         private System.Windows.Forms.Label lb_bn_sdt;
         private System.Windows.Forms.Label lb_bn_name;
         private System.Windows.Forms.Label lb_bn_id;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
@@ -1979,10 +1925,7 @@
         public System.Windows.Forms.TextBox tb_slThuoc;
         public System.Windows.Forms.TextBox tb_tenThuoc;
         public System.Windows.Forms.TextBox tb_maDT;
-        public System.Windows.Forms.DateTimePicker ngayHoaDonPicker;
-        public System.Windows.Forms.TextBox tb_triGia;
         public System.Windows.Forms.TextBox tb_maDTHoaDon;
-        public System.Windows.Forms.TextBox tb_maHD;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -2031,5 +1974,6 @@
         private System.Windows.Forms.DateTimePicker dtp_doanhthu_from;
         private System.Windows.Forms.Label lb_doanhthu_to;
         private System.Windows.Forms.Label lb_doanhthu_from;
+        private Guna.UI.WinForms.GunaButton btt_hoadon_thanhtien;
     }
 }
