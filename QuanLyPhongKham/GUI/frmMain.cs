@@ -619,7 +619,7 @@ namespace QuanLyPhongKham.GUI
         private void tb_pkb_findbn_Click(object sender, EventArgs e)
         {
             tb_pkb_findbn.Text = "";
-        }        
+        }
 
         int CheckTabPage()
         {
