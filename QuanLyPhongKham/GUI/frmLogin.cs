@@ -16,12 +16,13 @@ namespace QuanLyPhongKham.GUI
     {
 
         public frmLogin()
-        {
+        {            
             InitializeComponent();
         }
 
         public void LoginCheck()
         {
+
             if (this.txb_account.Text == String.Empty || this.txb_pass.Text == String.Empty)
             {
                 MessageBox.Show("Nhập lại tài khoản/mật khẩu");
@@ -57,11 +58,15 @@ namespace QuanLyPhongKham.GUI
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            if (!backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
         }
 
         private void btt_login_Click(object sender, EventArgs e)
         {
+
             LoginCheck();
         }
        /* bool LoginCheck()   
@@ -85,5 +90,20 @@ namespace QuanLyPhongKham.GUI
             }
         }
 
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Console.WriteLine("Updating connection string");
+            DataProvider.Instance.UpdateConnection();
+            Console.WriteLine("Finished updating connection string");
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            txb_account.Enabled = true;
+            txb_pass.Enabled = true;
+            btt_login.Enabled = true;
+
+            label_connectionStatus.Text = "Cập nhật connection string thành công";
+        }
     }
 }

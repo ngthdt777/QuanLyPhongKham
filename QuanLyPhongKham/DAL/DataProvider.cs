@@ -27,14 +27,9 @@ namespace QuanLyPhongKham.DAL
             }
         }
 
-        private DataProvider() {
-            /*thread = new Thread(new ThreadStart(UpdateConnection));
-            thread.IsBackground = true;
-            thread.Start();*/
-            UpdateConnection();
-        }
+        private DataProvider() { }
 
-        private void UpdateConnection()
+        public void UpdateConnection()
         {
             string connectionStrType = String.Format(@"Data Source={0}\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
 
