@@ -53,10 +53,10 @@ namespace QuanLyPhongKham.DAL
             DataTable dt = ObjThuocBLL.Instance.GetInfoByName(((frmMain)main).tb_tenThuoc.Text);
 
             Dictionary<String, String> param = new Dictionary<string, string>();
-            param.Add("@MaHD", ((frmMain)main).tb_maHD.Text);
+         ///   param.Add("@MaHD", ((frmMain)main).tb_maHD.Text);
             param.Add("@MaDT", ((frmMain)main).tb_maDTHoaDon.Text);
             param.Add("@NgHD", DateTime.Now.ToString());
-            param.Add("@TG", ((frmMain)main).tb_triGia.Text);
+         //   param.Add("@TG", ((frmMain)main).tb_triGia.Text);
 
             int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, param);
             if (result > 0)
@@ -86,9 +86,27 @@ namespace QuanLyPhongKham.DAL
             FindQuery += "WHERE MaHD = @MaHD";
 
             Dictionary<String, String> param = new Dictionary<string, string>();
-            param.Add("@MaHD", ((frmMain)main).tb_maHD.Text.Trim());
+        //    param.Add("@MaHD", ((frmMain)main).tb_maHD.Text.Trim());
 
             dt = DataProvider.Instance.ExecuteQuery(FindQuery, param);
+            return dt;
+        }
+
+
+        public DataTable Check()
+        {
+            DataTable dt = new DataTable();
+
+            Form main = Application.OpenForms["frmMain"];
+            id = ((frmMain)main).tb_maDTHoaDon.Text.ToString();
+
+            string FindQuery = "";
+            FindQuery += "SELECT MaDT,TenNV,TenBN,CAST(PKB.NgKham AS DATE) AS [NgKham] ,Thuoc.Gia * DonThuoc.SoLuong as [Thanh tien]";
+            FindQuery += "from DonThuoc,Thuoc,PKB,BenhNhan,NhanVien ";
+            FindQuery += "where DonThuoc.MaDT ='"+id+"' and DonThuoc.MaThuoc = Thuoc.MaThuoc and DonThuoc.MaPKB= PKB.MaPKB and PKB.MaBN = BenhNhan.MaBN and PKB.MaNV = NhanVien.MaNV";
+
+
+            dt = DataProvider.Instance.ExecuteQuery(FindQuery,null);
             return dt;
         }
     }

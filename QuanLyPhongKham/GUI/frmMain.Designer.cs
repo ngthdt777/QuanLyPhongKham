@@ -107,15 +107,8 @@
             this.lb_bn_id = new System.Windows.Forms.Label();
             this.tabp_hoadon = new MetroFramework.Controls.MetroTabPage();
             this.dgv_hoadon = new System.Windows.Forms.DataGridView();
-            this.ngayHoaDonPicker = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tb_triGia = new System.Windows.Forms.TextBox();
             this.tb_maDTHoaDon = new System.Windows.Forms.TextBox();
-            this.tb_maHD = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabp_kho = new MetroFramework.Controls.MetroTabPage();
             this.btt_khothuoc_Reload = new Guna.UI.WinForms.GunaButton();
             this.dgvKhoThuoc = new System.Windows.Forms.DataGridView();
@@ -141,8 +134,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.tabp_pxh = new MetroFramework.Controls.MetroTabPage();
-            this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
             this.tabp_pnh = new MetroFramework.Controls.MetroTabPage();
             this.dgvPNH = new System.Windows.Forms.DataGridView();
             this.label31 = new System.Windows.Forms.Label();
@@ -163,9 +154,18 @@
             this.tb_maThuocPN = new System.Windows.Forms.TextBox();
             this.tb_pn_id = new System.Windows.Forms.TextBox();
             this.tabp_dth = new MetroFramework.Controls.MetroTabPage();
+            this.lb_doanhthu_dt = new System.Windows.Forms.Label();
+            this.lb_doanhthu_tongbn = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btt_doanhthu_find = new Guna.UI.WinForms.GunaButton();
+            this.dtp_doanhthu_to = new System.Windows.Forms.DateTimePicker();
+            this.dtp_doanhthu_from = new System.Windows.Forms.DateTimePicker();
+            this.lb_doanhthu_to = new System.Windows.Forms.Label();
+            this.lb_doanhthu_from = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.btt_hoadon_thanhtien = new Guna.UI.WinForms.GunaButton();
             this.mnstrip_main.SuspendLayout();
             this.gunaGradientPanel1.SuspendLayout();
             this.tabp_donthuoc.SuspendLayout();
@@ -180,9 +180,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
             this.tabp_kho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).BeginInit();
-            this.tabp_pxh.SuspendLayout();
             this.tabp_pnh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPNH)).BeginInit();
+            this.tabp_dth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // mnstrip_main
@@ -380,7 +381,7 @@
             // 
             this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDT.Location = new System.Drawing.Point(4, 161);
-            this.dgvDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDT.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDT.Name = "dgvDT";
             this.dgvDT.Size = new System.Drawing.Size(1208, 459);
             this.dgvDT.TabIndex = 13;
@@ -388,7 +389,7 @@
             // tb_maBNThuoc
             // 
             this.tb_maBNThuoc.Location = new System.Drawing.Point(267, 101);
-            this.tb_maBNThuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maBNThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maBNThuoc.Name = "tb_maBNThuoc";
             this.tb_maBNThuoc.Size = new System.Drawing.Size(132, 22);
             this.tb_maBNThuoc.TabIndex = 12;
@@ -396,7 +397,7 @@
             // tb_maNV
             // 
             this.tb_maNV.Location = new System.Drawing.Point(25, 101);
-            this.tb_maNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maNV.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maNV.Name = "tb_maNV";
             this.tb_maNV.Size = new System.Drawing.Size(132, 22);
             this.tb_maNV.TabIndex = 11;
@@ -404,7 +405,7 @@
             // tb_slThuoc
             // 
             this.tb_slThuoc.Location = new System.Drawing.Point(508, 37);
-            this.tb_slThuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_slThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.tb_slThuoc.Name = "tb_slThuoc";
             this.tb_slThuoc.Size = new System.Drawing.Size(132, 22);
             this.tb_slThuoc.TabIndex = 10;
@@ -412,7 +413,7 @@
             // tb_tenThuoc
             // 
             this.tb_tenThuoc.Location = new System.Drawing.Point(267, 37);
-            this.tb_tenThuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_tenThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.tb_tenThuoc.Name = "tb_tenThuoc";
             this.tb_tenThuoc.Size = new System.Drawing.Size(132, 22);
             this.tb_tenThuoc.TabIndex = 9;
@@ -420,7 +421,7 @@
             // tb_maDT
             // 
             this.tb_maDT.Location = new System.Drawing.Point(25, 37);
-            this.tb_maDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maDT.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maDT.Name = "tb_maDT";
             this.tb_maDT.Size = new System.Drawing.Size(132, 22);
             this.tb_maDT.TabIndex = 8;
@@ -557,7 +558,7 @@
             this.tb_pkb_findbn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pkb_findbn.ForeColor = System.Drawing.Color.Black;
             this.tb_pkb_findbn.Location = new System.Drawing.Point(867, 16);
-            this.tb_pkb_findbn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_pkb_findbn.Margin = new System.Windows.Forms.Padding(4);
             this.tb_pkb_findbn.Name = "tb_pkb_findbn";
             this.tb_pkb_findbn.Size = new System.Drawing.Size(169, 34);
             this.tb_pkb_findbn.TabIndex = 27;
@@ -570,7 +571,7 @@
             this.tb_pkb_findnv.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pkb_findnv.ForeColor = System.Drawing.Color.Black;
             this.tb_pkb_findnv.Location = new System.Drawing.Point(155, 16);
-            this.tb_pkb_findnv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_pkb_findnv.Margin = new System.Windows.Forms.Padding(4);
             this.tb_pkb_findnv.Name = "tb_pkb_findnv";
             this.tb_pkb_findnv.Size = new System.Drawing.Size(169, 34);
             this.tb_pkb_findnv.TabIndex = 26;
@@ -587,7 +588,7 @@
             this.PKB_TenNV});
             this.dgv_pkb_nv.EnableHeadersVisualStyles = false;
             this.dgv_pkb_nv.Location = new System.Drawing.Point(7, 57);
-            this.dgv_pkb_nv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_pkb_nv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_pkb_nv.Name = "dgv_pkb_nv";
             this.dgv_pkb_nv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_pkb_nv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -617,8 +618,8 @@
             this.PKB_NgKham,
             this.PKB_TrieuChung});
             this.dgv_pkb_bn.EnableHeadersVisualStyles = false;
-            this.dgv_pkb_bn.Location = new System.Drawing.Point(860, 70);
-            this.dgv_pkb_bn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgv_pkb_bn.Location = new System.Drawing.Point(654, 57);
+            this.dgv_pkb_bn.Margin = new System.Windows.Forms.Padding(5);
             this.dgv_pkb_bn.Name = "dgv_pkb_bn";
             this.dgv_pkb_bn.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_pkb_bn.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -674,7 +675,7 @@
             this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(573, 386);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker1.TabIndex = 8;
@@ -682,7 +683,7 @@
             // tb_maBNPKB
             // 
             this.tb_maBNPKB.Location = new System.Drawing.Point(340, 386);
-            this.tb_maBNPKB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maBNPKB.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maBNPKB.Name = "tb_maBNPKB";
             this.tb_maBNPKB.Size = new System.Drawing.Size(132, 22);
             this.tb_maBNPKB.TabIndex = 7;
@@ -700,7 +701,7 @@
             // tb_maNVPKB
             // 
             this.tb_maNVPKB.Location = new System.Drawing.Point(135, 386);
-            this.tb_maNVPKB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maNVPKB.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maNVPKB.Name = "tb_maNVPKB";
             this.tb_maNVPKB.Size = new System.Drawing.Size(132, 22);
             this.tb_maNVPKB.TabIndex = 5;
@@ -754,18 +755,17 @@
             // tabcontrolmain
             // 
             this.tabcontrolmain.Controls.Add(this.tabp_hsbn);
+            this.tabcontrolmain.Controls.Add(this.tabp_dth);
             this.tabcontrolmain.Controls.Add(this.tabp_pkb);
             this.tabcontrolmain.Controls.Add(this.tabp_donthuoc);
             this.tabcontrolmain.Controls.Add(this.tabp_hoadon);
             this.tabcontrolmain.Controls.Add(this.tabp_kho);
-            this.tabcontrolmain.Controls.Add(this.tabp_pxh);
             this.tabcontrolmain.Controls.Add(this.tabp_pnh);
-            this.tabcontrolmain.Controls.Add(this.tabp_dth);
             this.tabcontrolmain.CustomBackground = true;
             this.tabcontrolmain.Location = new System.Drawing.Point(133, 31);
             this.tabcontrolmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabcontrolmain.Name = "tabcontrolmain";
-            this.tabcontrolmain.SelectedIndex = 5;
+            this.tabcontrolmain.SelectedIndex = 3;
             this.tabcontrolmain.Size = new System.Drawing.Size(1647, 834);
             this.tabcontrolmain.TabIndex = 4;
             // 
@@ -838,16 +838,13 @@
             "Nữ",
             "Khác"});
             this.cb_bn_sex.Location = new System.Drawing.Point(651, 47);
-            this.cb_bn_sex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_bn_sex.Margin = new System.Windows.Forms.Padding(4);
             this.cb_bn_sex.Name = "cb_bn_sex";
             this.cb_bn_sex.Size = new System.Drawing.Size(132, 24);
             this.cb_bn_sex.TabIndex = 24;
             // 
             // dgvHoSo
             // 
-            this.dgvHoSo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHoSo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvHoSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -862,10 +859,10 @@
             this.KetLuanBenh,
             this.BaoHiem});
             this.dgvHoSo.Location = new System.Drawing.Point(5, 352);
-            this.dgvHoSo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dgvHoSo.Margin = new System.Windows.Forms.Padding(5);
             this.dgvHoSo.Name = "dgvHoSo";
             this.dgvHoSo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoSo.Size = new System.Drawing.Size(2032, 469);
+            this.dgvHoSo.Size = new System.Drawing.Size(1211, 273);
             this.dgvHoSo.TabIndex = 23;
             this.dgvHoSo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoSo_CellClick);
             this.dgvHoSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoSo_CellContentClick);
@@ -947,7 +944,7 @@
             this.ngayKhamPicker.CustomFormat = "dd/MM/yyyy";
             this.ngayKhamPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ngayKhamPicker.Location = new System.Drawing.Point(1023, 130);
-            this.ngayKhamPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ngayKhamPicker.Margin = new System.Windows.Forms.Padding(4);
             this.ngayKhamPicker.Name = "ngayKhamPicker";
             this.ngayKhamPicker.Size = new System.Drawing.Size(164, 22);
             this.ngayKhamPicker.TabIndex = 22;
@@ -957,7 +954,7 @@
             this.ngaySinhPicker.CustomFormat = "dd/MM/yyyy";
             this.ngaySinhPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ngaySinhPicker.Location = new System.Drawing.Point(1023, 43);
-            this.ngaySinhPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ngaySinhPicker.Margin = new System.Windows.Forms.Padding(4);
             this.ngaySinhPicker.Name = "ngaySinhPicker";
             this.ngaySinhPicker.Size = new System.Drawing.Size(164, 22);
             this.ngaySinhPicker.TabIndex = 21;
@@ -965,7 +962,7 @@
             // tb_bn_baohiem
             // 
             this.tb_bn_baohiem.Location = new System.Drawing.Point(651, 130);
-            this.tb_bn_baohiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_baohiem.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_baohiem.Name = "tb_bn_baohiem";
             this.tb_bn_baohiem.Size = new System.Drawing.Size(132, 22);
             this.tb_bn_baohiem.TabIndex = 20;
@@ -973,7 +970,7 @@
             // tb_bn_klb
             // 
             this.tb_bn_klb.Location = new System.Drawing.Point(193, 130);
-            this.tb_bn_klb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_klb.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_klb.Multiline = true;
             this.tb_bn_klb.Name = "tb_bn_klb";
             this.tb_bn_klb.Size = new System.Drawing.Size(432, 149);
@@ -982,7 +979,7 @@
             // tb_bn_trieuchung
             // 
             this.tb_bn_trieuchung.Location = new System.Drawing.Point(37, 130);
-            this.tb_bn_trieuchung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_trieuchung.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_trieuchung.Name = "tb_bn_trieuchung";
             this.tb_bn_trieuchung.Size = new System.Drawing.Size(132, 22);
             this.tb_bn_trieuchung.TabIndex = 18;
@@ -990,7 +987,7 @@
             // tb_bn_add
             // 
             this.tb_bn_add.Location = new System.Drawing.Point(844, 43);
-            this.tb_bn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_add.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_add.Name = "tb_bn_add";
             this.tb_bn_add.Size = new System.Drawing.Size(132, 22);
             this.tb_bn_add.TabIndex = 16;
@@ -998,7 +995,7 @@
             // tb_bn_sdt
             // 
             this.tb_bn_sdt.Location = new System.Drawing.Point(443, 43);
-            this.tb_bn_sdt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_sdt.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_sdt.Name = "tb_bn_sdt";
             this.tb_bn_sdt.Size = new System.Drawing.Size(132, 22);
             this.tb_bn_sdt.TabIndex = 14;
@@ -1006,7 +1003,7 @@
             // tb_bn_ten
             // 
             this.tb_bn_ten.Location = new System.Drawing.Point(237, 43);
-            this.tb_bn_ten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_ten.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_ten.Name = "tb_bn_ten";
             this.tb_bn_ten.Size = new System.Drawing.Size(132, 22);
             this.tb_bn_ten.TabIndex = 13;
@@ -1014,7 +1011,7 @@
             // tb_bn_id
             // 
             this.tb_bn_id.Location = new System.Drawing.Point(37, 43);
-            this.tb_bn_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_bn_id.Margin = new System.Windows.Forms.Padding(4);
             this.tb_bn_id.Name = "tb_bn_id";
             this.tb_bn_id.Size = new System.Drawing.Size(132, 22);
             this.tb_bn_id.TabIndex = 12;
@@ -1122,16 +1119,10 @@
             // tabp_hoadon
             // 
             this.tabp_hoadon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_hoadon.Controls.Add(this.btt_hoadon_thanhtien);
             this.tabp_hoadon.Controls.Add(this.dgv_hoadon);
-            this.tabp_hoadon.Controls.Add(this.ngayHoaDonPicker);
-            this.tabp_hoadon.Controls.Add(this.label20);
-            this.tabp_hoadon.Controls.Add(this.tb_triGia);
             this.tabp_hoadon.Controls.Add(this.tb_maDTHoaDon);
-            this.tabp_hoadon.Controls.Add(this.tb_maHD);
-            this.tabp_hoadon.Controls.Add(this.label19);
-            this.tabp_hoadon.Controls.Add(this.label18);
             this.tabp_hoadon.Controls.Add(this.label17);
-            this.tabp_hoadon.Controls.Add(this.label16);
             this.tabp_hoadon.HorizontalScrollbarBarColor = true;
             this.tabp_hoadon.Location = new System.Drawing.Point(4, 39);
             this.tabp_hoadon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1146,94 +1137,28 @@
             // 
             this.dgv_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_hoadon.Location = new System.Drawing.Point(4, 107);
-            this.dgv_hoadon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_hoadon.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_hoadon.Name = "dgv_hoadon";
             this.dgv_hoadon.Size = new System.Drawing.Size(1208, 522);
             this.dgv_hoadon.TabIndex = 11;
             // 
-            // ngayHoaDonPicker
-            // 
-            this.ngayHoaDonPicker.CustomFormat = "dd/MM/yyyy";
-            this.ngayHoaDonPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ngayHoaDonPicker.Location = new System.Drawing.Point(484, 49);
-            this.ngayHoaDonPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ngayHoaDonPicker.Name = "ngayHoaDonPicker";
-            this.ngayHoaDonPicker.Size = new System.Drawing.Size(172, 22);
-            this.ngayHoaDonPicker.TabIndex = 10;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(859, 53);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 17);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "VNĐ";
-            // 
-            // tb_triGia
-            // 
-            this.tb_triGia.Location = new System.Drawing.Point(717, 49);
-            this.tb_triGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tb_triGia.Name = "tb_triGia";
-            this.tb_triGia.Size = new System.Drawing.Size(132, 22);
-            this.tb_triGia.TabIndex = 8;
-            // 
             // tb_maDTHoaDon
             // 
-            this.tb_maDTHoaDon.Location = new System.Drawing.Point(263, 49);
-            this.tb_maDTHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maDTHoaDon.Location = new System.Drawing.Point(86, 49);
+            this.tb_maDTHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maDTHoaDon.Name = "tb_maDTHoaDon";
             this.tb_maDTHoaDon.Size = new System.Drawing.Size(132, 22);
             this.tb_maDTHoaDon.TabIndex = 7;
             // 
-            // tb_maHD
-            // 
-            this.tb_maHD.Location = new System.Drawing.Point(52, 49);
-            this.tb_maHD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tb_maHD.Name = "tb_maHD";
-            this.tb_maHD.Size = new System.Drawing.Size(132, 22);
-            this.tb_maHD.TabIndex = 6;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(713, 30);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 17);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "Trị giá";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(480, 30);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 17);
-            this.label18.TabIndex = 4;
-            this.label18.Text = "Ngày hóa đơn";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(259, 30);
+            this.label17.Location = new System.Drawing.Point(83, 30);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 17);
             this.label17.TabIndex = 3;
             this.label17.Text = "Mã đơn thuốc";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(48, 30);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 17);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Mã hóa đơn";
             // 
             // tabp_kho
             // 
@@ -1304,7 +1229,7 @@
             this.NCC,
             this.Gia});
             this.dgvKhoThuoc.Location = new System.Drawing.Point(4, 155);
-            this.dgvKhoThuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvKhoThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKhoThuoc.Name = "dgvKhoThuoc";
             this.dgvKhoThuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKhoThuoc.Size = new System.Drawing.Size(1226, 446);
@@ -1359,7 +1284,7 @@
             this.hanSDPicker.CustomFormat = "dd/MM/yyyy";
             this.hanSDPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.hanSDPicker.Location = new System.Drawing.Point(212, 123);
-            this.hanSDPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hanSDPicker.Margin = new System.Windows.Forms.Padding(4);
             this.hanSDPicker.Name = "hanSDPicker";
             this.hanSDPicker.Size = new System.Drawing.Size(132, 22);
             this.hanSDPicker.TabIndex = 17;
@@ -1369,7 +1294,7 @@
             this.ngaySanXuatPicker.CustomFormat = "dd/MM/yyyy";
             this.ngaySanXuatPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ngaySanXuatPicker.Location = new System.Drawing.Point(47, 123);
-            this.ngaySanXuatPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ngaySanXuatPicker.Margin = new System.Windows.Forms.Padding(4);
             this.ngaySanXuatPicker.Name = "ngaySanXuatPicker";
             this.ngaySanXuatPicker.Size = new System.Drawing.Size(132, 22);
             this.ngaySanXuatPicker.TabIndex = 16;
@@ -1387,7 +1312,7 @@
             // tb_giaThuoc
             // 
             this.tb_giaThuoc.Location = new System.Drawing.Point(733, 47);
-            this.tb_giaThuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_giaThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.tb_giaThuoc.Name = "tb_giaThuoc";
             this.tb_giaThuoc.Size = new System.Drawing.Size(132, 22);
             this.tb_giaThuoc.TabIndex = 14;
@@ -1395,7 +1320,7 @@
             // tb_nhaCC
             // 
             this.tb_nhaCC.Location = new System.Drawing.Point(556, 47);
-            this.tb_nhaCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_nhaCC.Margin = new System.Windows.Forms.Padding(4);
             this.tb_nhaCC.Name = "tb_nhaCC";
             this.tb_nhaCC.Size = new System.Drawing.Size(132, 22);
             this.tb_nhaCC.TabIndex = 13;
@@ -1403,7 +1328,7 @@
             // tb_slThuocKho
             // 
             this.tb_slThuocKho.Location = new System.Drawing.Point(391, 47);
-            this.tb_slThuocKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_slThuocKho.Margin = new System.Windows.Forms.Padding(4);
             this.tb_slThuocKho.Name = "tb_slThuocKho";
             this.tb_slThuocKho.Size = new System.Drawing.Size(132, 22);
             this.tb_slThuocKho.TabIndex = 12;
@@ -1411,7 +1336,7 @@
             // tb_tenThuocKho
             // 
             this.tb_tenThuocKho.Location = new System.Drawing.Point(212, 47);
-            this.tb_tenThuocKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_tenThuocKho.Margin = new System.Windows.Forms.Padding(4);
             this.tb_tenThuocKho.Name = "tb_tenThuocKho";
             this.tb_tenThuocKho.Size = new System.Drawing.Size(132, 22);
             this.tb_tenThuocKho.TabIndex = 11;
@@ -1419,7 +1344,7 @@
             // tb_maThuoc
             // 
             this.tb_maThuoc.Location = new System.Drawing.Point(47, 47);
-            this.tb_maThuoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maThuoc.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maThuoc.Name = "tb_maThuoc";
             this.tb_maThuoc.Size = new System.Drawing.Size(132, 22);
             this.tb_maThuoc.TabIndex = 10;
@@ -1494,44 +1419,6 @@
             this.label21.TabIndex = 3;
             this.label21.Text = "Mã thuốc";
             // 
-            // tabp_pxh
-            // 
-            this.tabp_pxh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.tabp_pxh.Controls.Add(this.gunaCircleButton2);
-            this.tabp_pxh.HorizontalScrollbarBarColor = true;
-            this.tabp_pxh.Location = new System.Drawing.Point(4, 39);
-            this.tabp_pxh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabp_pxh.Name = "tabp_pxh";
-            this.tabp_pxh.Size = new System.Drawing.Size(1639, 791);
-            this.tabp_pxh.TabIndex = 6;
-            this.tabp_pxh.Text = "Phiếu xuất hàng";
-            this.tabp_pxh.VerticalScrollbarBarColor = true;
-            this.tabp_pxh.VerticalScrollbarSize = 11;
-            // 
-            // gunaCircleButton2
-            // 
-            this.gunaCircleButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton2.AnimationSpeed = 0.03F;
-            this.gunaCircleButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaCircleButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton2.Image = null;
-            this.gunaCircleButton2.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton2.Location = new System.Drawing.Point(616, 267);
-            this.gunaCircleButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaCircleButton2.Name = "gunaCircleButton2";
-            this.gunaCircleButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaCircleButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton2.OnHoverImage = null;
-            this.gunaCircleButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.Size = new System.Drawing.Size(120, 121);
-            this.gunaCircleButton2.TabIndex = 2;
-            this.gunaCircleButton2.Text = "Pxh";
-            // 
             // tabp_pnh
             // 
             this.tabp_pnh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -1568,7 +1455,7 @@
             this.dgvPNH.AllowUserToAddRows = false;
             this.dgvPNH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPNH.Location = new System.Drawing.Point(4, 145);
-            this.dgvPNH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvPNH.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPNH.Name = "dgvPNH";
             this.dgvPNH.Size = new System.Drawing.Size(1211, 393);
             this.dgvPNH.TabIndex = 19;
@@ -1694,7 +1581,7 @@
             this.dt_hsdPN.CustomFormat = "dd/MM/yyyy";
             this.dt_hsdPN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_hsdPN.Location = new System.Drawing.Point(365, 113);
-            this.dt_hsdPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dt_hsdPN.Margin = new System.Windows.Forms.Padding(4);
             this.dt_hsdPN.Name = "dt_hsdPN";
             this.dt_hsdPN.Size = new System.Drawing.Size(197, 22);
             this.dt_hsdPN.TabIndex = 9;
@@ -1704,7 +1591,7 @@
             this.dt_nsxPN.CustomFormat = "dd/MM/yyyy";
             this.dt_nsxPN.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dt_nsxPN.Location = new System.Drawing.Point(21, 113);
-            this.dt_nsxPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dt_nsxPN.Margin = new System.Windows.Forms.Padding(4);
             this.dt_nsxPN.Name = "dt_nsxPN";
             this.dt_nsxPN.Size = new System.Drawing.Size(197, 22);
             this.dt_nsxPN.TabIndex = 8;
@@ -1712,7 +1599,7 @@
             // tb_giaPN
             // 
             this.tb_giaPN.Location = new System.Drawing.Point(1060, 41);
-            this.tb_giaPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_giaPN.Margin = new System.Windows.Forms.Padding(4);
             this.tb_giaPN.Name = "tb_giaPN";
             this.tb_giaPN.Size = new System.Drawing.Size(132, 22);
             this.tb_giaPN.TabIndex = 7;
@@ -1720,7 +1607,7 @@
             // tb_nccPN
             // 
             this.tb_nccPN.Location = new System.Drawing.Point(860, 41);
-            this.tb_nccPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_nccPN.Margin = new System.Windows.Forms.Padding(4);
             this.tb_nccPN.Name = "tb_nccPN";
             this.tb_nccPN.Size = new System.Drawing.Size(132, 22);
             this.tb_nccPN.TabIndex = 6;
@@ -1728,7 +1615,7 @@
             // tb_slPN
             // 
             this.tb_slPN.Location = new System.Drawing.Point(644, 41);
-            this.tb_slPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_slPN.Margin = new System.Windows.Forms.Padding(4);
             this.tb_slPN.Name = "tb_slPN";
             this.tb_slPN.Size = new System.Drawing.Size(132, 22);
             this.tb_slPN.TabIndex = 5;
@@ -1736,7 +1623,7 @@
             // tb_tenThuocPN
             // 
             this.tb_tenThuocPN.Location = new System.Drawing.Point(431, 41);
-            this.tb_tenThuocPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_tenThuocPN.Margin = new System.Windows.Forms.Padding(4);
             this.tb_tenThuocPN.Name = "tb_tenThuocPN";
             this.tb_tenThuocPN.Size = new System.Drawing.Size(132, 22);
             this.tb_tenThuocPN.TabIndex = 4;
@@ -1744,7 +1631,7 @@
             // tb_maThuocPN
             // 
             this.tb_maThuocPN.Location = new System.Drawing.Point(219, 41);
-            this.tb_maThuocPN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_maThuocPN.Margin = new System.Windows.Forms.Padding(4);
             this.tb_maThuocPN.Name = "tb_maThuocPN";
             this.tb_maThuocPN.Size = new System.Drawing.Size(132, 22);
             this.tb_maThuocPN.TabIndex = 3;
@@ -1753,7 +1640,7 @@
             // 
             this.tb_pn_id.Enabled = false;
             this.tb_pn_id.Location = new System.Drawing.Point(21, 41);
-            this.tb_pn_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_pn_id.Margin = new System.Windows.Forms.Padding(4);
             this.tb_pn_id.Name = "tb_pn_id";
             this.tb_pn_id.Size = new System.Drawing.Size(132, 22);
             this.tb_pn_id.TabIndex = 2;
@@ -1763,6 +1650,14 @@
             // tabp_dth
             // 
             this.tabp_dth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabp_dth.Controls.Add(this.lb_doanhthu_dt);
+            this.tabp_dth.Controls.Add(this.lb_doanhthu_tongbn);
+            this.tabp_dth.Controls.Add(this.dataGridView1);
+            this.tabp_dth.Controls.Add(this.btt_doanhthu_find);
+            this.tabp_dth.Controls.Add(this.dtp_doanhthu_to);
+            this.tabp_dth.Controls.Add(this.dtp_doanhthu_from);
+            this.tabp_dth.Controls.Add(this.lb_doanhthu_to);
+            this.tabp_dth.Controls.Add(this.lb_doanhthu_from);
             this.tabp_dth.HorizontalScrollbarBarColor = true;
             this.tabp_dth.Location = new System.Drawing.Point(4, 39);
             this.tabp_dth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1772,6 +1667,89 @@
             this.tabp_dth.Text = "Doanh thu";
             this.tabp_dth.VerticalScrollbarBarColor = true;
             this.tabp_dth.VerticalScrollbarSize = 11;
+            // 
+            // lb_doanhthu_dt
+            // 
+            this.lb_doanhthu_dt.AutoSize = true;
+            this.lb_doanhthu_dt.Location = new System.Drawing.Point(779, 522);
+            this.lb_doanhthu_dt.Name = "lb_doanhthu_dt";
+            this.lb_doanhthu_dt.Size = new System.Drawing.Size(78, 17);
+            this.lb_doanhthu_dt.TabIndex = 33;
+            this.lb_doanhthu_dt.Text = "Doanh thu:";
+            // 
+            // lb_doanhthu_tongbn
+            // 
+            this.lb_doanhthu_tongbn.AutoSize = true;
+            this.lb_doanhthu_tongbn.Location = new System.Drawing.Point(407, 522);
+            this.lb_doanhthu_tongbn.Name = "lb_doanhthu_tongbn";
+            this.lb_doanhthu_tongbn.Size = new System.Drawing.Size(117, 17);
+            this.lb_doanhthu_tongbn.TabIndex = 32;
+            this.lb_doanhthu_tongbn.Text = "Tổng bệnh nhân:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(200, 83);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(919, 397);
+            this.dataGridView1.TabIndex = 31;
+            // 
+            // btt_doanhthu_find
+            // 
+            this.btt_doanhthu_find.AnimationHoverSpeed = 0.07F;
+            this.btt_doanhthu_find.AnimationSpeed = 0.03F;
+            this.btt_doanhthu_find.BaseColor = System.Drawing.Color.White;
+            this.btt_doanhthu_find.BorderColor = System.Drawing.Color.Black;
+            this.btt_doanhthu_find.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btt_doanhthu_find.FocusedColor = System.Drawing.Color.Empty;
+            this.btt_doanhthu_find.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btt_doanhthu_find.ForeColor = System.Drawing.Color.White;
+            this.btt_doanhthu_find.Image = ((System.Drawing.Image)(resources.GetObject("btt_doanhthu_find.Image")));
+            this.btt_doanhthu_find.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_doanhthu_find.ImageSize = new System.Drawing.Size(20, 20);
+            this.btt_doanhthu_find.Location = new System.Drawing.Point(937, 19);
+            this.btt_doanhthu_find.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btt_doanhthu_find.Name = "btt_doanhthu_find";
+            this.btt_doanhthu_find.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btt_doanhthu_find.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btt_doanhthu_find.OnHoverForeColor = System.Drawing.Color.White;
+            this.btt_doanhthu_find.OnHoverImage = null;
+            this.btt_doanhthu_find.OnPressedColor = System.Drawing.Color.Black;
+            this.btt_doanhthu_find.Size = new System.Drawing.Size(60, 36);
+            this.btt_doanhthu_find.TabIndex = 30;
+            // 
+            // dtp_doanhthu_to
+            // 
+            this.dtp_doanhthu_to.Location = new System.Drawing.Point(731, 33);
+            this.dtp_doanhthu_to.Name = "dtp_doanhthu_to";
+            this.dtp_doanhthu_to.Size = new System.Drawing.Size(200, 22);
+            this.dtp_doanhthu_to.TabIndex = 5;
+            // 
+            // dtp_doanhthu_from
+            // 
+            this.dtp_doanhthu_from.Location = new System.Drawing.Point(459, 33);
+            this.dtp_doanhthu_from.Name = "dtp_doanhthu_from";
+            this.dtp_doanhthu_from.Size = new System.Drawing.Size(200, 22);
+            this.dtp_doanhthu_from.TabIndex = 4;
+            // 
+            // lb_doanhthu_to
+            // 
+            this.lb_doanhthu_to.AutoSize = true;
+            this.lb_doanhthu_to.Location = new System.Drawing.Point(677, 38);
+            this.lb_doanhthu_to.Name = "lb_doanhthu_to";
+            this.lb_doanhthu_to.Size = new System.Drawing.Size(38, 17);
+            this.lb_doanhthu_to.TabIndex = 3;
+            this.lb_doanhthu_to.Text = "Đến:";
+            // 
+            // lb_doanhthu_from
+            // 
+            this.lb_doanhthu_from.AutoSize = true;
+            this.lb_doanhthu_from.Location = new System.Drawing.Point(407, 38);
+            this.lb_doanhthu_from.Name = "lb_doanhthu_from";
+            this.lb_doanhthu_from.Size = new System.Drawing.Size(29, 17);
+            this.lb_doanhthu_from.TabIndex = 2;
+            this.lb_doanhthu_from.Text = "Từ:";
             // 
             // printDocument1
             // 
@@ -1784,6 +1762,34 @@
             // printDocument2
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
+            // btt_hoadon_thanhtien
+            // 
+            this.btt_hoadon_thanhtien.AnimationHoverSpeed = 0.07F;
+            this.btt_hoadon_thanhtien.AnimationSpeed = 0.03F;
+            this.btt_hoadon_thanhtien.BaseColor = System.Drawing.Color.White;
+            this.btt_hoadon_thanhtien.BorderColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.BorderSize = 2;
+            this.btt_hoadon_thanhtien.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btt_hoadon_thanhtien.FocusedColor = System.Drawing.Color.Empty;
+            this.btt_hoadon_thanhtien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btt_hoadon_thanhtien.ForeColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.Image = null;
+            this.btt_hoadon_thanhtien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_hoadon_thanhtien.ImageSize = new System.Drawing.Size(30, 30);
+            this.btt_hoadon_thanhtien.Location = new System.Drawing.Point(267, 30);
+            this.btt_hoadon_thanhtien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btt_hoadon_thanhtien.Name = "btt_hoadon_thanhtien";
+            this.btt_hoadon_thanhtien.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btt_hoadon_thanhtien.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.OnHoverForeColor = System.Drawing.Color.White;
+            this.btt_hoadon_thanhtien.OnHoverImage = null;
+            this.btt_hoadon_thanhtien.OnPressedColor = System.Drawing.Color.Black;
+            this.btt_hoadon_thanhtien.Size = new System.Drawing.Size(125, 52);
+            this.btt_hoadon_thanhtien.TabIndex = 6;
+            this.btt_hoadon_thanhtien.Text = "thành tiền";
+            this.btt_hoadon_thanhtien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btt_hoadon_thanhtien.Click += new System.EventHandler(this.btt_hoadon_thanhtien_Click);
             // 
             // frmMain
             // 
@@ -1820,10 +1826,12 @@
             this.tabp_kho.ResumeLayout(false);
             this.tabp_kho.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).EndInit();
-            this.tabp_pxh.ResumeLayout(false);
             this.tabp_pnh.ResumeLayout(false);
             this.tabp_pnh.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPNH)).EndInit();
+            this.tabp_dth.ResumeLayout(false);
+            this.tabp_dth.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1839,12 +1847,10 @@
         private Guna.UI.WinForms.GunaButton btt_Sua;
         private Guna.UI.WinForms.GunaButton Btt_Xoa;
         private Guna.UI.WinForms.GunaButton btt_Add;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
         public MetroFramework.Controls.MetroTabPage tabp_donthuoc;
         public MetroFramework.Controls.MetroTabPage tabp_pkb;
         public MetroFramework.Controls.MetroTabControl tabcontrolmain;
         public MetroFramework.Controls.MetroTabPage tabp_hoadon;
-        public MetroFramework.Controls.MetroTabPage tabp_pxh;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -1861,11 +1867,7 @@
         private System.Windows.Forms.Label lb_bn_sdt;
         private System.Windows.Forms.Label lb_bn_name;
         private System.Windows.Forms.Label lb_bn_id;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
@@ -1923,10 +1925,7 @@
         public System.Windows.Forms.TextBox tb_slThuoc;
         public System.Windows.Forms.TextBox tb_tenThuoc;
         public System.Windows.Forms.TextBox tb_maDT;
-        public System.Windows.Forms.DateTimePicker ngayHoaDonPicker;
-        public System.Windows.Forms.TextBox tb_triGia;
         public System.Windows.Forms.TextBox tb_maDTHoaDon;
-        public System.Windows.Forms.TextBox tb_maHD;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -1967,5 +1966,14 @@
         public System.Windows.Forms.TextBox tb_pn_id;
         private System.Drawing.Printing.PrintDocument printDocument2;
         private System.Windows.Forms.DataGridView dgvPNH;
+        private System.Windows.Forms.Label lb_doanhthu_dt;
+        private System.Windows.Forms.Label lb_doanhthu_tongbn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        public Guna.UI.WinForms.GunaButton btt_doanhthu_find;
+        private System.Windows.Forms.DateTimePicker dtp_doanhthu_to;
+        private System.Windows.Forms.DateTimePicker dtp_doanhthu_from;
+        private System.Windows.Forms.Label lb_doanhthu_to;
+        private System.Windows.Forms.Label lb_doanhthu_from;
+        private Guna.UI.WinForms.GunaButton btt_hoadon_thanhtien;
     }
 }

@@ -48,6 +48,11 @@ namespace QuanLyPhongKham.BLL
 
         }
 
+        public DataTable Check()
+        {
+            return ObjHoaDonDAL.Instance.Check();
+        }
+
         public DataTable Find()
         {
             return ObjHoaDonDAL.Instance.Find();

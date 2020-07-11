@@ -38,3 +38,17 @@ D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj
 D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CopyComplete
 D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.exe
 D:\Files\Github\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.pdb
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe.config
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.exe
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\QuanLyPhongKham.pdb
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.dll
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csprojAssemblyReference.cache
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmLogin.resources
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.GUI.frmMain.resources
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.Properties.Resources.resources
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.GenerateResource.cache
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.csproj.CopyComplete
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.exe
+C:\Users\ACER\Desktop\QuanLyPhongKham\QuanLyPhongKham\obj\Debug\QuanLyPhongKham.pdb
