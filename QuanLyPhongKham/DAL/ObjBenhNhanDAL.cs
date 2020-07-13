@@ -71,16 +71,15 @@ namespace QuanLyPhongKham.DAL
             string sdt = ((frmMain)f).tb_bn_sdt.Text;
             string gtinh = ((frmMain)f).cb_bn_sex.Text;
             string dchi = ((frmMain)f).tb_bn_add.Text;
-            string ngsinh = ((frmMain)f).ngaySinhPicker.Text;
-            string ngkham = ((frmMain)f).ngayKhamPicker.Text;
+            string ngsinh = ((frmMain)f).ngaySinhPicker.Value.ToString("MM//dd/YY") ;
+            string ngkham = ((frmMain)f).ngayKhamPicker.Value.ToString("MM//dd/YY");
             string trieuchung = ((frmMain)f).tb_bn_trieuchung.Text;
             string klb = ((frmMain)f).tb_bn_klb.Text;
             string baohiem = ((frmMain)f).tb_bn_baohiem.Text;
 
 
             string AddQuery = "INSERT INTO BENHNHAN(MaBN,TenBN,SoDT,GioiTinh,DiaChi,NgSinh,NgKham,TrieuChung,KetLuanBenh,BaoHiem)" + 
-                    "VALUES('" + id + "', '" + ten + "', '" + sdt + "', '" + gtinh + "', '" + dchi + "', '" + ngsinh + "', '"+
-                      ngkham + "', '" + trieuchung + "', '" + klb + "', '" + baohiem + "' )";
+                    "VALUES('" + id + "', '" + ten + "', '" + sdt + "', '" + gtinh + "', '" + dchi + "', CAST('"+ngsinh+ "' AS DATETIME),  CAST('" + ngkham + "' AS DATETIME), '" + trieuchung + "', '" + klb + "', '" + baohiem + "' )";
                 int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, null);
                 if (result > 0)
                 {
