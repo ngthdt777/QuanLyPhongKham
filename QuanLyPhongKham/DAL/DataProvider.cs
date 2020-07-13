@@ -17,7 +17,6 @@ namespace QuanLyPhongKham.DAL
     {
         private static readonly Lazy<DataProvider> instance = new Lazy<DataProvider>(() => new DataProvider());
         private string connectionSTR;
-        private Thread thread;
 
         public static DataProvider Instance
         {
