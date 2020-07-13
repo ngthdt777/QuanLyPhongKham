@@ -15,7 +15,8 @@ namespace QuanLyPhongKham.DAL
         private int maPN, soLuong;
         private decimal gia;
 
-        public ObjCTPNDAL(int maPN, string maThuoc, string tenThuoc, int soLuong, string nsx, string hsd, string ncc, decimal gia) {
+        public ObjCTPNDAL(int maPN, string maThuoc, string tenThuoc, int soLuong, string nsx, string hsd, string ncc, decimal gia)
+        {
             this.maPN = maPN;
             this.maThuoc = maThuoc;
             this.tenThuoc = tenThuoc;

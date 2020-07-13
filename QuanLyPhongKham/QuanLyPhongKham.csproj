@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\ObjBenhNhanBLL.cs" />
+    <Compile Include="BLL\ObjCTDTBLL.cs" />
     <Compile Include="BLL\ObjCTPNBLL.cs" />
     <Compile Include="BLL\ObjDonThuocBLL.cs" />
     <Compile Include="BLL\ObjHoaDonBLL.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\ObjBenhNhanDAL.cs" />
     <Compile Include="DAL\CTHD.cs" />
+    <Compile Include="DAL\ObjCTDTDAL.cs" />
     <Compile Include="DAL\ObjCTPNDAL.cs" />
     <Compile Include="DAL\ObjDonThuocDAL.cs" />
     <Compile Include="DAL\ObjHoaDonDAL.cs" />

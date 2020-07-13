@@ -35,7 +35,6 @@ namespace QuanLyPhongKham.DAL
         public string gtinh { get; set; }
         public string diachi { get; set; }
         public DateTime ngsinh { get; set; }
-        public DateTime ngkham { get; set; }
         public string trieuchung { get; set; }
         public string ketluan { get; set; }
         public string baohiem { get; set; }
@@ -71,23 +70,31 @@ namespace QuanLyPhongKham.DAL
             string sdt = ((frmMain)f).tb_bn_sdt.Text;
             string gtinh = ((frmMain)f).cb_bn_sex.Text;
             string dchi = ((frmMain)f).tb_bn_add.Text;
-            string ngsinh = ((frmMain)f).ngaySinhPicker.Value.ToString("MM//dd/YY") ;
-            string ngkham = ((frmMain)f).ngayKhamPicker.Value.ToString("MM//dd/YY");
+            string ngsinh = ((frmMain)f).ngaySinhPicker.Value.ToString("dd/MM/yyyy");
             string trieuchung = ((frmMain)f).tb_bn_trieuchung.Text;
             string klb = ((frmMain)f).tb_bn_klb.Text;
             string baohiem = ((frmMain)f).tb_bn_baohiem.Text;
 
+            string AddQuery = String.Empty;
+            AddQuery += "INSERT INTO BenhNhan (MaBN, TenBN, SoDT, GioiTinh, DiaChi, NgSinh, TrieuChung, KetLuanBenh, BaoHiem)";
+            AddQuery += "VALUES (@MaBN, @TenBN, @SoDT, @GioiTinh, @DiaChi, CONVERT(datetime, @NgSinh, 103), @TrCh, @KLB, @BH)";
 
-            string AddQuery = "INSERT INTO BENHNHAN(MaBN,TenBN,SoDT,GioiTinh,DiaChi,NgSinh,NgKham,TrieuChung,KetLuanBenh,BaoHiem)" + 
-                    "VALUES('" + id + "', '" + ten + "', '" + sdt + "', '" + gtinh + "', '" + dchi + "', CAST('"+ngsinh+ "' AS DATETIME),  CAST('" + ngkham + "' AS DATETIME), '" + trieuchung + "', '" + klb + "', '" + baohiem + "' )";
-                int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, null);
-                if (result > 0)
-                {
-                    MessageBox.Show("OKE đã thêm ");
-                }
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("@MaBN", id);
+            param.Add("@TenBN", ten);
+            param.Add("@SoDT", sdt);
+            param.Add("@GioiTinh", gtinh);
+            param.Add("@DiaChi", dchi);
+            param.Add("@NgSinh", ngsinh);
+            param.Add("@TrCh", trieuchung);
+            param.Add("@KLB", klb);
+            param.Add("@BH", baohiem);
 
-
-
+            int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, param);
+            if (result > 0)
+            {
+                MessageBox.Show("Thêm bệnh nhân thành công");
+            }
         }
 
 
@@ -113,15 +120,13 @@ namespace QuanLyPhongKham.DAL
             string gtinh = ((frmMain)f).cb_bn_sex.Text;
             string dchi = ((frmMain)f).tb_bn_add.Text;
             string ngsinh = ((frmMain)f).ngaySinhPicker.Text;
-            string ngkham = ((frmMain)f).ngayKhamPicker.Text;
             string trieuchung = ((frmMain)f).tb_bn_trieuchung.Text;
             string klb = ((frmMain)f).tb_bn_klb.Text;
             string baohiem = ((frmMain)f).tb_bn_baohiem.Text;
 
 
             string UpdateQuery = "UPDATE BENHNHAN " +
-                   "SET TenBN= '" + ten + "', SoDT='" + sdt + "',GioiTinh= '" + gtinh + "',DiaChi= '" + dchi + "',NgSinh= '" + ngsinh + "', NgKham='" +
-                     ngkham + "', TrieuChung='" + trieuchung + "', KetLuanBenh='" + klb + "', BaoHiem='" + baohiem + "'  WHERE MaBN='"+id+"'";
+                   "SET TenBN= '" + ten + "', SoDT='" + sdt + "',GioiTinh= '" + gtinh + "',DiaChi= '" + dchi + "',NgSinh= '" + ngsinh + "', TrieuChung='" + trieuchung + "', KetLuanBenh='" + klb + "', BaoHiem='" + baohiem + "'  WHERE MaBN='"+id+"'";
             int result = DataProvider.Instance.ExecuteNonQuery(UpdateQuery, null);
             if (result > 0)
             {
@@ -178,10 +183,6 @@ namespace QuanLyPhongKham.DAL
                 trieuchung = "='" + ((frmMain)f).tb_bn_trieuchung.Text + "'";
             else trieuchung = "is not null";
 
-            if (((frmMain)f).ngayKhamPicker.Text != today)
-                 ngkham = "='" + ((frmMain)f).ngayKhamPicker.Text + "'";
-            else ngkham = "is not null";
-
             if (!string.IsNullOrEmpty(((frmMain)f).tb_bn_klb.Text))
                 klb = "='" + ((frmMain)f).tb_bn_klb.Text + "'";
             else klb = "is not null";
@@ -195,7 +196,7 @@ namespace QuanLyPhongKham.DAL
             DataTable dt = new DataTable();
             string LoadQuery = "SELECT * FROM BenhNhan" +
                                 " where MaBN " + id + " and TenBN " + ten + " and SoDT " + sdt + "" +
-                                 " and GioiTinh " + gtinh + "  and DiaChi " + dchi + " and NgSinh " + ngsinh + " and NgKham " + ngkham + " and TrieuChung " + trieuchung +
+                                 " and GioiTinh " + gtinh + "  and DiaChi " + dchi + " and NgSinh " + ngsinh + " and TrieuChung " + trieuchung +
                                  " and KetLuanBenh " + klb +  " And BaoHiem " + baohiem;
 
             dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);

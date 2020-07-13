@@ -7,7 +7,7 @@ create table Dangnhap
 (
  taikhoan varchar(45),
  matkhau varchar(45),
- chucvi tinyint,
+ chucvi tinyint
 )
  --drop table Dangnhap
 create table BenhNhan
@@ -18,10 +18,9 @@ create table BenhNhan
  GioiTinh varchar(5),
  DiaChi varchar(45),
  NgSinh datetime,
- NgKham datetime,
  TrieuChung varchar(100),
  KetLuanBenh varchar(100),
- BaoHiem varchar(45),
+ BaoHiem varchar(45)
 )
 
  -------------------------------------INSERT BENHNHAN------------------------------------------------
@@ -37,7 +36,7 @@ create table BenhNhan
  create table LoaiNhanVien
  (
   MaLoaiNhanVien varchar(10) primary key not null,
-  TenLoaiNhanVien varchar(45),
+  TenLoaiNhanVien varchar(45)
 )
  
  --------------------------INSERT LOAINHANVIEN-------------------------------------
@@ -56,7 +55,7 @@ create table BenhNhan
   DiaChi varchar(45),
   NgSinh datetime,
   NgVaoLam datetime,
-  MaLoaiNhanVien varchar(10) references LoaiNhanVien(MaLoaiNhanVien), /*Nhan vien co the la bac si, thu ngan, thu kho*/
+  MaLoaiNhanVien varchar(10) references LoaiNhanVien(MaLoaiNhanVien) /*Nhan vien co the la bac si, thu ngan, thu kho*/
 )
 
 create table PKB (
@@ -86,7 +85,7 @@ ChuanDoan nvarchar(max)
   NSX datetime,
   HSD datetime,
   NCC varchar(45),
-  Gia money,
+  Gia money
 )
 
 ---------------------------------------INSERT THUOC---------------------------------------------
@@ -120,32 +119,32 @@ SoLuong int,
 NSX datetime,
 HSD datetime,
 NCC varchar(45),
-Gia money,
+Gia money
 )
 
 create table DonThuoc
 (
- MaDT varchar(10) primary key not null,
- MaThuoc varchar(10) not null references Thuoc(MaThuoc),
- TenThuoc varchar(45),
- SoLuong int,
+ MaDT int primary key not null,
+ NgDT datetime not null,
  MaNV varchar(10) references NhanVien(MaNV),
- MaBN varchar(10) references BenhNhan(MaBN),
+ MaBN varchar(10) references BenhNhan(MaBN)
+)
+
+create table CTDT
+(
+MaCTDT int primary key not null,
+MaDT int foreign key references DonThuoc(MaDT) not null,
+MaThuoc varchar(10) not null references Thuoc(MaThuoc),
+TenThuoc varchar(45),
+SoLuong int
 )
 
 create table HoaDon
 (
  MaHD varchar(10) primary key not null,
- MaDT varchar(10) references DonThuoc(MaDT),
+ MaDT int references DonThuoc(MaDT) not null,
  NgHD datetime,
- TriGia money,
-)
-
-create table CTHD
-( 
- MaHD varchar(10) references HoaDon(MaHD),
- MADT varchar(10) references DonThuoc(MaDT),
- SL int,
+ TriGia money
 )
 
 -------------------------------------------------------------------------------------

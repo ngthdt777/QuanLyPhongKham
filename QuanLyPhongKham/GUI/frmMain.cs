@@ -20,6 +20,7 @@ namespace QuanLyPhongKham.GUI
         string acc = "", pass = "", chucvi = "";
         private int nextPNID;
         private Dictionary<string, string[]> listPhNhap = new Dictionary<string, string[]>();
+        private Dictionary<string, string[]> listDT = new Dictionary<string, string[]>();
 
         public frmMain(string acc, string pass, string chucvi)
         {
@@ -30,6 +31,8 @@ namespace QuanLyPhongKham.GUI
 
             ObjPhNhapBLL.Instance.GetNextID(out nextPNID);
             tb_pn_id.Text = nextPNID.ToString();
+
+            tb_maDT.Text = ObjDonThuocBLL.Instance.GetNextID().ToString();
 
             dgvPNH.AutoGenerateColumns = false;
             
@@ -88,6 +91,32 @@ namespace QuanLyPhongKham.GUI
             else if (check == 2)
             {
                 ObjDonThuocBLL.Instance.Add();
+
+                for (int row = 0; row < dgvDT.Rows.Count - 1; ++row)
+                {
+                    int dtID = 1, sl = 0;
+                    string maThuoc;
+                    
+                    DataTable dt = ObjThuocBLL.Instance.GetInfoByName(dgvDT.Rows[row].Cells["TenThuocDT"].Value.ToString());
+                    if (dt.Rows.Count > 0)
+                    {
+                        maThuoc = dt.Rows[0]["MaThuoc"].ToString();
+                        Int32.TryParse(tb_maDT.Text, out dtID);
+                        Int32.TryParse(dgvDT.Rows[row].Cells["SoLuongDT"].Value.ToString(), out sl);
+
+                        ObjCTDTBLL.Instance.Add(new ObjCTDTDAL(
+                                dtID,
+                                maThuoc,
+                                dgvDT.Rows[row].Cells["TenThuocDT"].Value.ToString(),
+                                sl
+                            ));
+                    } 
+                }
+
+                listDT.Clear();
+                dgvDT.Rows.Clear();
+                tb_maDT.Text = ObjDonThuocBLL.Instance.GetNextID().ToString();
+                tb_maNV.Text = tb_maBNThuoc.Text = String.Empty;
             }
             else if (check == 3)
             {
@@ -237,7 +266,6 @@ namespace QuanLyPhongKham.GUI
                 cb_bn_sex.Text=dgvHoSo.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
                 tb_bn_add.Text=dgvHoSo.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
                 ngaySinhPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgSinh"].Value.ToString();
-                ngayKhamPicker.Text=dgvHoSo.Rows[e.RowIndex].Cells["NgKham"].Value.ToString();
                 tb_bn_trieuchung.Text=dgvHoSo.Rows[e.RowIndex].Cells["TrieuChung"].Value.ToString();
                 tb_bn_klb.Text=dgvHoSo.Rows[e.RowIndex].Cells["KetLuanBenh"].Value.ToString();
                 tb_bn_baohiem.Text=dgvHoSo.Rows[e.RowIndex].Cells["BaoHiem"].Value.ToString();
@@ -255,7 +283,6 @@ namespace QuanLyPhongKham.GUI
                 cb_bn_sex.Text = dgvHoSo.Rows[e.RowIndex].Cells["GioiTinh"].Value.ToString();
                 tb_bn_add.Text = dgvHoSo.Rows[e.RowIndex].Cells["DiaChi"].Value.ToString();
                 ngaySinhPicker.Text = dgvHoSo.Rows[e.RowIndex].Cells["NgSinh"].Value.ToString();
-                ngayKhamPicker.Text = dgvHoSo.Rows[e.RowIndex].Cells["NgKham"].Value.ToString();
                 tb_bn_trieuchung.Text = dgvHoSo.Rows[e.RowIndex].Cells["TrieuChung"].Value.ToString();
                 tb_bn_klb.Text = dgvHoSo.Rows[e.RowIndex].Cells["KetLuanBenh"].Value.ToString();
                 tb_bn_baohiem.Text = dgvHoSo.Rows[e.RowIndex].Cells["BaoHiem"].Value.ToString();
@@ -505,7 +532,7 @@ namespace QuanLyPhongKham.GUI
             //info benh nhan
             string id = String.Format("Mã bệnh nhân: {0}", tb_maBNPKB.Text);
             string name = String.Format("Tên bệnh nhân: {0}", dt.Rows[0]["TenBN"].ToString());
-            string birthDate = String.Format("Ngày sinh: {0}", dt.Rows[0]["NgSinh"].ToString());
+            string birthDate = String.Format("Ngày sinh: {0}", dt.Rows[0]["NgSinh"].ToString().Substring(0, 10));
             string address = String.Format("Địa chỉ: {0}", dt.Rows[0]["DiaChi"].ToString());
             string phone = String.Format("SĐT: {0}", dt.Rows[0]["SoDT"].ToString());
             string symptom = String.Format("Triệu chứng: {0}", dt.Rows[0]["TrieuChung"].ToString());
@@ -636,6 +663,63 @@ namespace QuanLyPhongKham.GUI
             dgv_hoadon.DataSource= ObjHoaDonBLL.Instance.Show();
         }
 
+        private void bttn_addDT_Click(object sender, EventArgs e)
+        {
+            DataTable dt = ObjThuocBLL.Instance.GetInfoByName(tb_tenThuoc.Text);
+            if (dt.Rows.Count > 0)
+            {
+                listDT.Add(tb_tenThuoc.Text, new string[] {
+                    tb_tenThuoc.Text,
+                    tb_slThuoc.Text
+                });
+
+                dgvDT.Rows.Add(listDT.Values.Last());
+
+                //clear textboxes
+                tb_tenThuoc.Text = tb_slThuoc.Text = String.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Tên thuốc không tồn tại");
+            }
+        }
+
+        private void bttn_delDT_Click(object sender, EventArgs e)
+        {
+            if (dgvDT.Rows.Count == 0)
+            {
+                return;
+            }
+
+            listDT.Remove(dgvDT.CurrentRow.Cells["TenThuocDT"].Value.ToString());
+            dgvDT.Rows.RemoveAt(dgvDT.CurrentRow.Index);
+        }
+
+        private void bttn_updateDT_Click(object sender, EventArgs e)
+        {
+            if (dgvDT.Rows.Count == 0)
+            {
+                return;
+            }
+
+            listDT[dgvDT.CurrentRow.Cells["TenThuocDT"].Value.ToString()][1] = tb_slThuoc.Text;
+
+            dgvDT.CurrentRow.Cells["SoLuongDT"].Value = tb_slThuoc.Text;
+        }
+
+        private void dgvDT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                tb_tenThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["TenThuocDT"].Value.ToString();
+                tb_slThuoc.Text = dgvDT.Rows[e.RowIndex].Cells["SoLuongDT"].Value.ToString();
+            }
+            else
+            {
+                tb_tenThuoc.Text = tb_slThuoc.Text = String.Empty;
+            }
+        }
+
         int CheckTabPage()
         {
 
@@ -647,7 +731,6 @@ namespace QuanLyPhongKham.GUI
         {
             Phanquyen();
             dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.GetData();
-            dgvDT.DataSource = ObjDonThuocBLL.Instance.GetData();
             dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.GetData();
             dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.GetData();
             int check = CheckTabPage();
@@ -663,8 +746,7 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 2)
             {
-                check = CheckTabPage();
-                ObjDonThuocBLL.Instance.GetData();
+                
             }
             else if (check == 3)
             {

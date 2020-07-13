@@ -45,21 +45,37 @@ namespace QuanLyPhongKham.DAL
             return dt;
         }
 
+        public int GetNextID()
+        {
+            int nextID = 1;
+
+            string Query = String.Empty;
+            Query += "SELECT TOP 1 MaDT FROM DonThuoc ";
+            Query += "ORDER BY MaDT DESC";
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, null);
+            if (dt.Rows.Count > 0)
+            {
+                Int32.TryParse(dt.Rows[0]["MaDT"].ToString(), out nextID);
+                ++nextID;
+            }
+
+            return nextID;
+        }
+
         public void Add()
         {
             Form main = Application.OpenForms["frmMain"];
 
             string AddQuery = "";
-            AddQuery += "INSERT INTO DonThuoc(MaDT, MaThuoc, TenThuoc, SoLuong, MaNV, MaBN) ";
-            AddQuery += "VALUES (@MaDT, @MaTh, @TenTh, @SL, @MaNV, @MaBN)";
+            AddQuery += "INSERT INTO DonThuoc(MaDT, NgDT, MaNV, MaBN) ";
+            AddQuery += "VALUES (@MaDT, @NgDT, @MaNV, @MaBN)";
 
             DataTable dt = ObjThuocBLL.Instance.GetInfoByName(((frmMain)main).tb_tenThuoc.Text);
 
             Dictionary<String, String> param = new Dictionary<string, string>();
             param.Add("@MaDT", ((frmMain)main).tb_maDT.Text);
-            param.Add("@MaTh", dt.Rows[0]["MaThuoc"].ToString());
-            param.Add("@TenTh", ((frmMain)main).tb_tenThuoc.Text);
-            param.Add("@SL", ((frmMain)main).tb_slThuoc.Text);
+            param.Add("@NgDT", ((frmMain)main).dt_DT.Value.ToString());
             param.Add("@MaNV", ((frmMain)main).tb_maNV.Text);
             param.Add("@MaBN", ((frmMain)main).tb_maBNThuoc.Text);
 
@@ -93,9 +109,8 @@ namespace QuanLyPhongKham.DAL
             Form main = Application.OpenForms["frmMain"];
 
             string UpdateQuery = "";
-            UpdateQuery += "UPDATE DONTHUOC SET "; 
-            UpdateQuery += "TenThuoc = @TenTh ";
-            UpdateQuery += "SoLuong = @SL ";
+            UpdateQuery += "UPDATE DONTHUOC SET ";
+            UpdateQuery += "NgDT = @NgDT ";
             UpdateQuery += "MaNV = @MaNV ";
             UpdateQuery += "MaBN = @MaBN ";
             UpdateQuery += "WHERE MaDT = @MaDT";
@@ -104,9 +119,7 @@ namespace QuanLyPhongKham.DAL
 
             Dictionary<String, String> param = new Dictionary<string, string>();
             param.Add("@MaDT", ((frmMain)main).tb_maDT.Text);
-            param.Add("@MaTh", dt.Rows[0]["MaThuoc"].ToString());
-            param.Add("@TenTh", ((frmMain)main).tb_tenThuoc.Text);
-            param.Add("@SL", ((frmMain)main).tb_slThuoc.Text);
+            param.Add("@NgDT", ((frmMain)main).dt_DT.Value.ToString());
             param.Add("@MaNV", ((frmMain)main).tb_maNV.Text);
             param.Add("@MaBN", ((frmMain)main).tb_maBNThuoc.Text);
 

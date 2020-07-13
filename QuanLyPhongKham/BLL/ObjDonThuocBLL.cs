@@ -33,6 +33,11 @@ namespace QuanLyPhongKham.BLL
             return ObjDonThuocDAL.Instance.GetInfo();
         }
 
+        public int GetNextID()
+        {
+            return ObjDonThuocDAL.Instance.GetNextID();
+        }
+
         public void Add()
         {
             ObjDonThuocDAL.Instance.Add();
