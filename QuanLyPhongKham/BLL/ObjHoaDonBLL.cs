@@ -33,20 +33,12 @@ namespace QuanLyPhongKham.BLL
             return ObjHoaDonDAL.Instance.GetInfo();
         }
 
-        public void Add()
+        public void AddHD()
         {
             ObjHoaDonDAL.Instance.Add();
         }
 
-        public void Xoa()
-        {
 
-        }
-
-        public void Sua()
-        {
-
-        }
 
         public DataTable Check()
         {
@@ -56,6 +48,10 @@ namespace QuanLyPhongKham.BLL
         public DataTable Find()
         {
             return ObjHoaDonDAL.Instance.Find();
+        }
+        public DataTable Show()
+        {
+            return ObjHoaDonDAL.Instance.Show();
         }
     }
 }

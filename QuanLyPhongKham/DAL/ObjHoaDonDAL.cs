@@ -44,7 +44,7 @@ namespace QuanLyPhongKham.DAL
 
         public void Add()
         {
-            Form main = Application.OpenForms["frmMain"];
+           /* Form main = Application.OpenForms["frmMain"];
 
             string AddQuery = "";
             AddQuery += "INSERT INTO HoaDon(MaHD, MaDT, NgHD, TriGia) ";
@@ -62,18 +62,37 @@ namespace QuanLyPhongKham.DAL
             if (result > 0)
             {
                 MessageBox.Show("Thêm hóa đơn thành công");
+            }*/
+
+
+            DataTable dt = new DataTable();
+
+            Form main = Application.OpenForms["frmMain"];
+            id = ((frmMain)main).tb_maDTHoaDon.Text.ToString();
+            string stt = ((frmMain)main).tb_maDTHoaDon.Text.Substring(2, 3);
+
+
+            string AddQuery = "";
+            AddQuery += "INSERT INTO HoaDon(MaHD, MaDT, NgHD, TriGia) ";
+            AddQuery += "VALUES (@MaHD, @MaDT, @NgHD, @TG)";
+
+
+            Dictionary<String, String> param = new Dictionary<string, string>();
+            param.Add("@MaHD", "HD" + stt );
+            param.Add("@MaDT", ((frmMain)main).tb_maDTHoaDon.Text);
+            param.Add("@NgHD", DateTime.Now.ToString());
+            param.Add("@TG", ((frmMain)main).tb_hoadon_trigia.Text);
+
+            int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, param);
+            if (result > 0)
+            {
+                MessageBox.Show("Thêm hóa đơn thành công");
             }
-        }
 
-        public void Xoa()
-        {
+
 
         }
 
-        public void Sua()
-        {
-
-        }
 
         public DataTable Find()
         {
@@ -99,6 +118,7 @@ namespace QuanLyPhongKham.DAL
 
             Form main = Application.OpenForms["frmMain"];
             id = ((frmMain)main).tb_maDTHoaDon.Text.ToString();
+            
 
             string FindQuery = "";
             FindQuery += "SELECT MaDT,TenNV,TenBN,CAST(PKB.NgKham AS DATE) AS [NgKham] ,Thuoc.Gia * DonThuoc.SoLuong as [Thanh tien]";
@@ -107,6 +127,23 @@ namespace QuanLyPhongKham.DAL
 
 
             dt = DataProvider.Instance.ExecuteQuery(FindQuery,null);
+
+            return dt;
+        }
+
+
+        public DataTable Show()
+        {
+            DataTable dt = new DataTable();
+
+
+            string FindQuery = "";
+            FindQuery += "SELECT *";
+            FindQuery += "from HoaDon ";
+
+
+            dt = DataProvider.Instance.ExecuteQuery(FindQuery, null);
+
             return dt;
         }
     }

@@ -95,7 +95,7 @@ namespace QuanLyPhongKham.GUI
             }
             else if (check == 4)
             {
-                ObjHoaDonBLL.Instance.Add();
+              //  ObjHoaDonBLL.Instance.Add();
             }
             else if (check == 5)
             {
@@ -623,6 +623,17 @@ namespace QuanLyPhongKham.GUI
         private void btt_hoadon_thanhtien_Click(object sender, EventArgs e)
         {
             dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.Check();
+            tb_hoadon_trigia.Text = dgv_hoadon.Rows[0].Cells["Thanh tien"].Value.ToString();
+        }
+
+        private void btt_hoadon_luu_Click(object sender, EventArgs e)
+        {
+            ObjHoaDonBLL.Instance.AddHD();
+        }
+
+        private void btt_hoadon_danhsach_Click(object sender, EventArgs e)
+        {
+            dgv_hoadon.DataSource= ObjHoaDonBLL.Instance.Show();
         }
 
         int CheckTabPage()
