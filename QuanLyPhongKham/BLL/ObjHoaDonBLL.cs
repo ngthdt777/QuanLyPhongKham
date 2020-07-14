@@ -53,5 +53,12 @@ namespace QuanLyPhongKham.BLL
         {
             return ObjHoaDonDAL.Instance.Show();
         }
+
+        public DataTable TongHop()
+        {
+            return ObjHoaDonDAL.Instance.TongHop();
+        }
+
+
     }
 }

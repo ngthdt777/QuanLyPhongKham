@@ -80,7 +80,7 @@ MaNV varchar(10) foreign key references NhanVien(MaNV) not null,
 NgayKham datetime not null,
 ChuanDoan nvarchar(max)
 )
-delete 
+
 ----------------------------------------------------------------------------------------
 INSERT [dbo].[PKB] ([MaPKB], [MaBN], [MaNV], [NgKham], [ChuanDoan]) VALUES (N'PKB001', N'BN001', N'BS001', CAST(N'2020-03-01T00:00:00.000' AS DateTime), N'Ho, dau hong')
 INSERT [dbo].[PKB] ([MaPKB], [MaBN], [MaNV], [NgKham], [ChuanDoan]) VALUES (N'PKB002', N'BN002', N'BS001', CAST(N'2020-03-01T00:00:00.000' AS DateTime), N'Dau co chan trai')
@@ -158,7 +158,7 @@ create table DonThuoc
  MaNV varchar(10) references NhanVien(MaNV),
  MaBN varchar(10) references BenhNhan(MaBN)
 )
-drop table DonThuoc
+
 --------------------------------------------------------
 INSERT INTO DonThuoc VALUES (00001,CAST(N'2020-03-01T00:00:00.000' AS DateTime), N'BS001',N'BN001')
 INSERT INTO DonThuoc VALUES (00002,CAST(N'2020-03-01T00:00:00.000' AS DateTime), N'BS001',N'BN002')
@@ -187,8 +187,8 @@ MaDT int foreign key  references DonThuoc(MaDT) not null,
 MaThuoc varchar(10) not null references Thuoc(MaThuoc),
 SoLuong int
 )
-drop table CTDT
-DELETE  from CTDT
+
+
 
  INSERT INTO CTDT VALUES (1,1,'TH003',10)
 INSERT INTO CTDT VALUES (2,2,'TH005',2)
@@ -214,6 +214,25 @@ create table HoaDon
  NgHD datetime,
  TriGia money
 )
+-----------------------------------------------------------------
+Insert into HoaDon values ('HD001',1,CAST(N'2020-03-01T00:00:00.000' AS DateTime),270000)
+Insert into HoaDon values ('HD002',2,CAST(N'2020-03-01T00:00:00.000' AS DateTime),60000)
+Insert into HoaDon values ('HD003',3,CAST(N'2020-03-01T00:00:00.000' AS DateTime),1350000)
+Insert into HoaDon values ('HD004',4,CAST(N'2020-03-01T00:00:00.000' AS DateTime),200000)
+Insert into HoaDon values ('HD005',5,CAST(N'2020-03-01T00:00:00.000' AS DateTime),100000)
+
+Insert into HoaDon values ('HD006',6,CAST(N'2020-03-01T00:00:00.000' AS DateTime),100000)
+Insert into HoaDon values ('HD007',7,CAST(N'2020-03-01T00:00:00.000' AS DateTime),180000)
+Insert into HoaDon values ('HD008',8,CAST(N'2020-03-01T00:00:00.000' AS DateTime),100000)
+Insert into HoaDon values ('HD009',9,CAST(N'2020-03-01T00:00:00.000' AS DateTime),250000)
+Insert into HoaDon values ('HD010',10,CAST(N'2020-03-01T00:00:00.000' AS DateTime),270000)
+
+Insert into HoaDon values ('HD011',11,CAST(N'2020-03-01T00:00:00.000' AS DateTime),270000)
+Insert into HoaDon values ('HD012',11,CAST(N'2020-03-01T00:00:00.000' AS DateTime),270000)
+Insert into HoaDon values ('HD013',13,CAST(N'2020-03-01T00:00:00.000' AS DateTime),270000)
+Insert into HoaDon values ('HD014',14,CAST(N'2020-03-01T00:00:00.000' AS DateTime),270000)
+
+
 
 -------------------------------------------------------------------------------------
 INSERT [dbo].[Dangnhap] ([taikhoan], [matkhau], [chucvi]) VALUES (N'ADMIN', N'ADMIN', 1)
@@ -230,3 +249,16 @@ INSERT [dbo].[Dangnhap] ([taikhoan], [matkhau], [chucvi]) VALUES (N'tk0001', N'1
 
 SELECT MaDT,TenNV,TenBN,CAST(DonThuoc.NgDT AS DATE) AS [NgKham] from DonThuoc,NhanVien,BenhNhan
 where DonThuoc.MaNV = NhanVien.MaNV and BenhNhan.MaBN = DonThuoc.MaBN 
+
+SELECT CAST(NgDT AS DATE) AS [Ngay],count(MaBN) as [SoBenhNhan], Sum(TriGia) As [Doanh Thu]
+FROM DonThuoc,HoaDon Where NgDT between '01-1-2020' and '01-07-2020' and DonThuoc.MaDT= HoaDon.MaDT
+group by NgDT
+order by NgDT
+
+select count(MaBN) as [SoBN] from DonThuoc,HoaDon Where NgDT between '01-1-2020' and '01-07-2020' and DonThuoc.MaDT= HoaDon.MaDT
+
+select  Sum(convert(int,TriGia,0)) As [Doanh Thu] 
+from DonThuoc,HoaDon Where NgDT between '01-1-2020' and '01-07-2020' and DonThuoc.MaDT= HoaDon.MaDT
+
+SELECT MaDT,TenNV,TenBN,CAST(PKB.NgKham AS DATE) AS [NgKham] ,Thuoc.Gia * DonThuoc.SoLuong as [Thanh tien] from DonThuoc,Thuoc,PKB,BenhNhan,NhanVien 
+where DonThuoc.MaThuoc = Thuoc.MaThuoc and DonThuoc.MaPKB= PKB.MaPKB and PKB.MaBN = BenhNhan.MaBN and PKB.MaNV = NhanVien.MaNV

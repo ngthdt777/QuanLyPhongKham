@@ -12,6 +12,9 @@ using QuanLyPhongKham.BLL;
 using System.Drawing.Printing;
 using QuanLyPhongKham.DAL;
 using System.Runtime.Remoting.Messaging;
+using System.Data.SqlClient;
+
+
 
 namespace QuanLyPhongKham.GUI
 {
@@ -21,6 +24,7 @@ namespace QuanLyPhongKham.GUI
         private int nextPNID;
         private Dictionary<string, string[]> listPhNhap = new Dictionary<string, string[]>();
         private Dictionary<string, string[]> listDT = new Dictionary<string, string[]>();
+        
 
         public frmMain(string acc, string pass, string chucvi)
         {
@@ -119,78 +123,9 @@ namespace QuanLyPhongKham.GUI
                 tb_maNV.Text = tb_maBNThuoc.Text = String.Empty;
             }
         }
-        private void Btt_Xoa_Click(object sender, EventArgs e)
-        {
-            int check = CheckTabPage();
-            if (check == 0)
-            {
-                ObjBenhNhanBLL.Instance.Xoa();
 
-            }
-            else if (check == 1)
-            {
-                ObjThuocBLL.Instance.XoaThuoc();
-            }
-            else if (check == 2)
-            {
-                ObjDonThuocBLL.Instance.Xoa();
-            }
-            else if (check == 3)
-            {
 
-            }
-            else if (check == 4)
-            {
 
-            }
-            else if (check == 5)
-            {
-
-            }
-
-            else if (check == 7)
-            {
-
-            }
-        }
-
-        private void btt_Sua_Click(object sender, EventArgs e)
-        {
-            int check = CheckTabPage();
-            if (check == 0)
-            {
-                ObjBenhNhanBLL.Instance.SuaBN();
-
-            }
-            else if (check == 1)
-            {
-                ObjThuocBLL.Instance.SuaThuoc();
-            }
-            else if (check == 2)
-            {
-                ObjDonThuocBLL.Instance.Sua();
-            }
-            else if (check == 3)
-            {
-
-            }
-            else if (check == 4)
-            {
-
-            }
-            else if (check == 5)
-            {
-
-            }
-            else if (check == 6) //phieu nhap
-            {
-
-            }
-            else if (check == 7)
-            {
-
-            }
-        }
 
         private void btt_hsbn_Reload_Click(object sender, EventArgs e)
         {
@@ -236,43 +171,7 @@ namespace QuanLyPhongKham.GUI
             }
         }
 
-        private void Btt_Find_Click(object sender, EventArgs e)
-        {
-            int check = CheckTabPage();
-            if (check == 0)
-            {
-               
-                
-            }
-            else if (check == 1)
-            {
-                dgvKhoThuoc.DataSource = ObjThuocBLL.Instance.FindThuoc();
-            }
-            else if (check == 2)
-            {
-                dgvDT.DataSource = ObjDonThuocBLL.Instance.Find();
-            }
-            else if (check == 3)
-            {
 
-            }
-            else if (check == 4)
-            {
-                dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.Find();
-            }
-            else if (check == 5)
-            {
-
-            }
-            else if (check == 6)
-            {
-
-            }
-            else if (check == 7)
-            {
-
-            }
-        }
 
         private void dgvKhoThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -736,23 +635,21 @@ namespace QuanLyPhongKham.GUI
             }
         }
 
-        private void dgv_pkb_nv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void btt_doanhthu_find_Click(object sender, EventArgs e)
         {
+            dgv_doanhthu.DataSource = ObjHoaDonBLL.Instance.TongHop();
+            int tongbn = 0; int doanhthu=0; int i = 0;
+            
+            while (dgv_doanhthu.Rows[i].Cells["Ngay"].Value != null)
+            {
+                tongbn += Int32.Parse(dgv_doanhthu.Rows[i].Cells["SoBenhNhan"].Value.ToString());
 
-        }
-
-        private void dgv_pkb_bn_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgv_pkb_nv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgv_pkb_bn_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
+                doanhthu += Int32.Parse(dgv_doanhthu.Rows[i].Cells["DoanhThu"].Value.ToString());
+                i++;
+            }
+            lb_doanhthu_tongbn.Text += tongbn;
+            lb_doanhthu_dt.Text += doanhthu;
 
         }
 

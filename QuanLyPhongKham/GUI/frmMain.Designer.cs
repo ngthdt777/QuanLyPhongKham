@@ -58,6 +58,8 @@
             this.tb_pkb_findbn = new System.Windows.Forms.TextBox();
             this.tb_pkb_findnv = new System.Windows.Forms.TextBox();
             this.dgv_pkb_nv = new System.Windows.Forms.DataGridView();
+            this.PKB_MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PKB_TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_pkb_bn = new System.Windows.Forms.DataGridView();
             this.PKB_MaBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PKB_TenBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,7 +119,7 @@
             this.tabp_dth = new MetroFramework.Controls.MetroTabPage();
             this.lb_doanhthu_dt = new System.Windows.Forms.Label();
             this.lb_doanhthu_tongbn = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_doanhthu = new System.Windows.Forms.DataGridView();
             this.btt_doanhthu_find = new Guna.UI.WinForms.GunaButton();
             this.dtp_doanhthu_to = new System.Windows.Forms.DateTimePicker();
             this.dtp_doanhthu_from = new System.Windows.Forms.DateTimePicker();
@@ -172,8 +174,9 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
-            this.PKB_MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PKB_TenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoBenhNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoanhThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnstrip_main.SuspendLayout();
             this.tabp_donthuoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).BeginInit();
@@ -186,7 +189,7 @@
             this.tabp_hoadon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
             this.tabp_dth.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_doanhthu)).BeginInit();
             this.tabp_kho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).BeginInit();
             this.tabp_pnh.SuspendLayout();
@@ -548,6 +551,19 @@
             this.dgv_pkb_nv.Size = new System.Drawing.Size(572, 308);
             this.dgv_pkb_nv.TabIndex = 25;
             // 
+            // PKB_MaNV
+            // 
+            this.PKB_MaNV.DataPropertyName = "MaNV";
+            this.PKB_MaNV.FillWeight = 40F;
+            this.PKB_MaNV.HeaderText = "Mã nhân viên";
+            this.PKB_MaNV.Name = "PKB_MaNV";
+            // 
+            // PKB_TenNV
+            // 
+            this.PKB_TenNV.DataPropertyName = "TenNV";
+            this.PKB_TenNV.HeaderText = "Họ Tên";
+            this.PKB_TenNV.Name = "PKB_TenNV";
+            // 
             // dgv_pkb_bn
             // 
             this.dgv_pkb_bn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -688,10 +704,10 @@
             // tabcontrolmain
             // 
             this.tabcontrolmain.Controls.Add(this.tabp_hsbn);
-            this.tabcontrolmain.Controls.Add(this.tabp_hoadon);
             this.tabcontrolmain.Controls.Add(this.tabp_donthuoc);
-            this.tabcontrolmain.Controls.Add(this.tabp_dth);
             this.tabcontrolmain.Controls.Add(this.tabp_pkb);
+            this.tabcontrolmain.Controls.Add(this.tabp_hoadon);
+            this.tabcontrolmain.Controls.Add(this.tabp_dth);
             this.tabcontrolmain.Controls.Add(this.tabp_kho);
             this.tabcontrolmain.Controls.Add(this.tabp_pnh);
             this.tabcontrolmain.CustomBackground = true;
@@ -1310,7 +1326,7 @@
             this.tabp_dth.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabp_dth.Controls.Add(this.lb_doanhthu_dt);
             this.tabp_dth.Controls.Add(this.lb_doanhthu_tongbn);
-            this.tabp_dth.Controls.Add(this.dataGridView1);
+            this.tabp_dth.Controls.Add(this.dgv_doanhthu);
             this.tabp_dth.Controls.Add(this.btt_doanhthu_find);
             this.tabp_dth.Controls.Add(this.dtp_doanhthu_to);
             this.tabp_dth.Controls.Add(this.dtp_doanhthu_from);
@@ -1338,21 +1354,26 @@
             // lb_doanhthu_tongbn
             // 
             this.lb_doanhthu_tongbn.AutoSize = true;
-            this.lb_doanhthu_tongbn.Location = new System.Drawing.Point(407, 522);
+            this.lb_doanhthu_tongbn.Location = new System.Drawing.Point(360, 522);
             this.lb_doanhthu_tongbn.Name = "lb_doanhthu_tongbn";
             this.lb_doanhthu_tongbn.Size = new System.Drawing.Size(117, 17);
             this.lb_doanhthu_tongbn.TabIndex = 32;
             this.lb_doanhthu_tongbn.Text = "Tổng bệnh nhân:";
             // 
-            // dataGridView1
+            // dgv_doanhthu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(200, 82);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(919, 398);
-            this.dataGridView1.TabIndex = 31;
+            this.dgv_doanhthu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_doanhthu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ngay,
+            this.SoBenhNhan,
+            this.DoanhThu});
+            this.dgv_doanhthu.Location = new System.Drawing.Point(162, 94);
+            this.dgv_doanhthu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_doanhthu.Name = "dgv_doanhthu";
+            this.dgv_doanhthu.ReadOnly = true;
+            this.dgv_doanhthu.RowTemplate.Height = 24;
+            this.dgv_doanhthu.Size = new System.Drawing.Size(919, 398);
+            this.dgv_doanhthu.TabIndex = 31;
             // 
             // btt_doanhthu_find
             // 
@@ -1367,7 +1388,7 @@
             this.btt_doanhthu_find.Image = ((System.Drawing.Image)(resources.GetObject("btt_doanhthu_find.Image")));
             this.btt_doanhthu_find.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btt_doanhthu_find.ImageSize = new System.Drawing.Size(20, 20);
-            this.btt_doanhthu_find.Location = new System.Drawing.Point(937, 18);
+            this.btt_doanhthu_find.Location = new System.Drawing.Point(899, 22);
             this.btt_doanhthu_find.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btt_doanhthu_find.Name = "btt_doanhthu_find";
             this.btt_doanhthu_find.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
@@ -1375,12 +1396,13 @@
             this.btt_doanhthu_find.OnHoverForeColor = System.Drawing.Color.White;
             this.btt_doanhthu_find.OnHoverImage = null;
             this.btt_doanhthu_find.OnPressedColor = System.Drawing.Color.Black;
-            this.btt_doanhthu_find.Size = new System.Drawing.Size(60, 36);
+            this.btt_doanhthu_find.Size = new System.Drawing.Size(49, 43);
             this.btt_doanhthu_find.TabIndex = 30;
+            this.btt_doanhthu_find.Click += new System.EventHandler(this.btt_doanhthu_find_Click);
             // 
             // dtp_doanhthu_to
             // 
-            this.dtp_doanhthu_to.Location = new System.Drawing.Point(731, 33);
+            this.dtp_doanhthu_to.Location = new System.Drawing.Point(678, 33);
             this.dtp_doanhthu_to.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_doanhthu_to.Name = "dtp_doanhthu_to";
             this.dtp_doanhthu_to.Size = new System.Drawing.Size(200, 22);
@@ -1388,7 +1410,7 @@
             // 
             // dtp_doanhthu_from
             // 
-            this.dtp_doanhthu_from.Location = new System.Drawing.Point(459, 33);
+            this.dtp_doanhthu_from.Location = new System.Drawing.Point(381, 33);
             this.dtp_doanhthu_from.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_doanhthu_from.Name = "dtp_doanhthu_from";
             this.dtp_doanhthu_from.Size = new System.Drawing.Size(200, 22);
@@ -1397,7 +1419,7 @@
             // lb_doanhthu_to
             // 
             this.lb_doanhthu_to.AutoSize = true;
-            this.lb_doanhthu_to.Location = new System.Drawing.Point(677, 38);
+            this.lb_doanhthu_to.Location = new System.Drawing.Point(616, 38);
             this.lb_doanhthu_to.Name = "lb_doanhthu_to";
             this.lb_doanhthu_to.Size = new System.Drawing.Size(38, 17);
             this.lb_doanhthu_to.TabIndex = 3;
@@ -1406,7 +1428,7 @@
             // lb_doanhthu_from
             // 
             this.lb_doanhthu_from.AutoSize = true;
-            this.lb_doanhthu_from.Location = new System.Drawing.Point(407, 38);
+            this.lb_doanhthu_from.Location = new System.Drawing.Point(330, 38);
             this.lb_doanhthu_from.Name = "lb_doanhthu_from";
             this.lb_doanhthu_from.Size = new System.Drawing.Size(29, 17);
             this.lb_doanhthu_from.TabIndex = 2;
@@ -1969,18 +1991,27 @@
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
-            // PKB_MaNV
+            // Ngay
             // 
-            this.PKB_MaNV.DataPropertyName = "MaNV";
-            this.PKB_MaNV.FillWeight = 40F;
-            this.PKB_MaNV.HeaderText = "Mã nhân viên";
-            this.PKB_MaNV.Name = "PKB_MaNV";
+            this.Ngay.DataPropertyName = "Ngay";
+            this.Ngay.HeaderText = "Ngày";
+            this.Ngay.Name = "Ngay";
+            this.Ngay.ReadOnly = true;
             // 
-            // PKB_TenNV
+            // SoBenhNhan
             // 
-            this.PKB_TenNV.DataPropertyName = "TenNV";
-            this.PKB_TenNV.HeaderText = "Họ Tên";
-            this.PKB_TenNV.Name = "PKB_TenNV";
+            this.SoBenhNhan.DataPropertyName = "SoBenhNhan";
+            this.SoBenhNhan.HeaderText = "Số Bệnh Nhân";
+            this.SoBenhNhan.Name = "SoBenhNhan";
+            this.SoBenhNhan.ReadOnly = true;
+            // 
+            // DoanhThu
+            // 
+            this.DoanhThu.DataPropertyName = "DoanhThu";
+            this.DoanhThu.HeaderText = "Doanh Thu";
+            this.DoanhThu.Name = "DoanhThu";
+            this.DoanhThu.ReadOnly = true;
+            this.DoanhThu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // frmMain
             // 
@@ -2014,7 +2045,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).EndInit();
             this.tabp_dth.ResumeLayout(false);
             this.tabp_dth.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_doanhthu)).EndInit();
             this.tabp_kho.ResumeLayout(false);
             this.tabp_kho.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoThuoc)).EndInit();
@@ -2129,10 +2160,8 @@
         private System.Windows.Forms.DataGridView dgvPNH;
         private System.Windows.Forms.Label lb_doanhthu_dt;
         private System.Windows.Forms.Label lb_doanhthu_tongbn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_doanhthu;
         public Guna.UI.WinForms.GunaButton btt_doanhthu_find;
-        private System.Windows.Forms.DateTimePicker dtp_doanhthu_to;
-        private System.Windows.Forms.DateTimePicker dtp_doanhthu_from;
         private System.Windows.Forms.Label lb_doanhthu_to;
         private System.Windows.Forms.Label lb_doanhthu_from;
         private Guna.UI.WinForms.GunaButton btt_hoadon_thanhtien;
@@ -2172,5 +2201,10 @@
         private Guna.UI.WinForms.GunaButton btt_pnh_them;
         private System.Windows.Forms.DataGridViewTextBoxColumn PKB_MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn PKB_TenNV;
+        public System.Windows.Forms.DateTimePicker dtp_doanhthu_to;
+        public System.Windows.Forms.DateTimePicker dtp_doanhthu_from;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoBenhNhan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoanhThu;
     }
 }

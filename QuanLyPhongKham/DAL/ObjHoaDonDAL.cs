@@ -80,7 +80,7 @@ namespace QuanLyPhongKham.DAL
             Dictionary<String, String> param = new Dictionary<string, string>();
             param.Add("@MaHD", "HD" + stt );
             param.Add("@MaDT", ((frmMain)main).tb_maDTHoaDon.Text);
-            param.Add("@NgHD", DateTime.Now.ToString());
+            param.Add("@NgHD", ((frmMain)main).dgv_hoadon.Rows[0].Cells["NgKham"].Value.ToString());
             param.Add("@TG", ((frmMain)main).tb_hoadon_trigia.Text);
 
             int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, param);
@@ -145,5 +145,38 @@ namespace QuanLyPhongKham.DAL
 
             return dt;
         }
+
+
+        public DataTable TongHop()
+        {
+            DataTable dt = new DataTable();
+
+            Form main = Application.OpenForms["frmMain"];
+            string from = ((frmMain)main).dtp_doanhthu_from.Value.ToString("MM/dd/yyyy");
+            string to = ((frmMain)main).dtp_doanhthu_to.Value.ToString("MM/dd/yyyy");
+
+
+
+            string FindQuery = "";
+            FindQuery += "SELECT NgDT AS [Ngay],count(MaBN) as [SoBenhNhan], Sum(convert(int,TriGia,0)) As [DoanhThu] ";
+            FindQuery += "FROM DonThuoc,HoaDon Where NgDT between '" + from +  "' and '" + to + "' and DonThuoc.MaDT= HoaDon.MaDT ";
+            FindQuery += "group by NgDT";
+            FindQuery += " order by NgDT";
+
+            dt = DataProvider.Instance.ExecuteQuery(FindQuery, null);
+
+            return dt;
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

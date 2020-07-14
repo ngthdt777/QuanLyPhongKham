@@ -24,10 +24,10 @@ namespace QuanLyPhongKham.DAL
             {
                 return instance.Value;
             }
+
         }
 
         private DataProvider() { }
-
         public void UpdateConnection()
         {
             string connectionStrType = String.Format(@"Data Source={0}\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
@@ -50,6 +50,7 @@ namespace QuanLyPhongKham.DAL
             ConfigurationManager.RefreshSection("appSettings");
             connectionSTR = ConfigurationManager.AppSettings["ConnectionString"];
         }
+
 
         public DataTable ExecuteQuery(string query, Dictionary<String, String> parameters)
         {
