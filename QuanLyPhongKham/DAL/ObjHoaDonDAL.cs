@@ -68,8 +68,8 @@ namespace QuanLyPhongKham.DAL
             DataTable dt = new DataTable();
 
             Form main = Application.OpenForms["frmMain"];
-            id = ((frmMain)main).tb_maDTHoaDon.Text.ToString();
-            string stt = ((frmMain)main).tb_maDTHoaDon.Text.Substring(2, 3);
+            int iddt = Int32.Parse(((frmMain)main).tb_maDTHoaDon.Text.ToString());
+            string stt = ((frmMain)main).tb_maDTHoaDon.Text;
 
 
             string AddQuery = "";
@@ -117,14 +117,13 @@ namespace QuanLyPhongKham.DAL
             DataTable dt = new DataTable();
 
             Form main = Application.OpenForms["frmMain"];
-            id = ((frmMain)main).tb_maDTHoaDon.Text.ToString();
-            
+            int iddt = Int32.Parse(((frmMain)main).tb_maDTHoaDon.Text.ToString());
 
             string FindQuery = "";
-            FindQuery += "SELECT MaDT,TenNV,TenBN,CAST(PKB.NgKham AS DATE) AS [NgKham] ,Thuoc.Gia * DonThuoc.SoLuong as [Thanh tien]";
-            FindQuery += "from DonThuoc,Thuoc,PKB,BenhNhan,NhanVien ";
-            FindQuery += "where DonThuoc.MaDT ='"+id+"' and DonThuoc.MaThuoc = Thuoc.MaThuoc and DonThuoc.MaPKB= PKB.MaPKB and PKB.MaBN = BenhNhan.MaBN and PKB.MaNV = NhanVien.MaNV";
-
+            FindQuery += "SELECT DonThuoc.MaDT,TenNV,TenBN,CAST(DonThuoc.NgDT AS DATE) AS [NgKham] ,Thuoc.Gia * CTDT.SoLuong as [Thanh tien]";
+            FindQuery += "from DonThuoc,Thuoc,BenhNhan,NhanVien,CTDT ";
+            FindQuery += "where DonThuoc.MaDT ='"+iddt+"' and CTDT.MaThuoc = Thuoc.MaThuoc and  DonThuoc.MaBN = BenhNhan.MaBN and DonThuoc.MaNV = NhanVien.MaNV";
+            FindQuery += " and DonThuoc.MaDT = CTDT.MaDT";
 
             dt = DataProvider.Instance.ExecuteQuery(FindQuery,null);
 

@@ -77,7 +77,7 @@ namespace QuanLyPhongKham.DAL
             string chuanDoan = dt.Rows[0]["TrieuChung"].ToString();
 
             string AddQuery = "";
-            AddQuery += "INSERT INTO PKB (MaPKB, MaBN, MaNV, NgayKham, ChuanDoan) ";
+            AddQuery += "INSERT INTO PKB (MaPKB, MaBN, MaNV, NgKham, ChuanDoan) ";
             AddQuery += "VALUES (@MaPKB, @MaBN, @MaNV, @NgKham, @ChDoan)";
 
             Dictionary<String, String> param = new Dictionary<string, string>();

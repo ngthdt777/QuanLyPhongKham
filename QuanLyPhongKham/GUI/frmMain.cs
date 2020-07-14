@@ -82,7 +82,7 @@ namespace QuanLyPhongKham.GUI
             if (check == 0)
             {
                 ObjBenhNhanBLL.Instance.Add();
-              
+
             }
             else if (check == 1)
             {
@@ -96,7 +96,7 @@ namespace QuanLyPhongKham.GUI
                 {
                     int dtID = 1, sl = 0;
                     string maThuoc;
-                    
+
                     DataTable dt = ObjThuocBLL.Instance.GetInfoByName(dgvDT.Rows[row].Cells["TenThuocDT"].Value.ToString());
                     if (dt.Rows.Count > 0)
                     {
@@ -110,7 +110,7 @@ namespace QuanLyPhongKham.GUI
                                 dgvDT.Rows[row].Cells["TenThuocDT"].Value.ToString(),
                                 sl
                             ));
-                    } 
+                    }
                 }
 
                 listDT.Clear();
@@ -118,51 +118,7 @@ namespace QuanLyPhongKham.GUI
                 tb_maDT.Text = ObjDonThuocBLL.Instance.GetNextID().ToString();
                 tb_maNV.Text = tb_maBNThuoc.Text = String.Empty;
             }
-            else if (check == 3)
-            {
-
-            }
-            else if (check == 4)
-            {
-              //  ObjHoaDonBLL.Instance.Add();
-            }
-            else if (check == 5)
-            {
-
-            }
-            else if (check == 6) //phieu nhap
-            {
-                try
-                {
-                    listPhNhap.Add(tb_maThuocPN.Text, new string[]
-                    {
-                        tb_maThuocPN.Text,
-                        tb_tenThuocPN.Text,
-                        tb_slPN.Text,
-                        dt_nsxPN.Value.ToString(),
-                        dt_hsdPN.Value.ToString(),
-                        tb_nccPN.Text,
-                        tb_giaPN.Text
-                    });
-
-                    dgvPNH.Rows.Add(listPhNhap.Values.Last());
-
-                    //clear text boxes
-                    tb_maThuocPN.Text = tb_tenThuocPN.Text = tb_slPN.Text = tb_nccPN.Text = tb_giaPN.Text = String.Empty;
-                    dt_nsxPN.Value = dt_hsdPN.Value = DateTime.Now;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Trùng mã phiếu nhập hàng", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            else if (check == 7)
-            {
-
-            }
         }
-
         private void Btt_Xoa_Click(object sender, EventArgs e)
         {
             int check = CheckTabPage();
@@ -191,16 +147,7 @@ namespace QuanLyPhongKham.GUI
             {
 
             }
-            else if (check == 6) //phieu nhap
-            {
-                if (dgvPNH.Rows.Count == 0)
-                {
-                    return;
-                }
 
-                listPhNhap.Remove(dgvPNH.CurrentRow.Cells["MaThuoc"].Value.ToString());
-                dgvPNH.Rows.RemoveAt(dgvPNH.CurrentRow.Index);
-            }
             else if (check == 7)
             {
 
@@ -294,7 +241,7 @@ namespace QuanLyPhongKham.GUI
             int check = CheckTabPage();
             if (check == 0)
             {
-                dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.FindBN();
+               
                 
             }
             else if (check == 1)
@@ -718,6 +665,95 @@ namespace QuanLyPhongKham.GUI
             {
                 tb_tenThuoc.Text = tb_slThuoc.Text = String.Empty;
             }
+        }
+
+        private void btt_hsbn_them_Click(object sender, EventArgs e)
+        {
+            ObjBenhNhanBLL.Instance.Add();
+        }
+
+        private void btt_hsbn_sua_Click(object sender, EventArgs e)
+        {
+            ObjBenhNhanBLL.Instance.SuaBN();
+        }
+
+        private void btt_hsbn_xoa_Click(object sender, EventArgs e)
+        {
+            ObjBenhNhanBLL.Instance.Xoa();
+        }
+
+        private void btt_hsbn_tim_Click(object sender, EventArgs e)
+        {
+            dgvHoSo.DataSource = ObjBenhNhanBLL.Instance.FindBN();
+        }
+
+        private void btt_hoadon_tim_Click(object sender, EventArgs e)
+        {
+            dgv_hoadon.DataSource = ObjHoaDonBLL.Instance.Find();
+        }
+
+        private void btt_pnh_them_Click(object sender, EventArgs e)
+        {
+
+                try
+                {
+                    listPhNhap.Add(tb_maThuocPN.Text, new string[]
+                    {
+                        tb_maThuocPN.Text,
+                        tb_tenThuocPN.Text,
+                        tb_slPN.Text,
+                        dt_nsxPN.Value.ToString(),
+                        dt_hsdPN.Value.ToString(),
+                        tb_nccPN.Text,
+                        tb_giaPN.Text
+                    });
+
+                    dgvPNH.Rows.Add(listPhNhap.Values.Last());
+
+                    //clear text boxes
+                    tb_maThuocPN.Text = tb_tenThuocPN.Text = tb_slPN.Text = tb_nccPN.Text = tb_giaPN.Text = String.Empty;
+                    dt_nsxPN.Value = dt_hsdPN.Value = DateTime.Now;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Trùng mã phiếu nhập hàng", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex.Message);
+                }
+
+
+        }
+
+        private void btt_pnh_xoa_Click(object sender, EventArgs e)
+        {
+            {
+                if (dgvPNH.Rows.Count == 0)
+                {
+                    return;
+                }
+
+                listPhNhap.Remove(dgvPNH.CurrentRow.Cells["MaThuoc"].Value.ToString());
+                dgvPNH.Rows.RemoveAt(dgvPNH.CurrentRow.Index);
+            }
+        }
+
+        private void dgv_pkb_nv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_pkb_bn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_pkb_nv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_pkb_bn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         int CheckTabPage()

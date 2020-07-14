@@ -53,22 +53,21 @@
             this.txb_account.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txb_account.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txb_account.ForeColor = System.Drawing.Color.Black;
-            this.txb_account.Location = new System.Drawing.Point(104, 348);
-            this.txb_account.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_account.Location = new System.Drawing.Point(139, 428);
+            this.txb_account.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_account.Name = "txb_account";
             this.txb_account.PasswordChar = '\0';
             this.txb_account.SelectedText = "";
-            this.txb_account.Size = new System.Drawing.Size(249, 26);
+            this.txb_account.Size = new System.Drawing.Size(332, 37);
             this.txb_account.TabIndex = 0;
             // 
             // lb_QLPK
             // 
             this.lb_QLPK.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_QLPK.ForeColor = System.Drawing.Color.Red;
-            this.lb_QLPK.Location = new System.Drawing.Point(78, 197);
-            this.lb_QLPK.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_QLPK.Location = new System.Drawing.Point(104, 242);
             this.lb_QLPK.Name = "lb_QLPK";
-            this.lb_QLPK.Size = new System.Drawing.Size(306, 128);
+            this.lb_QLPK.Size = new System.Drawing.Size(408, 158);
             this.lb_QLPK.TabIndex = 0;
             this.lb_QLPK.Text = "PHẦN MỀM QUẢN LÍ PHÒNG KHÁM";
             this.lb_QLPK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,10 +76,9 @@
             // 
             this.lb_login.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_login.ForeColor = System.Drawing.Color.Red;
-            this.lb_login.Location = new System.Drawing.Point(81, 317);
-            this.lb_login.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_login.Location = new System.Drawing.Point(108, 390);
             this.lb_login.Name = "lb_login";
-            this.lb_login.Size = new System.Drawing.Size(83, 28);
+            this.lb_login.Size = new System.Drawing.Size(111, 34);
             this.lb_login.TabIndex = 1;
             this.lb_login.Text = "Tài khoản:";
             this.lb_login.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -89,10 +87,9 @@
             // 
             this.lb_pass.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_pass.ForeColor = System.Drawing.Color.Red;
-            this.lb_pass.Location = new System.Drawing.Point(81, 376);
-            this.lb_pass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_pass.Location = new System.Drawing.Point(108, 463);
             this.lb_pass.Name = "lb_pass";
-            this.lb_pass.Size = new System.Drawing.Size(83, 28);
+            this.lb_pass.Size = new System.Drawing.Size(111, 34);
             this.lb_pass.TabIndex = 2;
             this.lb_pass.Text = "Mật khẩu:";
             this.lb_pass.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -107,12 +104,12 @@
             this.txb_pass.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.txb_pass.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.txb_pass.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txb_pass.Location = new System.Drawing.Point(104, 407);
-            this.txb_pass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txb_pass.Location = new System.Drawing.Point(139, 501);
+            this.txb_pass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txb_pass.Name = "txb_pass";
             this.txb_pass.PasswordChar = '●';
             this.txb_pass.SelectedText = "";
-            this.txb_pass.Size = new System.Drawing.Size(249, 26);
+            this.txb_pass.Size = new System.Drawing.Size(332, 37);
             this.txb_pass.TabIndex = 1;
             this.txb_pass.UseSystemPasswordChar = true;
             this.txb_pass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_pass_KeyPress);
@@ -138,8 +135,8 @@
             this.btt_login.Image = null;
             this.btt_login.ImageSize = new System.Drawing.Size(20, 20);
             this.btt_login.LineColor = System.Drawing.Color.Black;
-            this.btt_login.Location = new System.Drawing.Point(292, 470);
-            this.btt_login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btt_login.Location = new System.Drawing.Point(389, 578);
+            this.btt_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btt_login.Name = "btt_login";
             this.btt_login.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
             this.btt_login.OnHoverBorderColor = System.Drawing.Color.White;
@@ -147,7 +144,7 @@
             this.btt_login.OnHoverImage = null;
             this.btt_login.OnHoverLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(58)))), ((int)(((byte)(170)))));
             this.btt_login.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btt_login.Size = new System.Drawing.Size(130, 57);
+            this.btt_login.Size = new System.Drawing.Size(173, 70);
             this.btt_login.TabIndex = 2;
             this.btt_login.Text = "Đăng nhập";
             this.btt_login.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -157,10 +154,10 @@
             // 
             this.picbox_logo.BaseColor = System.Drawing.Color.White;
             this.picbox_logo.Image = ((System.Drawing.Image)(resources.GetObject("picbox_logo.Image")));
-            this.picbox_logo.Location = new System.Drawing.Point(151, 32);
-            this.picbox_logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picbox_logo.Location = new System.Drawing.Point(201, 39);
+            this.picbox_logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbox_logo.Name = "picbox_logo";
-            this.picbox_logo.Size = new System.Drawing.Size(160, 162);
+            this.picbox_logo.Size = new System.Drawing.Size(213, 199);
             this.picbox_logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picbox_logo.TabIndex = 6;
             this.picbox_logo.TabStop = false;
@@ -173,13 +170,13 @@
             this.btt_exit.AnimationSpeed = 0.03F;
             this.btt_exit.IconColor = System.Drawing.Color.Red;
             this.btt_exit.IconSize = 15F;
-            this.btt_exit.Location = new System.Drawing.Point(416, 1);
-            this.btt_exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btt_exit.Location = new System.Drawing.Point(555, 1);
+            this.btt_exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btt_exit.Name = "btt_exit";
             this.btt_exit.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
             this.btt_exit.OnHoverIconColor = System.Drawing.Color.White;
             this.btt_exit.OnPressedColor = System.Drawing.Color.Black;
-            this.btt_exit.Size = new System.Drawing.Size(44, 35);
+            this.btt_exit.Size = new System.Drawing.Size(59, 43);
             this.btt_exit.TabIndex = 7;
             // 
             // backgroundWorker1
@@ -193,19 +190,21 @@
             this.label_connectionStatus.AutoSize = true;
             this.label_connectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_connectionStatus.ForeColor = System.Drawing.Color.Red;
-            this.label_connectionStatus.Location = new System.Drawing.Point(101, 577);
+            this.label_connectionStatus.Location = new System.Drawing.Point(135, 710);
+            this.label_connectionStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_connectionStatus.Name = "label_connectionStatus";
-            this.label_connectionStatus.Size = new System.Drawing.Size(251, 18);
+            this.label_connectionStatus.Size = new System.Drawing.Size(312, 24);
             this.label_connectionStatus.TabIndex = 8;
             this.label_connectionStatus.Text = "Đang cập nhật connection string";
+            this.label_connectionStatus.Visible = false;
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(460, 624);
+            this.ClientSize = new System.Drawing.Size(613, 768);
             this.Controls.Add(this.label_connectionStatus);
             this.Controls.Add(this.btt_exit);
             this.Controls.Add(this.picbox_logo);
@@ -216,7 +215,7 @@
             this.Controls.Add(this.lb_login);
             this.Controls.Add(this.lb_QLPK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
