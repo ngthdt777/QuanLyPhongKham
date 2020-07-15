@@ -43,15 +43,15 @@ namespace QuanLyPhongKham.BLL
             ObjPkbDAL.Instance.Add();
         }
 
-        public DataTable FindBn()
+        public DataTable FindBn(string data)
         {
-            return ObjPkbDAL.Instance.FindBn();
+            return ObjPkbDAL.Instance.FindBn(data);
         }
 
 
-        public DataTable FindNv()
+        public DataTable FindNv(string data)
         {
-            return ObjPkbDAL.Instance.FindNv();
+            return ObjPkbDAL.Instance.FindNv(data);
         }
 
         public DataTable GetDataNV()

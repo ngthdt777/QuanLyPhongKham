@@ -10,13 +10,12 @@ namespace QuanLyPhongKham.DAL
     class ObjCTDTDAL
     {
         private int maDT, sl;
-        private string maThuoc, tenThuoc;
+        private string maThuoc;
 
-        public ObjCTDTDAL(int maDT, string maThuoc, string tenThuoc, int sl)
+        public ObjCTDTDAL(int maDT, string maThuoc, int sl)
         {
             this.maDT = maDT;
             this.maThuoc = maThuoc;
-            this.tenThuoc = tenThuoc;
             this.sl = sl;
         }
 
@@ -43,13 +42,12 @@ namespace QuanLyPhongKham.DAL
             Dictionary<string, string> param = new Dictionary<string, string>();
 
             string AddQuery = String.Empty;
-            AddQuery += "INSERT INTO CTDT (MaCTDT, MaDT, MaThuoc, TenThuoc, SoLuong) ";
-            AddQuery += "VALUES (@MaCTDT, @MaDT, @MaThuoc, @TenThuoc, @SoLuong)";
+            AddQuery += "INSERT INTO CTDT (MaCTDT, MaDT, MaThuoc, SoLuong) ";
+            AddQuery += "VALUES (@MaCTDT, @MaDT, @MaThuoc, @SoLuong)";
 
             param.Add("@MaCTDT", GetNextID().ToString());
             param.Add("@MaDT", ctdt.maDT.ToString());
             param.Add("@MaThuoc", ctdt.maThuoc);
-            param.Add("@TenThuoc", ctdt.tenThuoc);
             param.Add("@SoLuong", ctdt.sl.ToString());
 
             int result = DataProvider.Instance.ExecuteNonQuery(AddQuery, param);

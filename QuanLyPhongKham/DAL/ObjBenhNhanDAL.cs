@@ -142,17 +142,18 @@ namespace QuanLyPhongKham.DAL
 
 
 
-            string id, ten, sdt, gtinh, dchi, ngsinh, ngkham, trieuchung, klb, baohiem;
+            string id, ten, sdt, gtinh, dchi, ngsinh, trieuchung, klb, baohiem;
 
 
-            if (!string.IsNullOrEmpty(((frmMain)f).tb_bn_id.Text))
-                id = "='" + ((frmMain)f).tb_bn_id.Text + "'";
+            if (!string.IsNullOrEmpty(((frmMain)f).tb_bn_id.Text)) {
+                id = ((frmMain)f).tb_bn_id.Text;
+            }
             else id = "is not null";
 
-            MessageBox.Show(id);
+            Console.WriteLine(id);
 
             if (!string.IsNullOrEmpty(((frmMain)f).tb_bn_ten.Text))
-                ten = "='" + ((frmMain)f).tb_bn_ten.Text + "'";
+                ten = ((frmMain)f).tb_bn_ten.Text;
             else ten = "is not null";
 
             if (!string.IsNullOrEmpty(((frmMain)f).tb_bn_sdt.Text))
@@ -194,12 +195,15 @@ namespace QuanLyPhongKham.DAL
 
 
             DataTable dt = new DataTable();
-            string LoadQuery = "SELECT * FROM BenhNhan" +
-                                " where MaBN " + id + " and TenBN " + ten + " and SoDT " + sdt + "" +
-                                 " and GioiTinh " + gtinh + "  and DiaChi " + dchi + " and NgSinh " + ngsinh + " and TrieuChung " + trieuchung +
-                                 " and KetLuanBenh " + klb +  " And BaoHiem " + baohiem;
+            string LoadQuery = "SELECT * FROM BenhNhan ";
+            LoadQuery += "WHERE MaBN = @MaBN ";
+            LoadQuery += "OR TenBN = @TenBN";
 
-            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, null);
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("@MaBN", id);
+            param.Add("@TenBN", ten);
+
+            dt = DataProvider.Instance.ExecuteQuery(LoadQuery, param);
             return dt;
 
     

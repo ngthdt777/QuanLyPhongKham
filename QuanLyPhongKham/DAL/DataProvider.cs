@@ -30,7 +30,7 @@ namespace QuanLyPhongKham.DAL
         private DataProvider() { }
         public void UpdateConnection()
         {
-            string connectionStrType = String.Format(@"Data Source={0}\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+            string connectionStrType = String.Format(@"Data Source={0};Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
 
             SqlConnection con = new SqlConnection(connectionStrType);
             try
@@ -39,7 +39,7 @@ namespace QuanLyPhongKham.DAL
             }
             catch (Exception e)
             {
-                connectionStrType = String.Format(@"Data Source={0};Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
+                connectionStrType = String.Format(@"Data Source={0}\SQLEXPRESS;Initial Catalog=QLPhongKham;Integrated Security=True", Environment.MachineName);
                 Console.WriteLine(String.Format("Exception: {0}\nNew connection string: {1}", e.Message, connectionStrType));
             }
             con.Close();

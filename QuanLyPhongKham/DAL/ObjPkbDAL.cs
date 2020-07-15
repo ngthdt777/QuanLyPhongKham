@@ -102,31 +102,42 @@ namespace QuanLyPhongKham.DAL
 
         public void Sua() { }
 
-        public DataTable FindNv()
+        public DataTable FindNv(string data)
         {
             Form main = Application.OpenForms["frmMain"];
             string idnv = ((frmMain)main).tb_pkb_findnv.Text.ToString();
 
             string Query = "";
-            Query += "SELECT  MaNv,TenNV ";
+            Query += "SELECT  MaNV, TenNV ";
             Query += "FROM NhanVien ";
-            Query += "Where MaNv='" + idnv + "'";
+            Query += "WHERE MaNV = @MaNV ";
+            Query += "OR TenNV = @TenNV";
 
-            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, null);
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("@MaNV", data);
+            param.Add("@TenNV", data);
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, param);
 
             return dt;
         }
 
-        public DataTable FindBn()
+        public DataTable FindBn(string data)
         {
             Form main = Application.OpenForms["frmMain"];
             string idbn = ((frmMain)main).tb_pkb_findbn.Text.ToString();
 
             string Query = "";
-            Query += "SELECT  MaBN,TenBN,GioiTinh,TrieuChung ";
+            Query += "SELECT  MaBN, TenBN, GioiTinh, TrieuChung ";
             Query += "FROM BenhNhan ";
-            Query += "Where MaBN='" + idbn + "'";
-            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, null);
+            Query += "WHERE MaBN = @MaBN ";
+            Query += "OR TenBN = @TenBN";
+
+            Dictionary<string, string> param = new Dictionary<string, string>();
+            param.Add("@MaBN", data);
+            param.Add("@TenBN", data);
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(Query, param);
 
             return dt;
         }

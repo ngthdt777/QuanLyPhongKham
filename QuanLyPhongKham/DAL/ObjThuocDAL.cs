@@ -60,7 +60,7 @@ namespace QuanLyPhongKham.DAL
             dt = DataProvider.Instance.ExecuteQuery(LoadQuery, param);
             if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Lấy thuốc không thành công");
+                Console.WriteLine("Lấy thuốc không thành công");
             }
 
             return dt;

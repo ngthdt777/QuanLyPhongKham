@@ -111,7 +111,6 @@ namespace QuanLyPhongKham.GUI
                         ObjCTDTBLL.Instance.Add(new ObjCTDTDAL(
                                 dtID,
                                 maThuoc,
-                                dgvDT.Rows[row].Cells["TenThuocDT"].Value.ToString(),
                                 sl
                             ));
                     }
@@ -405,7 +404,7 @@ namespace QuanLyPhongKham.GUI
 
         private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
         {
-            e.Graphics.ScaleTransform(0.8f, 0.8f);
+            e.Graphics.ScaleTransform(0.6f, 0.6f);
 
             Font font = new Font("Courier New", 12);
             Brush brush = new SolidBrush(Color.Black);
@@ -470,12 +469,12 @@ namespace QuanLyPhongKham.GUI
 
         private void btt_pkb_findnv_Click(object sender, EventArgs e)
         {
-            dgv_pkb_nv.DataSource = ObjPkbBLL.Instance.FindNv();
+            dgv_pkb_nv.DataSource = ObjPkbBLL.Instance.FindNv(tb_pkb_findnv.Text);
         }
 
         private void btt_pkb_findbn_Click(object sender, EventArgs e)
         {
-            dgv_pkb_bn.DataSource= ObjPkbBLL.Instance.FindBn();
+            dgv_pkb_bn.DataSource= ObjPkbBLL.Instance.FindBn(tb_pkb_findbn.Text);
         }
 
         private void tb_pkb_findnv_TextChanged(object sender, EventArgs e)
@@ -651,6 +650,36 @@ namespace QuanLyPhongKham.GUI
             lb_doanhthu_tongbn.Text += tongbn;
             lb_doanhthu_dt.Text += doanhthu;
 
+        }
+
+        private void bttn_insertDT_Click(object sender, EventArgs e)
+        {
+            ObjDonThuocBLL.Instance.Add();
+
+            for (int row = 0; row < dgvDT.Rows.Count - 1; ++row)
+            {
+                int dtID = 1, sl = 0;
+                string maThuoc;
+
+                DataTable dt = ObjThuocBLL.Instance.GetInfoByName(dgvDT.Rows[row].Cells["TenThuocDT"].Value.ToString());
+                if (dt.Rows.Count > 0)
+                {
+                    maThuoc = dt.Rows[0]["MaThuoc"].ToString();
+                    Int32.TryParse(tb_maDT.Text, out dtID);
+                    Int32.TryParse(dgvDT.Rows[row].Cells["SoLuongDT"].Value.ToString(), out sl);
+
+                    ObjCTDTBLL.Instance.Add(new ObjCTDTDAL(
+                            dtID,
+                            maThuoc,
+                            sl
+                        ));
+                }
+            }
+
+            listDT.Clear();
+            dgvDT.Rows.Clear();
+            tb_maDT.Text = ObjDonThuocBLL.Instance.GetNextID().ToString();
+            tb_maNV.Text = tb_maBNThuoc.Text = String.Empty;
         }
 
         int CheckTabPage()
